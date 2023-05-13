@@ -11,18 +11,35 @@ const syncAndSeed = async()=> {
   const options = {
     method: 'GET',
     url: 'https://mma-stats.p.rapidapi.com/May_13_2023',
-    params: {offset: '0', limit: '10'},
+    params: {offset: '0', limit: '15'},
     headers: {
       'X-RapidAPI-Key': process.env.UFC_API_KEY,
       'X-RapidAPI-Host': 'mma-stats.p.rapidapi.com'
     }
   };
 
+  const options1 = {
+    method: 'GET',
+    url: `https://api.sportsdata.io/v3/mma/scores/json/Event/301?key=${process.env.UFC_IO_API_KEY}`,
+  };
+  
+  
+  // try {
+  //   const response1 = await axios.request(options1);
+  //   console.log(response1, response1.data.Fights[0].Fighters[0]['Moneyline'], response1.data.Fights[0].Fighters[0]["FirstName"] + ' ' + response1.data.Fights[0].Fighters[0]["LastName"]);
+  // } catch (error) {
+  //   console.error(error);
+  // }
+ // [0]["FirstName"] + ' ' + response1.data.Fights[0].Fighters[0]["LastName"]
+  // , response1.data.Fights[0].Fighters[0]["Moneyline"]
+
+  
+    const response1 = await axios.request(options1);
     const response = await axios.request(options);
-    console.log(response.data, response.data[0].matchup[0])
+    //console.log(response.data, response.data[0].matchup[0])
     const f1 = response.data[0].matchup[0]
     const f2 = response.data[0].matchup[1]
-    const f3 = response.data[1].matchup[0]
+    const f3 = response.data[1].matchup[0] //Levy
     const f4 = response.data[1].matchup[1]
     const f5 = response.data[2].matchup[0]
     const f6 = response.data[2].matchup[1]
@@ -40,6 +57,33 @@ const syncAndSeed = async()=> {
     const f18 = response.data[8].matchup[1]
     const f19 = response.data[9].matchup[0]
     const f20 = response.data[9].matchup[1]
+    const f21 = response.data[10].matchup[0]
+    const f22 = response.data[10].matchup[1]
+    const f23 = response.data[11].matchup[0]
+    const f24 = response.data[11].matchup[1]
+  console.log(response1.data.Fights[1].Fighters[0]['LastName'], response1.data.Fights[1].Fighters[0]['Moneyline'] )
+  // console.log('f3:' + f3)
+  // console.log('f4:' + f4)
+  // console.log('f5:' + f5)
+  // console.log('f6:' + f6)
+  // console.log('f7:' + f7)
+  // console.log('f8:' + f8)
+  // console.log('f9:' + f9)
+  // console.log('f10:' + f10)
+  // console.log('f11:' + f11)
+  // console.log('f12:' + f12)
+  // console.log('f13:' + f13)
+  // console.log('f14:' + f14)
+  // console.log('f15:' + f15)
+  // console.log('f16:' + f16)
+  // console.log('f17:' + f17)
+  // console.log('f18:' + f18)
+  // console.log('f19:' + f19)
+  // console.log('f20:' + f20)
+  // console.log('f21:' + f21)
+  // console.log('f22:' + f22)
+  // console.log('f23:' + f23)
+  // console.log('f24:' + f24)
 
 
     //  get 8 fighters and put them into my database
@@ -78,13 +122,14 @@ const syncAndSeed = async()=> {
     // }
 
   const [moe, lucy, larry, ethyl, fighter1, fighter2, fighter3, fighter4,fighter5, fighter6,fighter7, fighter8,fighter9, fighter10,
-    fighter11, fighter12, fighter13, fighter14,fighter15, fighter16,fighter17, fighter18,fighter19, fighter20] = await Promise.all([
+    fighter11, fighter12, fighter13, fighter14,fighter15, fighter16,fighter17, fighter18,fighter19, fighter20,fighter21,fighter22,fighter23,fighter24] = await Promise.all([
     User.create({ username: 'moe', password: '123'}),
     User.create({ username: 'lucy', password: '123' }),
     User.create({ username: 'larry', password: '123' }),
     User.create({ username: 'ethyl', password: '123' }),
     
     Fighter.create({
+      //Jarzinho Rosentstruik
       name: response.data[0].matchup[0],
       defense: response.data[0].tale_of_the_tape.Defense[f1],
       reach: response.data[0].tale_of_the_tape.Reach[f1],
@@ -98,9 +143,12 @@ const syncAndSeed = async()=> {
       dob: response.data[0].tale_of_the_tape.DOB[f1],
       height: response.data[0].tale_of_the_tape.Height[f1],
       id: 1,
-      matchupId: 1
+      matchupId: 1,
+      record: response.data[0].tale_of_the_tape['Wins/Losses/Draws'][f1], 
+      moneyLine: response1.data.Fights[0].Fighters[0]['Moneyline']
     }),
     Fighter.create({
+      //Jailton Almeida
         name: response.data[0].matchup[1],
         defense: response.data[0].tale_of_the_tape.Defense[f2],
         reach: response.data[0].tale_of_the_tape.Reach[f2],
@@ -114,9 +162,12 @@ const syncAndSeed = async()=> {
         dob: response.data[0].tale_of_the_tape.DOB[f2],
         height: response.data[0].tale_of_the_tape.Height[f2],
         id: 2,
-        matchupId: 1
-      }),
+        matchupId: 1,                        
+        record: response.data[0].tale_of_the_tape['Wins/Losses/Draws'][f2],
+        moneyLine: response1.data.Fights[0].Fighters[1]['Moneyline']
+    }),
       Fighter.create({
+        //natan Levy
         name: response.data[1].matchup[0],
         defense: response.data[1].tale_of_the_tape.Defense[f3],
         reach: response.data[1].tale_of_the_tape.Reach[f3],
@@ -129,10 +180,13 @@ const syncAndSeed = async()=> {
         avgTakedownsPer15: response.data[1].tale_of_the_tape['Takedowns Average/15 min.'][f3],
         dob: response.data[1].tale_of_the_tape.DOB[f3],
         height: response.data[1].tale_of_the_tape.Height[f3],
-        id: 3,
-        matchupId: 2
+        id: 23,
+        matchupId: 12,
+        record: response.data[1].tale_of_the_tape['Wins/Losses/Draws'][f3],
+             
       }),
       Fighter.create({
+        //Pete Rodriguez
           name: response.data[1].matchup[1],
           defense: response.data[1].tale_of_the_tape.Defense[f4],
           reach: response.data[1].tale_of_the_tape.Reach[f4],
@@ -145,10 +199,12 @@ const syncAndSeed = async()=> {
           avgTakedownsPer15: response.data[1].tale_of_the_tape['Takedowns Average/15 min.'][f4],
           dob: response.data[1].tale_of_the_tape.DOB[f4],
           height: response.data[1].tale_of_the_tape.Height[f4],
-          id: 4,
-          matchupId: 2
-        }),
+          id: 24,
+          matchupId: 12,
+          record: response.data[1].tale_of_the_tape['Wins/Losses/Draws'][f4]        
+      }),
         Fighter.create({
+          //carlos Ulberg
           name: response.data[2].matchup[0],
           defense: response.data[2].tale_of_the_tape.Defense[f5],
           reach: response.data[2].tale_of_the_tape.Reach[f5],
@@ -161,10 +217,12 @@ const syncAndSeed = async()=> {
           avgTakedownsPer15: response.data[2].tale_of_the_tape['Takedowns Average/15 min.'][f5],
           dob: response.data[2].tale_of_the_tape.DOB[f5],
           height: response.data[2].tale_of_the_tape.Height[f5],
-          id: 5,
-          matchupId: 3
+          id: 7,
+          matchupId: 4,
+          record: response.data[2].tale_of_the_tape['Wins/Losses/Draws'][f5]
         }),
         Fighter.create({
+          //ihor potieria
             name: response.data[2].matchup[1],
             defense: response.data[2].tale_of_the_tape.Defense[f6],
             reach: response.data[2].tale_of_the_tape.Reach[f6],
@@ -177,10 +235,12 @@ const syncAndSeed = async()=> {
             avgTakedownsPer15: response.data[2].tale_of_the_tape['Takedowns Average/15 min.'][f6],
             dob: response.data[2].tale_of_the_tape.DOB[f6],
             height: response.data[2].tale_of_the_tape.Height[f6],
-            id: 6,
-            matchupId: 3
-          }),
+            id: 8,
+            matchupId: 4,
+            record: response.data[2].tale_of_the_tape['Wins/Losses/Draws'][f6]      
+        }),
           Fighter.create({
+            //Karl Williams
             name: response.data[3].matchup[0],
             defense: response.data[3].tale_of_the_tape.Defense[f7],
             reach: response.data[3].tale_of_the_tape.Reach[f7],
@@ -193,10 +253,12 @@ const syncAndSeed = async()=> {
             avgTakedownsPer15: response.data[3].tale_of_the_tape['Takedowns Average/15 min.'][f7],
             dob: response.data[3].tale_of_the_tape.DOB[f7],
             height: response.data[3].tale_of_the_tape.Height[f7],
-            id: 7,
-            matchupId: 4
+            id: 13,
+            matchupId: 7,
+            record: response.data[3].tale_of_the_tape['Wins/Losses/Draws'][f7]       
           }),
           Fighter.create({
+            //Chase sherman
               name: response.data[3].matchup[1],
               defense: response.data[3].tale_of_the_tape.Defense[f8],
               reach: response.data[3].tale_of_the_tape.Reach[f8],
@@ -209,10 +271,12 @@ const syncAndSeed = async()=> {
               avgTakedownsPer15: response.data[3].tale_of_the_tape['Takedowns Average/15 min.'][f8],
               dob: response.data[3].tale_of_the_tape.DOB[f8],
               height: response.data[3].tale_of_the_tape.Height[f8],
-              id: 8,
-              matchupId: 4
-            }),
+              id: 14,
+              matchupId: 7,
+              record: response.data[3].tale_of_the_tape['Wins/Losses/Draws'][f8]    
+          }),
             Fighter.create({
+              //cody stamann
               name: response.data[4].matchup[0],
               defense: response.data[4].tale_of_the_tape.Defense[f9],
               reach: response.data[4].tale_of_the_tape.Reach[f9],
@@ -225,10 +289,12 @@ const syncAndSeed = async()=> {
               avgTakedownsPer15: response.data[4].tale_of_the_tape['Takedowns Average/15 min.'][f9],
               dob: response.data[4].tale_of_the_tape.DOB[f9],
               height: response.data[4].tale_of_the_tape.Height[f9],
-              id: 9,
-              matchupId: 5
+              id: 15,
+              matchupId: 8,
+              record: response.data[4].tale_of_the_tape['Wins/Losses/Draws'][f9]   
             }),
             Fighter.create({
+              //douglas silva de andrade
                 name: response.data[4].matchup[1],
                 defense: response.data[4].tale_of_the_tape.Defense[f10],
                 reach: response.data[4].tale_of_the_tape.Reach[f10],
@@ -241,9 +307,12 @@ const syncAndSeed = async()=> {
                 avgTakedownsPer15: response.data[4].tale_of_the_tape['Takedowns Average/15 min.'][f10],
                 dob: response.data[4].tale_of_the_tape.DOB[f10],
                 height: response.data[4].tale_of_the_tape.Height[f10],
-                id: 10,
-                matchupId: 5
-              }),Fighter.create({
+                id: 16,
+                matchupId: 8,
+                record: response.data[4].tale_of_the_tape['Wins/Losses/Draws'][f10]             
+            }),
+              Fighter.create({
+                //Matt Brown
                 name: response.data[5].matchup[0],
                 defense: response.data[5].tale_of_the_tape.Defense[f11],
                 reach: response.data[5].tale_of_the_tape.Reach[f11],
@@ -257,9 +326,11 @@ const syncAndSeed = async()=> {
                 dob: response.data[5].tale_of_the_tape.DOB[f11],
                 height: response.data[5].tale_of_the_tape.Height[f11],
                 id: 11,
-                matchupId: 6
+                matchupId: 6,
+                record: response.data[5].tale_of_the_tape['Wins/Losses/Draws'][f11]              
               }),
               Fighter.create({
+                //Court Mcgee
                   name: response.data[5].matchup[1],
                   defense: response.data[5].tale_of_the_tape.Defense[f12],
                   reach: response.data[5].tale_of_the_tape.Reach[f12],
@@ -273,9 +344,11 @@ const syncAndSeed = async()=> {
                   dob: response.data[5].tale_of_the_tape.DOB[f12],
                   height: response.data[5].tale_of_the_tape.Height[f12],
                   id: 12,
-                  matchupId: 6
-                }),
+                  matchupId: 6,
+                  record: response.data[5].tale_of_the_tape['Wins/Losses/Draws'][f12] 
+              }),
                 Fighter.create({
+                  //Ji Yeon Kim
                   name: response.data[6].matchup[0],
                   defense: response.data[6].tale_of_the_tape.Defense[f13],
                   reach: response.data[6].tale_of_the_tape.Reach[f13],
@@ -288,10 +361,12 @@ const syncAndSeed = async()=> {
                   avgTakedownsPer15: response.data[6].tale_of_the_tape['Takedowns Average/15 min.'][f13],
                   dob: response.data[6].tale_of_the_tape.DOB[f13],
                   height: response.data[6].tale_of_the_tape.Height[f13],
-                  id: 13,
-                  matchupId: 7
+                  id: 17,
+                  matchupId: 9,
+                  record: response.data[6].tale_of_the_tape['Wins/Losses/Draws'][f13]     
                 }),
                 Fighter.create({
+                  //Mandy Bohm
                     name: response.data[6].matchup[1],
                     defense: response.data[6].tale_of_the_tape.Defense[f14],
                     reach: response.data[6].tale_of_the_tape.Reach[f14],
@@ -304,10 +379,12 @@ const syncAndSeed = async()=> {
                     avgTakedownsPer15: response.data[6].tale_of_the_tape['Takedowns Average/15 min.'][f14],
                     dob: response.data[6].tale_of_the_tape.DOB[f14],
                     height: response.data[6].tale_of_the_tape.Height[f14],
-                    id: 14,
-                    matchupId: 7
-                  }),
+                    id: 18,
+                    matchupId: 9,
+                    record: response.data[6].tale_of_the_tape['Wins/Losses/Draws'][f14]       
+                }),
                   Fighter.create({
+                    //Bryan Battle
                     name: response.data[7].matchup[0],
                     defense: response.data[7].tale_of_the_tape.Defense[f15],
                     reach: response.data[7].tale_of_the_tape.Reach[f15],
@@ -320,10 +397,12 @@ const syncAndSeed = async()=> {
                     avgTakedownsPer15: response.data[7].tale_of_the_tape['Takedowns Average/15 min.'][f15],
                     dob: response.data[7].tale_of_the_tape.DOB[f15],
                     height: response.data[7].tale_of_the_tape.Height[f15],
-                    id: 15,
-                    matchupId: 8
-                  }),
+                    id: 19,
+                    matchupId: 10,
+                    record: response.data[7].tale_of_the_tape['Wins/Losses/Draws'][f15] 
+                }),
                   Fighter.create({
+                    //Gabe Green
                       name: response.data[7].matchup[1],
                       defense: response.data[7].tale_of_the_tape.Defense[f16],
                       reach: response.data[7].tale_of_the_tape.Reach[f16],
@@ -336,10 +415,12 @@ const syncAndSeed = async()=> {
                       avgTakedownsPer15: response.data[7].tale_of_the_tape['Takedowns Average/15 min.'][f16],
                       dob: response.data[7].tale_of_the_tape.DOB[f16],
                       height: response.data[7].tale_of_the_tape.Height[f16],
-                      id: 16,
-                      matchupId: 8
-                    }),
+                      id: 20,
+                      matchupId: 10,
+                      record: response.data[7].tale_of_the_tape['Wins/Losses/Draws'][f16]
+                  }),
                     Fighter.create({
+                      //Jessica-Rose Clark
                       name: response.data[8].matchup[0],
                       defense: response.data[8].tale_of_the_tape.Defense[f17],
                       reach: response.data[8].tale_of_the_tape.Reach[f17],
@@ -352,10 +433,12 @@ const syncAndSeed = async()=> {
                       avgTakedownsPer15: response.data[8].tale_of_the_tape['Takedowns Average/15 min.'][f17],
                       dob: response.data[8].tale_of_the_tape.DOB[f17],
                       height: response.data[8].tale_of_the_tape.Height[f17],
-                      id: 17,
-                      matchupId: 9
+                      id: 21,
+                      matchupId: 11,
+                      record: response.data[8].tale_of_the_tape['Wins/Losses/Draws'][f17]
                     }),
                     Fighter.create({
+                      //Tainara Lisboa
                         name: response.data[8].matchup[1],
                         defense: response.data[8].tale_of_the_tape.Defense[f18],
                         reach: response.data[8].tale_of_the_tape.Reach[f18],
@@ -368,10 +451,12 @@ const syncAndSeed = async()=> {
                         avgTakedownsPer15: response.data[8].tale_of_the_tape['Takedowns Average/15 min.'][f18],
                         dob: response.data[8].tale_of_the_tape.DOB[f18],
                         height: response.data[8].tale_of_the_tape.Height[f18],
-                        id: 18,
-                        matchupId: 9
-                      }),
+                        id: 22,
+                        matchupId: 11,
+                        record: response.data[8].tale_of_the_tape['Wins/Losses/Draws'][f18]
+                    }),
                       Fighter.create({
+                        //Tim Means
                         name: response.data[9].matchup[0],
                         defense: response.data[9].tale_of_the_tape.Defense[f19],
                         reach: response.data[9].tale_of_the_tape.Reach[f19],
@@ -384,10 +469,12 @@ const syncAndSeed = async()=> {
                         avgTakedownsPer15: response.data[9].tale_of_the_tape['Takedowns Average/15 min.'][f19],
                         dob: response.data[9].tale_of_the_tape.DOB[f19],
                         height: response.data[9].tale_of_the_tape.Height[f19],
-                        id: 19,
-                        matchupId: 10
+                        id: 9,
+                        matchupId: 5,
+                        record: response.data[9].tale_of_the_tape['Wins/Losses/Draws'][f19]
                       }),
                       Fighter.create({
+                        //Alex Morono
                           name: response.data[9].matchup[1],
                           defense: response.data[9].tale_of_the_tape.Defense[f20],
                           reach: response.data[9].tale_of_the_tape.Reach[f20],
@@ -400,9 +487,84 @@ const syncAndSeed = async()=> {
                           avgTakedownsPer15: response.data[9].tale_of_the_tape['Takedowns Average/15 min.'][f20],
                           dob: response.data[9].tale_of_the_tape.DOB[f20],
                           height: response.data[9].tale_of_the_tape.Height[f20],
-                          id: 20,
-                          matchupId: 10
+                          id: 10,
+                          matchupId: 5,
+                          record: response.data[9].tale_of_the_tape['Wins/Losses/Draws'][f20]
                         }),
+                        Fighter.create({
+                          //Daniel Rodriguez
+                          name: response.data[10].matchup[0],
+                          defense: response.data[10].tale_of_the_tape.Defense[f21],
+                          reach: response.data[10].tale_of_the_tape.Reach[f21],
+                          strikesAbsorbedPerMin: response.data[10].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f21],
+                          strikesLandedPerMin: response.data[10].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f21],
+                          avgFightTime: response.data[10].tale_of_the_tape['Average Fight Time'][f21],
+                          avgSubPer15: response.data[10].tale_of_the_tape['Submission Average/15 min.'][f21],
+                          takedownAcc: response.data[10].tale_of_the_tape['Takedown Accuracy'][f21],
+                          takedownDef: response.data[10].tale_of_the_tape['Takedown Defense'][f21],
+                          avgTakedownsPer15: response.data[10].tale_of_the_tape['Takedowns Average/15 min.'][f21],
+                          dob: response.data[10].tale_of_the_tape.DOB[f21],
+                          height: response.data[10].tale_of_the_tape.Height[f21],
+                          id: 5,
+                          matchupId: 3,
+                          record: response.data[10].tale_of_the_tape['Wins/Losses/Draws'][f21]
+                        }),
+                        Fighter.create({
+                          //Ian Garry
+                            name: response.data[10].matchup[1],
+                            defense: response.data[10].tale_of_the_tape.Defense[f22],
+                            reach: response.data[10].tale_of_the_tape.Reach[f22],
+                            strikesAbsorbedPerMin: response.data[10].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f22],
+                            strikesLandedPerMin: response.data[10].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f22],
+                            avgFightTime: response.data[10].tale_of_the_tape['Average Fight Time'][f22],
+                            avgSubPer15: response.data[10].tale_of_the_tape['Submission Average/15 min.'][f22],
+                            takedownAcc: response.data[10].tale_of_the_tape['Takedown Accuracy'][f22],
+                            takedownDef: response.data[10].tale_of_the_tape['Takedown Defense'][f22],
+                            avgTakedownsPer15: response.data[10].tale_of_the_tape['Takedowns Average/15 min.'][f22],
+                            dob: response.data[10].tale_of_the_tape.DOB[f22],
+                            height: response.data[10].tale_of_the_tape.Height[f22],
+                            id: 6,
+                            matchupId: 3,
+                            record: response.data[10].tale_of_the_tape['Wins/Losses/Draws'][f22]
+                        }),
+                          Fighter.create({
+                            //Anthony Smith
+                            name: response.data[11].matchup[0],
+                            defense: response.data[11].tale_of_the_tape.Defense[f23],
+                            reach: response.data[11].tale_of_the_tape.Reach[f23],
+                            strikesAbsorbedPerMin: response.data[11].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f23],
+                            strikesLandedPerMin: response.data[11].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f23],
+                            avgFightTime: response.data[11].tale_of_the_tape['Average Fight Time'][f23],
+                            avgSubPer15: response.data[11].tale_of_the_tape['Submission Average/15 min.'][f23],
+                            takedownAcc: response.data[11].tale_of_the_tape['Takedown Accuracy'][f23],
+                            takedownDef: response.data[11].tale_of_the_tape['Takedown Defense'][f23],
+                            avgTakedownsPer15: response.data[11].tale_of_the_tape['Takedowns Average/15 min.'][f23],
+                            dob: response.data[11].tale_of_the_tape.DOB[f23],
+                            height: response.data[11].tale_of_the_tape.Height[f23],
+                            id: 3,
+                            matchupId: 2,
+                            record: response.data[11].tale_of_the_tape['Wins/Losses/Draws'][f23],
+                            moneyLine: response1.data.Fights[1].Fighters[0]['Moneyline']
+                          }),
+                          Fighter.create({
+                           // Johnny Walker
+                              name: response.data[11].matchup[1],
+                              defense: response.data[11].tale_of_the_tape.Defense[f24],
+                              reach: response.data[11].tale_of_the_tape.Reach[f24],
+                              strikesAbsorbedPerMin: response.data[11].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f24],
+                              strikesLandedPerMin: response.data[11].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f24],
+                              avgFightTime: response.data[11].tale_of_the_tape['Average Fight Time'][f24],
+                              avgSubPer15: response.data[11].tale_of_the_tape['Submission Average/15 min.'][f24],
+                              takedownAcc: response.data[11].tale_of_the_tape['Takedown Accuracy'][f24],
+                              takedownDef: response.data[11].tale_of_the_tape['Takedown Defense'][f24],
+                              avgTakedownsPer15: response.data[11].tale_of_the_tape['Takedowns Average/15 min.'][f24],
+                              dob: response.data[11].tale_of_the_tape.DOB[f24],
+                              height: response.data[11].tale_of_the_tape.Height[f24],
+                              id: 4,
+                              matchupId: 2,
+                              record: response.data[11].tale_of_the_tape['Wins/Losses/Draws'][f24],
+                              moneyLine: response1.data.Fights[1].Fighters[1]['Moneyline']
+                            }),
   ]);
 
 
@@ -417,7 +579,7 @@ const syncAndSeed = async()=> {
     fighters: {
       fighter1, 
       fighter2,fighter3, fighter4,fighter5, fighter6,fighter7, fighter8,fighter9, fighter10,
-      fighter11, fighter12, fighter13, fighter14,fighter15, fighter16,fighter17, fighter18,fighter19, fighter20
+      fighter11, fighter12, fighter13, fighter14,fighter15, fighter16,fighter17, fighter18,fighter19, fighter20, fighter21, fighter22, fighter23, fighter24
     }
   };
 };

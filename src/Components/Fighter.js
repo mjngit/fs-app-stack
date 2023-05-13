@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+// import Typography from '@mui/material/Typography';
 
 const Fighter = () => {
     const { fighters } = useSelector(state => state)
@@ -16,8 +17,8 @@ const Fighter = () => {
     })
     )
 
-    let evsModel = []
     let notes = {}
+    
 
     for(let i = 0; i < fighters.length; i += 2){
         let redCorn = fighters[i]
@@ -30,7 +31,11 @@ const Fighter = () => {
         let blueCornHeight
         let matchupArray = []
         notes[redCorn.matchupId] = matchupArray
-
+        let redCornFightTimeSeconds = Number(redCorn.avgFightTime.split(':')[0]) * 60 + Number(redCorn.avgFightTime.split(':')[1])
+        let blueCornFightTimeSeconds = Number(blueCorn.avgFightTime.split(':')[0]) * 60 + Number(blueCorn.avgFightTime.split(':')[1])
+        let redCornAge = 2023 - Number(redCorn.dob.split(', ')[1])
+        let blueCornAge = 2023 - Number(blueCorn.dob.split(', ')[1])
+        console.log(blueCornAge, redCornAge)
 
 let redHeight = `${redCorn.height}`
 let redSplitHeight = redHeight.split(`' `)
@@ -55,7 +60,7 @@ if(blueInches[1] === '"'){
   blueCornHeight = (blueSplitHeight[0]*12)*1 + blueInches
 
 
-      //  Number(redCorn.takedownDef.slice(0, 3)) === 100 ? Number(redCorn.takedownDef.slice(0, 3)) : Number(redCorn.takedownDef.slice(0, 1)) === 0 ? Number(redCorn.takedownDef.slice(0, 1)) : Number(redCorn.takedownDef.slice(0,2))
+
         if(Number(redCorn.takedownDef.slice(0, 3)) === 100){
             redCornTDD = 100
         } else if (Number(redCorn.takedownDef.slice(0, 1)) === 0) {
@@ -108,10 +113,10 @@ if(blueInches[1] === '"'){
             matchupArray.push(`${blueCorn.name} goes for submissions!`)
         }
         if(Number(redCorn.reach.slice(0,2)) - Number(blueCorn.reach.slice(0,2)) > 1 ){
-            matchupArray.push(`${redCorn.name} has got a ${Number(redCorn.reach.slice(0,2)) - Number(blueCorn.reach.slice(0,2))} inch reach advantage!`)
+            matchupArray.push(`${redCorn.name} has a ${Number(redCorn.reach.slice(0,2)) - Number(blueCorn.reach.slice(0,2))} inch reach advantage!`)
         }
         if(Number(blueCorn.reach.slice(0,2)) - Number(redCorn.reach.slice(0,2)) > 1 ){
-            matchupArray.push(`${blueCorn.name} has got a ${Number(blueCorn.reach.slice(0,2)) - Number(redCorn.reach.slice(0,2))} inch reach advantage!`)
+            matchupArray.push(`${blueCorn.name} has a ${Number(blueCorn.reach.slice(0,2)) - Number(redCorn.reach.slice(0,2))} inch reach advantage!`)
         }
         if(Number(redCorn.strikesAbsorbedPerMin) < 2.5 && Number(redCorn.avgTakedownsPer15) > 5){
             matchupArray.push(`Legit grappler alert on ${redCorn.name}!`)
@@ -119,17 +124,16 @@ if(blueInches[1] === '"'){
         if(Number(blueCorn.strikesAbsorbedPerMin) < 2.5 && Number(blueCorn.avgTakedownsPer15) > 5){       
             matchupArray.push(`Legit grappler alert on ${blueCorn.name}!`)
         }
-        if(Number(redCorn.avgFightTime.split(':')[0]) * 60 + Number(redCorn.avgFightTime.split(':')[1]) > 600 && Number(blueCorn.avgFightTime.split(':')[0]) * 60 + Number(blueCorn.avgFightTime.split(':')[1]) > 600){
+        if(redCornFightTimeSeconds > 600 && blueCornFightTimeSeconds > 600){
             matchupArray.push(`Check the over 1.5 rounds or fight goes the distance on ${blueCorn.name} vs. ${redCorn.name}!`)
         }
-        if(Number(redCorn.avgFightTime.split(':')[0]) * 60 + Number(redCorn.avgFightTime.split(':')[1]) < 300 && Number(blueCorn.avgFightTime.split(':')[0]) * 60 + Number(blueCorn.avgFightTime.split(':')[1]) < 300){
+        if(redCornFightTimeSeconds < 300 && blueCornFightTimeSeconds < 300){
             matchupArray.push(`Don't blink on this one: ${blueCorn.name} vs. ${redCorn.name}!`)
         }
-        if(Number(redCorn.avgFightTime.split(':')[0]) * 60 + Number(redCorn.avgFightTime.split(':')[1]) < 300){
-       
+        if(redCornFightTimeSeconds < 300){
             matchupArray.push(`${redCorn.name} might kill or be killed in rd1! LOW average fight time of ${redCorn.avgFightTime}`)
         }
-        if(Number(blueCorn.avgFightTime.split(':')[0]) * 60 + Number(blueCorn.avgFightTime.split(':')[1]) < 300){
+        if(blueCornFightTimeSeconds < 300){
             matchupArray.push(`${blueCorn.name} might kill or be killed in rd1! LOW average fight time of ${blueCorn.avgFightTime}`)
         }
         if(Number(redCorn.avgTakedownsPer15) > 2 && blueCornTDD < 50  && redCornTDA > 50 ){
@@ -138,16 +142,16 @@ if(blueInches[1] === '"'){
         if(Number(blueCorn.avgTakedownsPer15) > 2 && redCornTDD < 50 && blueCornTDA > 50 ){
             matchupArray.push(`${redCorn.name} could get blanketed!`)
         }
-        if(2023 - Number(blueCorn.dob.split(', ')[1]) - 3 > 2023 - Number(redCorn.dob.split(', ')[1])){
+        if(blueCornAge - 3 >= redCornAge){
             matchupArray.push(`${redCorn.name} is the younger buck by 3 years or more!`)
         }
-        if(2023 - Number(redCorn.dob.split(', ')[1]) - 3 > 2023 - Number(blueCorn.dob.split(', ')[1])){
+        if(redCornAge - 3 >= blueCornAge){
             matchupArray.push(`${blueCorn.name} is the younger buck by 3 years or more!`)
         }
-        if(2023 - Number(blueCorn.dob.split(', ')[1]) > 2023 - Number(redCorn.dob.split(', ')[1]) && blueCornHeight < redCornHeight){
+        if(blueCornAge > redCornAge && blueCornHeight < redCornHeight){
             matchupArray.push(`${redCorn.name} is the younger and taller fighter #evsmodel`)
         }
-        if(2023 - Number(redCorn.dob.split(', ')[1]) > 2023 - Number(blueCorn.dob.split(', ')[1]) && blueCornHeight > redCornHeight){
+        if(redCornAge > redCornAge && blueCornHeight > redCornHeight){
             matchupArray.push(`${blueCorn.name} is the younger and taller fighter #evsmodel`)
         }
         if(redCorn.avgTakedownsPer15 === '0.00' && blueCorn.avgTakedownsPer15 === '0.00'){
@@ -159,21 +163,17 @@ if(blueInches[1] === '"'){
         if(blueCorn.avgTakedownsPer15 === '0.00'){
             matchupArray.push(`${blueCorn.name} has never gone for a takedown in the UFC`)
         }
-
-
-
-
-        console.log(redCorn.reach, redCorn.reach.slice(0,2), Number(redCorn.defense.slice(0,2)), 
-        Number(redCorn.avgFightTime.split(':')[0]) * 60 + Number(redCorn.avgFightTime.split(':')[1]), 
-        Number(redCorn.takedownDef.slice(0, 3)) === 100 ? Number(redCorn.takedownDef.slice(0, 3)) : Number(redCorn.takedownDef.slice(0, 1)) === 0 ? Number(redCorn.takedownDef.slice(0, 1)) : Number(redCorn.takedownDef.slice(0,2)),
-        Number(blueCorn.takedownDef.slice(0, 3)) === 100 ? Number(blueCorn.takedownDef.slice(0, 3)) : Number(blueCorn.takedownDef.slice(0, 1)) === 0 ? Number(blueCorn.takedownDef.slice(0, 1)) : Number(blueCorn.takedownDef.slice(0,2)), redCornTDD, blueCorn.dob.split(', ')[1], blueCornHeight, redCornHeight, notes, notes[1] )
+        // console.log(redCorn.reach, redCorn.reach.slice(0,2), Number(redCorn.defense.slice(0,2)), 
+        // Number(redCorn.avgFightTime.split(':')[0]) * 60 + Number(redCorn.avgFightTime.split(':')[1]), 
+        // Number(redCorn.takedownDef.slice(0, 3)) === 100 ? Number(redCorn.takedownDef.slice(0, 3)) : Number(redCorn.takedownDef.slice(0, 1)) === 0 ? Number(redCorn.takedownDef.slice(0, 1)) : Number(redCorn.takedownDef.slice(0,2)),
+        // Number(blueCorn.takedownDef.slice(0, 3)) === 100 ? Number(blueCorn.takedownDef.slice(0, 3)) : Number(blueCorn.takedownDef.slice(0, 1)) === 0 ? Number(blueCorn.takedownDef.slice(0, 1)) : Number(blueCorn.takedownDef.slice(0,2)), redCornTDD, blueCorn.dob.split(', ')[1], blueCornHeight, redCornHeight, notes, notes[1] )
     }
 
 
 
   return (
     <>
-     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>Fighters Of The Week</div>
+     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><h1>Fighters Of The Week</h1></div>
 
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
@@ -191,6 +191,7 @@ if(blueInches[1] === '"'){
             <TableCell align="right">Takedown Defense</TableCell>
             <TableCell align="right">Birthday</TableCell>
             <TableCell align="right">Height</TableCell>
+            <TableCell align="right">Moneyline</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -213,14 +214,14 @@ if(blueInches[1] === '"'){
               <TableCell align="right">{Number(fighter.takedownDef.slice(0, 3)) === 100 ? <strong>{fighter.takedownDef}</strong> : fighter.takedownDef}</TableCell>
               <TableCell align="right">{fighter.dob}</TableCell>
               <TableCell align="right">{fighter.height}</TableCell>
+              <TableCell align="right">{fighter.moneyLine}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-
-      <h2>  Main Event </h2>
-
+    <Typography style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}variant="h2">Main Card</Typography>        
+      <h3> Main Event:  {fighters[0] ? fighters[0].name : ''} vs. {fighters[1] ? fighters[1].name : ''}</h3>
     <List>
         {notes[1] ? notes[1].map((note, idx) => {
             return (
@@ -233,7 +234,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 2</h3>
+    <h3>Fight 2: {fighters[2] ? fighters[2].name : ''} vs. {fighters[3] ? fighters[3].name : ''}</h3>
     <List>
         {notes[2] ? notes[2].map((note, idx) => {
             return (
@@ -246,7 +247,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 3</h3>
+    <h3>Fight 3: {fighters[4] ? fighters[4].name : ''} vs. {fighters[5] ? fighters[5].name : ''}</h3>
     <List>
         {notes[3] ? notes[3].map((note, idx) => {
             return (
@@ -259,7 +260,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 4</h3>
+    <h3>Fight 4: {fighters[6] ? fighters[6].name : ''} vs. {fighters[7] ? fighters[7].name : ''}</h3>
     <List>
         {notes[4] ? notes[4].map((note, idx) => {
             return (
@@ -272,7 +273,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 5</h3>
+    <h3>Fight 5: {fighters[8] ? fighters[8].name : ''} vs. {fighters[9] ? fighters[9].name : ''}</h3>
     <List>
         {notes[5] ? notes[5].map((note, idx) => {
             return (
@@ -284,8 +285,9 @@ if(blueInches[1] === '"'){
           
     </List>
     <Divider />
+    <Typography style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} variant="h2">Pre-lims</Typography>   
 
-    <h3>Fight 6</h3>
+    <h3>Fight 6: {fighters[10] ? fighters[10].name : ''} vs. {fighters[11] ? fighters[11].name : ''}</h3>
     <List>
         {notes[6] ? notes[6].map((note, idx) => {
             return (
@@ -298,7 +300,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
        
-    <h3>Fight 7</h3>
+    <h3>Fight 7: {fighters[12] ? fighters[12].name : ''} vs. {fighters[13] ? fighters[13].name : ''}</h3>
     <List>
         {notes[7] ? notes[7].map((note, idx) => {
             return (
@@ -311,7 +313,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 8</h3>
+    <h3>Fight 8: {fighters[14] ? fighters[14].name : ''} vs. {fighters[15] ? fighters[15].name : ''}</h3>
     <List>
         {notes[8] ? notes[8].map((note, idx) => {
             return (
@@ -324,7 +326,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 9</h3>
+    <h3>Fight 9: {fighters[16] ? fighters[16].name : ''} vs. {fighters[17] ? fighters[17].name : ''}</h3>
     <List>
         {notes[9] ? notes[9].map((note, idx) => {
             return (
@@ -337,9 +339,35 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 10</h3>
+    <h3>Fight 10: {fighters[18] ? fighters[18].name : ''} vs. {fighters[19] ? fighters[19].name : ''}</h3>
     <List>
         {notes[10] ? notes[10].map((note, idx) => {
+            return (
+            <ListItem disablePadding key={idx}>
+              <ListItemText primary={note} />
+            </ListItem>
+            )
+        }) : ''}
+          
+    </List>
+    <Divider />
+
+    <h3>Fight 11: {fighters[20] ? fighters[20].name : ''} vs. {fighters[21] ? fighters[21].name : ''}</h3>
+    <List>
+        {notes[11] ? notes[11].map((note, idx) => {
+            return (
+            <ListItem disablePadding key={idx}>
+              <ListItemText primary={note} />
+            </ListItem>
+            )
+        }) : ''}
+          
+    </List>
+    <Divider />
+
+    <h3>Fight 12: {fighters[22] ? fighters[22].name : ''} vs. {fighters[23] ? fighters[23].name : ''}</h3>
+    <List>
+        {notes[12] ? notes[12].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -367,6 +395,7 @@ import Divider from '@mui/material/Divider';
 import InboxIcon from '@mui/icons-material/Inbox';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import { fontWeight } from '@mui/system';
+import { Typography } from '@mui/material';
 
 
 //   return (

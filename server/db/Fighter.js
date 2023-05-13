@@ -46,13 +46,32 @@ const Fighter = conn.define("fighter", {
   },
   matchupId: {
     type: INTEGER
+  },
+  record: {
+    type: STRING
+  },
+  moneyLine: {
+    type: STRING
   }
 });
 
 module.exports = Fighter;
 
 
+// const options1 = {
+//   method: 'GET',
+//   url: `https://api.sportsdata.io/v3/mma/scores/json/Event/301?key=${process.env.UFC_API_KEY}`,
+// };
 
+// let call = async () => {
+// try {
+// 	const response = await axios.request(options1);
+// 	console.log(response.data);
+// } catch (error) {
+// 	console.error(error);
+// }
+// }
+// call()
 // const axios = require('axios');
 
 // const getFirst10Fighters = async () => {
