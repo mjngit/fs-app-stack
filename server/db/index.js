@@ -61,7 +61,12 @@ const syncAndSeed = async()=> {
     const f22 = response.data[10].matchup[1]
     const f23 = response.data[11].matchup[0]
     const f24 = response.data[11].matchup[1]
-  console.log(response1.data.Fights[1].Fighters[0]['LastName'], response1.data.Fights[1].Fighters[0]['Moneyline'] )
+  // console.log(response1.data.Fights[1].Fighters[0]['LastName'], response1.data.Fights[1].Fighters[0]['Moneyline'] )
+  // console.log(response1.data.Fights[12].Fighters[0]['LastName'], response1.data.Fights[12].Fighters[0]['Moneyline'] )
+  // console.log(response1.data.Fights[12].Fighters[1]['LastName'], response1.data.Fights[12].Fighters[1]['Moneyline'] )
+  //console.log(response1.data.Fights[13].Fighters[0]['LastName'], response1.data.Fights[13].Fighters[0]['Moneyline'] )
+  //console.log(response1.data.Fights[13].Fighters[1]['LastName'], response1.data.Fights[13].Fighters[1]['Moneyline'] )
+  //moneyLine: response1.data.Fights[2].Fighters[0]['Moneyline']
   // console.log('f3:' + f3)
   // console.log('f4:' + f4)
   // console.log('f5:' + f5)
@@ -219,7 +224,8 @@ const syncAndSeed = async()=> {
           height: response.data[2].tale_of_the_tape.Height[f5],
           id: 7,
           matchupId: 4,
-          record: response.data[2].tale_of_the_tape['Wins/Losses/Draws'][f5]
+          record: response.data[2].tale_of_the_tape['Wins/Losses/Draws'][f5],
+          moneyLine: response1.data.Fights[3].Fighters[0]['Moneyline']
         }),
         Fighter.create({
           //ihor potieria
@@ -237,7 +243,8 @@ const syncAndSeed = async()=> {
             height: response.data[2].tale_of_the_tape.Height[f6],
             id: 8,
             matchupId: 4,
-            record: response.data[2].tale_of_the_tape['Wins/Losses/Draws'][f6]      
+            record: response.data[2].tale_of_the_tape['Wins/Losses/Draws'][f6],
+            moneyLine: response1.data.Fights[3].Fighters[1]['Moneyline']     
         }),
           Fighter.create({
             //Karl Williams
@@ -255,7 +262,8 @@ const syncAndSeed = async()=> {
             height: response.data[3].tale_of_the_tape.Height[f7],
             id: 13,
             matchupId: 7,
-            record: response.data[3].tale_of_the_tape['Wins/Losses/Draws'][f7]       
+            record: response.data[3].tale_of_the_tape['Wins/Losses/Draws'][f7],
+            moneyLine: response1.data.Fights[7].Fighters[0]['Moneyline']         
           }),
           Fighter.create({
             //Chase sherman
@@ -273,7 +281,8 @@ const syncAndSeed = async()=> {
               height: response.data[3].tale_of_the_tape.Height[f8],
               id: 14,
               matchupId: 7,
-              record: response.data[3].tale_of_the_tape['Wins/Losses/Draws'][f8]    
+              record: response.data[3].tale_of_the_tape['Wins/Losses/Draws'][f8],
+              moneyLine: response1.data.Fights[7].Fighters[1]['Moneyline']    
           }),
             Fighter.create({
               //cody stamann
@@ -291,7 +300,8 @@ const syncAndSeed = async()=> {
               height: response.data[4].tale_of_the_tape.Height[f9],
               id: 15,
               matchupId: 8,
-              record: response.data[4].tale_of_the_tape['Wins/Losses/Draws'][f9]   
+              record: response.data[4].tale_of_the_tape['Wins/Losses/Draws'][f9],
+              moneyLine: response1.data.Fights[8].Fighters[1]['Moneyline']   
             }),
             Fighter.create({
               //douglas silva de andrade
@@ -309,7 +319,8 @@ const syncAndSeed = async()=> {
                 height: response.data[4].tale_of_the_tape.Height[f10],
                 id: 16,
                 matchupId: 8,
-                record: response.data[4].tale_of_the_tape['Wins/Losses/Draws'][f10]             
+                record: response.data[4].tale_of_the_tape['Wins/Losses/Draws'][f10],
+                moneyLine: response1.data.Fights[8].Fighters[0]['Moneyline']             
             }),
               Fighter.create({
                 //Matt Brown
@@ -327,7 +338,8 @@ const syncAndSeed = async()=> {
                 height: response.data[5].tale_of_the_tape.Height[f11],
                 id: 11,
                 matchupId: 6,
-                record: response.data[5].tale_of_the_tape['Wins/Losses/Draws'][f11]              
+                record: response.data[5].tale_of_the_tape['Wins/Losses/Draws'][f11],
+                moneyLine: response1.data.Fights[6].Fighters[0]['Moneyline']              
               }),
               Fighter.create({
                 //Court Mcgee
@@ -345,7 +357,8 @@ const syncAndSeed = async()=> {
                   height: response.data[5].tale_of_the_tape.Height[f12],
                   id: 12,
                   matchupId: 6,
-                  record: response.data[5].tale_of_the_tape['Wins/Losses/Draws'][f12] 
+                  record: response.data[5].tale_of_the_tape['Wins/Losses/Draws'][f12],
+                  moneyLine: response1.data.Fights[6].Fighters[1]['Moneyline']
               }),
                 Fighter.create({
                   //Ji Yeon Kim
@@ -363,7 +376,8 @@ const syncAndSeed = async()=> {
                   height: response.data[6].tale_of_the_tape.Height[f13],
                   id: 17,
                   matchupId: 9,
-                  record: response.data[6].tale_of_the_tape['Wins/Losses/Draws'][f13]     
+                  record: response.data[6].tale_of_the_tape['Wins/Losses/Draws'][f13],
+                  moneyLine: response1.data.Fights[9].Fighters[0]['Moneyline']     
                 }),
                 Fighter.create({
                   //Mandy Bohm
@@ -381,7 +395,8 @@ const syncAndSeed = async()=> {
                     height: response.data[6].tale_of_the_tape.Height[f14],
                     id: 18,
                     matchupId: 9,
-                    record: response.data[6].tale_of_the_tape['Wins/Losses/Draws'][f14]       
+                    record: response.data[6].tale_of_the_tape['Wins/Losses/Draws'][f14],
+                    moneyLine: response1.data.Fights[9].Fighters[1]['Moneyline']       
                 }),
                   Fighter.create({
                     //Bryan Battle
@@ -399,7 +414,8 @@ const syncAndSeed = async()=> {
                     height: response.data[7].tale_of_the_tape.Height[f15],
                     id: 19,
                     matchupId: 10,
-                    record: response.data[7].tale_of_the_tape['Wins/Losses/Draws'][f15] 
+                    record: response.data[7].tale_of_the_tape['Wins/Losses/Draws'][f15],
+                    moneyLine: response1.data.Fights[11].Fighters[1]['Moneyline']
                 }),
                   Fighter.create({
                     //Gabe Green
@@ -417,7 +433,8 @@ const syncAndSeed = async()=> {
                       height: response.data[7].tale_of_the_tape.Height[f16],
                       id: 20,
                       matchupId: 10,
-                      record: response.data[7].tale_of_the_tape['Wins/Losses/Draws'][f16]
+                      record: response.data[7].tale_of_the_tape['Wins/Losses/Draws'][f16],
+                      moneyLine: response1.data.Fights[11].Fighters[0]['Moneyline']
                   }),
                     Fighter.create({
                       //Jessica-Rose Clark
@@ -435,7 +452,8 @@ const syncAndSeed = async()=> {
                       height: response.data[8].tale_of_the_tape.Height[f17],
                       id: 21,
                       matchupId: 11,
-                      record: response.data[8].tale_of_the_tape['Wins/Losses/Draws'][f17]
+                      record: response.data[8].tale_of_the_tape['Wins/Losses/Draws'][f17],
+                      moneyLine: response1.data.Fights[12].Fighters[0]['Moneyline']  
                     }),
                     Fighter.create({
                       //Tainara Lisboa
@@ -453,7 +471,8 @@ const syncAndSeed = async()=> {
                         height: response.data[8].tale_of_the_tape.Height[f18],
                         id: 22,
                         matchupId: 11,
-                        record: response.data[8].tale_of_the_tape['Wins/Losses/Draws'][f18]
+                        record: response.data[8].tale_of_the_tape['Wins/Losses/Draws'][f18],
+                        moneyLine: response1.data.Fights[12].Fighters[1]['Moneyline'] 
                     }),
                       Fighter.create({
                         //Tim Means
@@ -471,7 +490,8 @@ const syncAndSeed = async()=> {
                         height: response.data[9].tale_of_the_tape.Height[f19],
                         id: 9,
                         matchupId: 5,
-                        record: response.data[9].tale_of_the_tape['Wins/Losses/Draws'][f19]
+                        record: response.data[9].tale_of_the_tape['Wins/Losses/Draws'][f19],
+                        moneyLine: response1.data.Fights[5].Fighters[0]['Moneyline']
                       }),
                       Fighter.create({
                         //Alex Morono
@@ -489,7 +509,8 @@ const syncAndSeed = async()=> {
                           height: response.data[9].tale_of_the_tape.Height[f20],
                           id: 10,
                           matchupId: 5,
-                          record: response.data[9].tale_of_the_tape['Wins/Losses/Draws'][f20]
+                          record: response.data[9].tale_of_the_tape['Wins/Losses/Draws'][f20],
+                          moneyLine: response1.data.Fights[5].Fighters[1]['Moneyline']
                         }),
                         Fighter.create({
                           //Daniel Rodriguez
@@ -507,7 +528,8 @@ const syncAndSeed = async()=> {
                           height: response.data[10].tale_of_the_tape.Height[f21],
                           id: 5,
                           matchupId: 3,
-                          record: response.data[10].tale_of_the_tape['Wins/Losses/Draws'][f21]
+                          record: response.data[10].tale_of_the_tape['Wins/Losses/Draws'][f21],
+                          moneyLine: response1.data.Fights[2].Fighters[0]['Moneyline']
                         }),
                         Fighter.create({
                           //Ian Garry
@@ -525,7 +547,8 @@ const syncAndSeed = async()=> {
                             height: response.data[10].tale_of_the_tape.Height[f22],
                             id: 6,
                             matchupId: 3,
-                            record: response.data[10].tale_of_the_tape['Wins/Losses/Draws'][f22]
+                            record: response.data[10].tale_of_the_tape['Wins/Losses/Draws'][f22],
+                            moneyLine: response1.data.Fights[2].Fighters[1]['Moneyline']
                         }),
                           Fighter.create({
                             //Anthony Smith

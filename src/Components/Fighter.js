@@ -221,7 +221,7 @@ if(blueInches[1] === '"'){
       </Table>
     </TableContainer>
     <Typography style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}variant="h2">Main Card</Typography>        
-      <h3> Main Event:  {fighters[0] ? fighters[0].name : ''} vs. {fighters[1] ? fighters[1].name : ''}</h3>
+      <h3> Main Event:  {fighters[0] ? fighters[0].name + " (" + (fighters[0].moneyLine) + ')'  : ''} vs. {fighters[1] ? fighters[1].name + " (" + fighters[1].moneyLine + ')' : ''}</h3>
     <List>
         {notes[1] ? notes[1].map((note, idx) => {
             return (
@@ -234,7 +234,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 2: {fighters[2] ? fighters[2].name : ''} vs. {fighters[3] ? fighters[3].name : ''}</h3>
+    <h3>Fight 2: {fighters[2] ? fighters[2].name + " (" + (fighters[2].moneyLine) + ')' : ''} vs. {fighters[3] ? fighters[3].name + " (" + (fighters[3].moneyLine) + ')' : ''}</h3>
     <List>
         {notes[2] ? notes[2].map((note, idx) => {
             return (
@@ -247,7 +247,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 3: {fighters[4] ? fighters[4].name : ''} vs. {fighters[5] ? fighters[5].name : ''}</h3>
+    <h3>Fight 3: {fighters[4] ? fighters[4].name + " (" + (fighters[4].moneyLine) + ')' : ''} vs. {fighters[5] ? fighters[5].name + " (" + (fighters[5].moneyLine) + ')' : ''}</h3>
     <List>
         {notes[3] ? notes[3].map((note, idx) => {
             return (
@@ -260,7 +260,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 4: {fighters[6] ? fighters[6].name : ''} vs. {fighters[7] ? fighters[7].name : ''}</h3>
+    <h3>Fight 4: {fighters[6] ? fighters[6].name + " (" + (fighters[6].moneyLine) + ')' : ''} vs. {fighters[7] ? fighters[7].name + " (" + (fighters[7].moneyLine) + ')' : ''}</h3>
     <List>
         {notes[4] ? notes[4].map((note, idx) => {
             return (
@@ -273,7 +273,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 5: {fighters[8] ? fighters[8].name : ''} vs. {fighters[9] ? fighters[9].name : ''}</h3>
+    <h3>Fight 5: {fighters[8] ? fighters[8].name + " (" + (fighters[8].moneyLine) + ')' : ''} vs. {fighters[9] ? fighters[9].name + " (" + (fighters[9].moneyLine) + ')' : ''}</h3>
     <List>
         {notes[5] ? notes[5].map((note, idx) => {
             return (
@@ -287,7 +287,7 @@ if(blueInches[1] === '"'){
     <Divider />
     <Typography style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} variant="h2">Pre-lims</Typography>   
 
-    <h3>Fight 6: {fighters[10] ? fighters[10].name : ''} vs. {fighters[11] ? fighters[11].name : ''}</h3>
+    <h3>Fight 6: {fighters[10] ? fighters[10].name + " (" + (fighters[10].moneyLine) + ')' : ''} vs. {fighters[11] ? fighters[11].name + " (" + (fighters[11].moneyLine) + ')' : ''}</h3>
     <List>
         {notes[6] ? notes[6].map((note, idx) => {
             return (
@@ -300,7 +300,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
        
-    <h3>Fight 7: {fighters[12] ? fighters[12].name : ''} vs. {fighters[13] ? fighters[13].name : ''}</h3>
+    <h3>Fight 7: {fighters[12] ? fighters[12].name + " (" + (fighters[12].moneyLine) + ')' : ''} vs. {fighters[13] ? fighters[13].name + " (" + (fighters[13].moneyLine) + ')' : ''}</h3>
     <List>
         {notes[7] ? notes[7].map((note, idx) => {
             return (
@@ -313,7 +313,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 8: {fighters[14] ? fighters[14].name : ''} vs. {fighters[15] ? fighters[15].name : ''}</h3>
+    <h3>Fight 8: {fighters[14] ? fighters[14].name + " (" + (fighters[14].moneyLine) + ')' : ''} vs. {fighters[15] ? fighters[15].name + " (" + (fighters[15].moneyLine) + ')' : ''}</h3>
     <List>
         {notes[8] ? notes[8].map((note, idx) => {
             return (
@@ -326,7 +326,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 9: {fighters[16] ? fighters[16].name : ''} vs. {fighters[17] ? fighters[17].name : ''}</h3>
+    <h3>Fight 9: {fighters[16] ? fighters[16].name + " (" + (fighters[16].moneyLine) + ')' : ''} vs. {fighters[17] ? fighters[17].name + " (" + (fighters[17].moneyLine) + ')' : ''}</h3>
     <List>
         {notes[9] ? notes[9].map((note, idx) => {
             return (
@@ -339,7 +339,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 10: {fighters[18] ? fighters[18].name : ''} vs. {fighters[19] ? fighters[19].name : ''}</h3>
+    <h3>Fight 10: {fighters[18] ? fighters[18].name + " (" + (fighters[18].moneyLine) + ')' : ''} vs. {fighters[19] ? fighters[19].name + " (" + (fighters[19].moneyLine) + ')' : ''}</h3>
     <List>
         {notes[10] ? notes[10].map((note, idx) => {
             return (
@@ -352,7 +352,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 11: {fighters[20] ? fighters[20].name : ''} vs. {fighters[21] ? fighters[21].name : ''}</h3>
+    <h3>Fight 11: {fighters[20] ? fighters[20].name + " (" + (fighters[20].moneyLine) + ')'  : ''} vs. {fighters[21] ? fighters[21].name + " (" + (fighters[21].moneyLine) + ')' : ''}</h3>
     <List>
         {notes[11] ? notes[11].map((note, idx) => {
             return (
@@ -365,7 +365,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 12: {fighters[22] ? fighters[22].name : ''} vs. {fighters[23] ? fighters[23].name : ''}</h3>
+    <h3>Fight 12: {fighters[22] ? fighters[22].name + " (" + (fighters[22].moneyLine) + ')' : ''} vs. {fighters[23] ? fighters[23].name + " (" + (fighters[23].moneyLine) + ')' : ''}</h3>
     <List>
         {notes[12] ? notes[12].map((note, idx) => {
             return (
