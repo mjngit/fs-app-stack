@@ -1,6 +1,6 @@
 
 const conn = require('./conn');
-const { STRING } = conn.Sequelize;
+const { STRING, INTEGER } = conn.Sequelize;
 // const {UFC_API_KEY}  = require('../../secrets');
 
 const Fighter = conn.define("fighter", {
@@ -39,6 +39,13 @@ const Fighter = conn.define("fighter", {
   },
   height: {
     type: STRING
+  },
+  id: {
+    type: INTEGER,
+    primaryKey: true
+  },
+  matchupId: {
+    type: INTEGER
   }
 });
 

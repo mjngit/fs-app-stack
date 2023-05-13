@@ -6,6 +6,7 @@ import { loginWithToken, fetchFighters } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
 import Present from './Present'
 import Fighter from './Fighter'
+import Nav from './Nav'
 
 
 const App = ()=> {
@@ -18,18 +19,20 @@ const App = ()=> {
 
   return (
     <div>
-      <h1>FS App Template</h1>
+       <Nav />
+      <h1>MN Stackathon!</h1>
       {
         auth.id ? <Home /> : <Login />
       }
       {
         !!auth.id  && (
           <div>
-            <nav>
+           
+            {/* <nav>
               <Link to='/'>Home</Link>
               <Link to='/present'>Birthday Present Generator</Link>
               <Link to='/fighters'>Fighter Stats</Link>
-            </nav>
+            </nav> */}
             <Routes>
               <Route path='/present' element={ <Present /> } />
               <Route path='/fighters' element={ <Fighter /> } />

@@ -97,6 +97,8 @@ const syncAndSeed = async()=> {
       avgTakedownsPer15: response.data[0].tale_of_the_tape['Takedowns Average/15 min.'][f1],
       dob: response.data[0].tale_of_the_tape.DOB[f1],
       height: response.data[0].tale_of_the_tape.Height[f1],
+      id: 1,
+      matchupId: 1
     }),
     Fighter.create({
         name: response.data[0].matchup[1],
@@ -111,6 +113,8 @@ const syncAndSeed = async()=> {
         avgTakedownsPer15: response.data[0].tale_of_the_tape['Takedowns Average/15 min.'][f2],
         dob: response.data[0].tale_of_the_tape.DOB[f2],
         height: response.data[0].tale_of_the_tape.Height[f2],
+        id: 2,
+        matchupId: 1
       }),
       Fighter.create({
         name: response.data[1].matchup[0],
@@ -125,6 +129,8 @@ const syncAndSeed = async()=> {
         avgTakedownsPer15: response.data[1].tale_of_the_tape['Takedowns Average/15 min.'][f3],
         dob: response.data[1].tale_of_the_tape.DOB[f3],
         height: response.data[1].tale_of_the_tape.Height[f3],
+        id: 3,
+        matchupId: 2
       }),
       Fighter.create({
           name: response.data[1].matchup[1],
@@ -139,6 +145,8 @@ const syncAndSeed = async()=> {
           avgTakedownsPer15: response.data[1].tale_of_the_tape['Takedowns Average/15 min.'][f4],
           dob: response.data[1].tale_of_the_tape.DOB[f4],
           height: response.data[1].tale_of_the_tape.Height[f4],
+          id: 4,
+          matchupId: 2
         }),
         Fighter.create({
           name: response.data[2].matchup[0],
@@ -153,6 +161,8 @@ const syncAndSeed = async()=> {
           avgTakedownsPer15: response.data[2].tale_of_the_tape['Takedowns Average/15 min.'][f5],
           dob: response.data[2].tale_of_the_tape.DOB[f5],
           height: response.data[2].tale_of_the_tape.Height[f5],
+          id: 5,
+          matchupId: 3
         }),
         Fighter.create({
             name: response.data[2].matchup[1],
@@ -167,6 +177,8 @@ const syncAndSeed = async()=> {
             avgTakedownsPer15: response.data[2].tale_of_the_tape['Takedowns Average/15 min.'][f6],
             dob: response.data[2].tale_of_the_tape.DOB[f6],
             height: response.data[2].tale_of_the_tape.Height[f6],
+            id: 6,
+            matchupId: 3
           }),
           Fighter.create({
             name: response.data[3].matchup[0],
@@ -181,6 +193,8 @@ const syncAndSeed = async()=> {
             avgTakedownsPer15: response.data[3].tale_of_the_tape['Takedowns Average/15 min.'][f7],
             dob: response.data[3].tale_of_the_tape.DOB[f7],
             height: response.data[3].tale_of_the_tape.Height[f7],
+            id: 7,
+            matchupId: 4
           }),
           Fighter.create({
               name: response.data[3].matchup[1],
@@ -195,6 +209,8 @@ const syncAndSeed = async()=> {
               avgTakedownsPer15: response.data[3].tale_of_the_tape['Takedowns Average/15 min.'][f8],
               dob: response.data[3].tale_of_the_tape.DOB[f8],
               height: response.data[3].tale_of_the_tape.Height[f8],
+              id: 8,
+              matchupId: 4
             }),
             Fighter.create({
               name: response.data[4].matchup[0],
@@ -209,6 +225,8 @@ const syncAndSeed = async()=> {
               avgTakedownsPer15: response.data[4].tale_of_the_tape['Takedowns Average/15 min.'][f9],
               dob: response.data[4].tale_of_the_tape.DOB[f9],
               height: response.data[4].tale_of_the_tape.Height[f9],
+              id: 9,
+              matchupId: 5
             }),
             Fighter.create({
                 name: response.data[4].matchup[1],
@@ -223,6 +241,8 @@ const syncAndSeed = async()=> {
                 avgTakedownsPer15: response.data[4].tale_of_the_tape['Takedowns Average/15 min.'][f10],
                 dob: response.data[4].tale_of_the_tape.DOB[f10],
                 height: response.data[4].tale_of_the_tape.Height[f10],
+                id: 10,
+                matchupId: 5
               }),Fighter.create({
                 name: response.data[5].matchup[0],
                 defense: response.data[5].tale_of_the_tape.Defense[f11],
@@ -236,6 +256,8 @@ const syncAndSeed = async()=> {
                 avgTakedownsPer15: response.data[5].tale_of_the_tape['Takedowns Average/15 min.'][f11],
                 dob: response.data[5].tale_of_the_tape.DOB[f11],
                 height: response.data[5].tale_of_the_tape.Height[f11],
+                id: 11,
+                matchupId: 6
               }),
               Fighter.create({
                   name: response.data[5].matchup[1],
@@ -250,6 +272,8 @@ const syncAndSeed = async()=> {
                   avgTakedownsPer15: response.data[5].tale_of_the_tape['Takedowns Average/15 min.'][f12],
                   dob: response.data[5].tale_of_the_tape.DOB[f12],
                   height: response.data[5].tale_of_the_tape.Height[f12],
+                  id: 12,
+                  matchupId: 6
                 }),
                 Fighter.create({
                   name: response.data[6].matchup[0],
@@ -264,6 +288,8 @@ const syncAndSeed = async()=> {
                   avgTakedownsPer15: response.data[6].tale_of_the_tape['Takedowns Average/15 min.'][f13],
                   dob: response.data[6].tale_of_the_tape.DOB[f13],
                   height: response.data[6].tale_of_the_tape.Height[f13],
+                  id: 13,
+                  matchupId: 7
                 }),
                 Fighter.create({
                     name: response.data[6].matchup[1],
@@ -278,6 +304,8 @@ const syncAndSeed = async()=> {
                     avgTakedownsPer15: response.data[6].tale_of_the_tape['Takedowns Average/15 min.'][f14],
                     dob: response.data[6].tale_of_the_tape.DOB[f14],
                     height: response.data[6].tale_of_the_tape.Height[f14],
+                    id: 14,
+                    matchupId: 7
                   }),
                   Fighter.create({
                     name: response.data[7].matchup[0],
@@ -292,6 +320,8 @@ const syncAndSeed = async()=> {
                     avgTakedownsPer15: response.data[7].tale_of_the_tape['Takedowns Average/15 min.'][f15],
                     dob: response.data[7].tale_of_the_tape.DOB[f15],
                     height: response.data[7].tale_of_the_tape.Height[f15],
+                    id: 15,
+                    matchupId: 8
                   }),
                   Fighter.create({
                       name: response.data[7].matchup[1],
@@ -306,6 +336,8 @@ const syncAndSeed = async()=> {
                       avgTakedownsPer15: response.data[7].tale_of_the_tape['Takedowns Average/15 min.'][f16],
                       dob: response.data[7].tale_of_the_tape.DOB[f16],
                       height: response.data[7].tale_of_the_tape.Height[f16],
+                      id: 16,
+                      matchupId: 8
                     }),
                     Fighter.create({
                       name: response.data[8].matchup[0],
@@ -320,6 +352,8 @@ const syncAndSeed = async()=> {
                       avgTakedownsPer15: response.data[8].tale_of_the_tape['Takedowns Average/15 min.'][f17],
                       dob: response.data[8].tale_of_the_tape.DOB[f17],
                       height: response.data[8].tale_of_the_tape.Height[f17],
+                      id: 17,
+                      matchupId: 9
                     }),
                     Fighter.create({
                         name: response.data[8].matchup[1],
@@ -334,6 +368,8 @@ const syncAndSeed = async()=> {
                         avgTakedownsPer15: response.data[8].tale_of_the_tape['Takedowns Average/15 min.'][f18],
                         dob: response.data[8].tale_of_the_tape.DOB[f18],
                         height: response.data[8].tale_of_the_tape.Height[f18],
+                        id: 18,
+                        matchupId: 9
                       }),
                       Fighter.create({
                         name: response.data[9].matchup[0],
@@ -348,6 +384,8 @@ const syncAndSeed = async()=> {
                         avgTakedownsPer15: response.data[9].tale_of_the_tape['Takedowns Average/15 min.'][f19],
                         dob: response.data[9].tale_of_the_tape.DOB[f19],
                         height: response.data[9].tale_of_the_tape.Height[f19],
+                        id: 19,
+                        matchupId: 10
                       }),
                       Fighter.create({
                           name: response.data[9].matchup[1],
@@ -362,6 +400,8 @@ const syncAndSeed = async()=> {
                           avgTakedownsPer15: response.data[9].tale_of_the_tape['Takedowns Average/15 min.'][f20],
                           dob: response.data[9].tale_of_the_tape.DOB[f20],
                           height: response.data[9].tale_of_the_tape.Height[f20],
+                          id: 20,
+                          matchupId: 10
                         }),
   ]);
 
