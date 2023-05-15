@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.5.1",
     "openai": "^3.2.1",
     "pg": "^8.8.0",
+    "react-loader-spinner": "^5.3.4",
     "sequelize": "^6.25.3"
   },
   "devDependencies": {

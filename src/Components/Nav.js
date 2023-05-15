@@ -4,8 +4,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import { useSelector } from 'react-redux'
 
 export default function Nav() {
@@ -17,6 +15,9 @@ export default function Nav() {
         <Toolbar >
           <Typography href='/#/present' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }} >
             Birthday Present Generator
+          </Typography>
+          <Typography href='/#/trip' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }} >
+            AI Trip Planner
           </Typography>
           <Typography href='/#/fighters' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
             Fights Of The Week

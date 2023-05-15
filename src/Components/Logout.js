@@ -1,0 +1,45 @@
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../store';
+import Button from '@mui/material/Button';
+import { Link, useNavigate } from 'react-router-dom'
+
+
+
+const Logout = ()=> {
+    const { auth } = useSelector(state => state);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const _logout = (user) => {
+        dispatch(logout(user))
+        navigate('/home')
+    }
+
+  return (
+    <div>
+        {
+        auth.id ? (
+            <div>
+                <h1 style={{display: 'flex', justifyContent: 'center'}}>Logout</h1>
+                <div>
+                    Are you sure you want to log out?
+                    <Button variant="contained" onClick={(user)=> (_logout(user))}>Logout</Button>
+                </div>
+            </div>
+        
+        )  : (
+            <div>
+                <h1 style={{display: 'flex', justifyContent: 'center'}}>You're Not Logged In!</h1>
+                <div>
+                    <Link to={`/register`}>Register Here</Link> or <Link to='/login'> Login </Link>
+                </div>
+            </div>
+        )
+        } 
+    
+    </div>
+  );
+};
+
+export default Logout;

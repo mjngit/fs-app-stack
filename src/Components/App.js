@@ -7,6 +7,10 @@ import { Link, Routes, Route } from 'react-router-dom';
 import Present from './Present'
 import Fighter from './Fighter'
 import Nav from './Nav'
+import TripAi from './TripAi'
+import Logout from './Logout'
+import Register from './Register'
+
 
 
 const App = ()=> {
@@ -21,21 +25,26 @@ const App = ()=> {
     <div>
        <Nav />
       <h1>MN Stackathon!</h1>
-      {
+      {/* {
         auth.id ? <Home /> : <Login />
-      }
+      } */}
+      <Routes>
+              <Route path='/login' element={ <Login /> } />
+              <Route path='/register' element={ <Register /> } />
+              <Route path='/home' element={ <Home /> } />
+              {/* <Route path='/logout' element={ <Logout /> } /> */}
+      </Routes>
       {
         !!auth.id  && (
           <div>
-           
-            {/* <nav>
-              <Link to='/'>Home</Link>
-              <Link to='/present'>Birthday Present Generator</Link>
-              <Link to='/fighters'>Fighter Stats</Link>
-            </nav> */}
             <Routes>
               <Route path='/present' element={ <Present /> } />
               <Route path='/fighters' element={ <Fighter /> } />
+              <Route path='/trip' element={ <TripAi /> } />
+              {/* <Route path='/login' element={ <Login /> } /> */}
+              <Route path='/logout' element={ <Logout /> } />
+              {/* <Route path='/register' element={ <Register /> } />
+              <Route path='/home' element={ <Home /> } /> */}
             </Routes>
           </div>
         )

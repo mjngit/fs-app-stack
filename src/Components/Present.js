@@ -1,10 +1,10 @@
 import React, {useState}from 'react';
 import axios from 'axios';
-import Input from '@mui/joy/Input';
-import { Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { OPENAI_API_KEY } from '../../secrets';
+import { Audio } from  'react-loader-spinner'
+
 
 const Present = () => {
     const [age, setAge] = useState('')
@@ -14,8 +14,16 @@ const Present = () => {
     const [interest2, setInterest2] = useState('')
     const [interest3, setInterest3] = useState('')
     const [gift, setGift] = useState([])
+    const [loading, setLoading] = useState(false);
 
-    const submit = async () => {
+
+
+    const submit = async (e) => {
+    e.preventDefault()
+    setLoading(true);
+        
+
+
        try {
          console.log('submitted')
         const response =  await axios.post('https://api.openai.com/v1/chat/completions',
@@ -29,29 +37,9 @@ const Present = () => {
  organization: "org-ED6jkoSYo0F2euGczF01T5sv"}
 })
 
-//console.log(response)
-//console.log(response.data.choices[0].message.content)
-// let giftString = response.data.choices[0].message.content
-// console.log(giftString)
-// var matches = giftString.match(/\bhttps?:\/\/\S+/gi);
-//[1, 2] 
-// const[el1, el2] = [1, 2] but can name anything you want imagine the string 
-//1. Gaming headset - https://www.amazon.com
-// setGift(giftString.split('\n').map(string => {
-//     const [ name, url ] = string.split(' - ')
-//     return { name, url }
-// })
-// )
-
 let string = response.data.choices[0].message.content
 
 const urls = string.match(/\bhttps?:\/\/\S+/gi);
-
-/** 
-[
-{name: '1) family..', url: 'https://www.personalizationmall.com/Personalized-Family-Tree-Picture-Frame-p14368.prod?sdest=dept&sdestid=1737&storeid=23&categoryid=1737'}
-]
-*/
 
 setGift(urls.map(url => {
   const found = string.indexOf(url)
@@ -60,17 +48,14 @@ setGift(urls.map(url => {
   const substring = `${name}${url}`;
   string = string.slice(substring.length);
   
+  
   return {
     name: name.replace('\n', ''),
     url,
   }
 })
 )
-
-
-// console.log(a)
-
-//setGift(response.data.choices[0].message.content)
+setLoading(false)
        } catch (error) {
         console.log(error)
        }
@@ -98,7 +83,18 @@ setGift(urls.map(url => {
       
                   <Button onClick={ submit } disabled={ !age || !minPrice || !maxPrice || !interest1 || !interest2}>Generate Birthday Present</Button>
                 </form>
-                {gift.map((gift, idx) => <div key={idx}><a href={gift.url}  target={'_blank'}>{gift.name}</a></div>)}
+                    <div style={{ display: 'flex', alignItems: "center", justifyContent: "center" }}>
+                    {loading ? <Audio
+                        style= {{alignItems: "center", justifyContent: "center"}}
+                        height = "80"
+                        width = "80"
+                        radius = "9"
+                        color = 'green'
+                        ariaLabel = 'three-dots-loading'     
+                    /> : ''}
+                    </div>
+                {gift.map((gift, idx) => <div key={idx}><a href={gift.url}  target={'_blank'}>{gift.name}</a></div>)
+                }
             </div>
         </>
     )

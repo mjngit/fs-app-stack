@@ -22,6 +22,11 @@ const syncAndSeed = async()=> {
     method: 'GET',
     url: `https://api.sportsdata.io/v3/mma/scores/json/Event/301?key=${process.env.UFC_IO_API_KEY}`,
   };
+
+  const dernHillOptions = {
+    method: 'GET',
+    url: `https://api.sportsdata.io/v3/mma/scores/json/Event/303?key=${process.env.UFC_IO_API_KEY}`,
+  }
   
   
   // try {
@@ -36,6 +41,7 @@ const syncAndSeed = async()=> {
   
     const response1 = await axios.request(options1);
     const response = await axios.request(options);
+    const dernHillResponse = await axios.request(dernHillOptions);
     //console.log(response.data, response.data[0].matchup[0])
     const f1 = response.data[0].matchup[0]
     const f2 = response.data[0].matchup[1]
@@ -61,12 +67,33 @@ const syncAndSeed = async()=> {
     const f22 = response.data[10].matchup[1]
     const f23 = response.data[11].matchup[0]
     const f24 = response.data[11].matchup[1]
-  // console.log(response1.data.Fights[1].Fighters[0]['LastName'], response1.data.Fights[1].Fighters[0]['Moneyline'] )
-  // console.log(response1.data.Fights[12].Fighters[0]['LastName'], response1.data.Fights[12].Fighters[0]['Moneyline'] )
-  // console.log(response1.data.Fights[12].Fighters[1]['LastName'], response1.data.Fights[12].Fighters[1]['Moneyline'] )
-  //console.log(response1.data.Fights[13].Fighters[0]['LastName'], response1.data.Fights[13].Fighters[0]['Moneyline'] )
-  //console.log(response1.data.Fights[13].Fighters[1]['LastName'], response1.data.Fights[13].Fighters[1]['Moneyline'] )
-  //moneyLine: response1.data.Fights[2].Fighters[0]['Moneyline']
+    const angelaHill = dernHillResponse.data.Fights[1].Fighters[0]
+    const mackenzieDern = dernHillResponse.data.Fights[1].Fighters[1]
+    const anthonyHernandez = dernHillResponse.data.Fights[2].Fighters[0]
+    const edmenShahbazyan = dernHillResponse.data.Fights[2].Fighters[1]
+    const emilyDucote = dernHillResponse.data.Fights[4].Fighters[0]
+    const loopyGodinez = dernHillResponse.data.Fights[4].Fighters[1]
+    const andreFialho = dernHillResponse.data.Fights[5].Fighters[0]
+    const joaquinBuckley = dernHillResponse.data.Fights[5].Fighters[1]
+    const michaelJohnson = dernHillResponse.data.Fights[6].Fighters[0]
+    const diegoFerreira = dernHillResponse.data.Fights[6].Fighters[1]
+    const viacheslavBorshchev = dernHillResponse.data.Fights[7].Fighters[0]
+    const mahashate = dernHillResponse.data.Fights[7].Fighters[1]
+    const karolinaKowalkiewicz = dernHillResponse.data.Fights[8].Fighters[0]
+    const vanessaDemopoulos = dernHillResponse.data.Fights[8].Fighters[1]
+    const gilbertUrbina = dernHillResponse.data.Fights[9].Fighters[0]
+    const orionCosce = dernHillResponse.data.Fights[9].Fighters[1]
+    const ilirLatifi = dernHillResponse.data.Fights[10].Fighters[0]
+    const rodrigoNascimento = dernHillResponse.data.Fights[10].Fighters[1]
+    const chaseHooper = dernHillResponse.data.Fights[11].Fighters[0]
+    const nickFiore = dernHillResponse.data.Fights[11].Fighters[1]
+    const nataliaSilva = dernHillResponse.data.Fights[12].Fighters[0]
+    const victoriaLeonardo = dernHillResponse.data.Fights[12].Fighters[1]
+    const clayCarpenter = dernHillResponse.data.Fights[13].Fighters[0]
+    const stephenErceg = dernHillResponse.data.Fights[13].Fighters[1]
+    const takashiSato = dernHillResponse.data.Fights[14].Fighters[0]
+    const thembaGorimbo = dernHillResponse.data.Fights[14].Fighters[1]
+
   // console.log('f3:' + f3)
   // console.log('f4:' + f4)
   // console.log('f5:' + f5)
@@ -90,41 +117,6 @@ const syncAndSeed = async()=> {
   // console.log('f23:' + f23)
   // console.log('f24:' + f24)
 
-
-    //  get 8 fighters and put them into my database
-    //  const fighters = await getFirst2Fighters();
-    // for(let i = 1; i < 5; i++){
-    //   let fight1 = response.data[i].matchup[0]
-    //   let fight2 = response.data[i].matchup[1]
-    //   await Promise.all(
-    //     Fighter.create({
-    //       name: response.data[i].matchup[0],
-    //       defense: response.data[i].tale_of_the_tape.Defense[fight1],
-    //       reach: response.data[i].tale_of_the_tape.Reach[fight1],
-    //       strikesAbsorbedPerMin: response.data[i].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][fight1],
-    //       strikesLandedPerMin: response.data[i].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][fight1],
-    //       avgFightTime: response.data[i].tale_of_the_tape['Average Fight Time'][fight1],
-    //       avgSubPer15: response.data[i].tale_of_the_tape['Submission Average/15 min.'][fight1],
-    //       takedownAcc: response.data[i].tale_of_the_tape['Takedown Accuracy'][fight1],
-    //       takedownDef: response.data[i].tale_of_the_tape['Takedown Defense'][fight1],
-    //       avgTakedownsPer15: response.data[i].tale_of_the_tape['Takedowns Average/15 min.'][fight1],
-    //       dob: response.data[i].tale_of_the_tape.DOB[fight1],
-    //     }),
-    //     Fighter.create({
-    //         name: response.data[i].matchup[1],
-    //         defense: response.data[i].tale_of_the_tape.Defense[fight2],
-    //         reach: response.data[i].tale_of_the_tape.Reach[fight2],
-    //         strikesAbsorbedPerMin: response.data[i].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][fight2],
-    //         strikesLandedPerMin: response.data[i].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][fight2],
-    //         avgFightTime: response.data[i].tale_of_the_tape['Average Fight Time'][fight2],
-    //         avgSubPer15: response.data[i].tale_of_the_tape['Submission Average/15 min.'][fight2],
-    //         takedownAcc: response.data[i].tale_of_the_tape['Takedown Accuracy'][fight2],
-    //         takedownDef: response.data[i].tale_of_the_tape['Takedown Defense'][fight2],
-    //         avgTakedownsPer15: response.data[i].tale_of_the_tape['Takedowns Average/15 min.'][fight2],
-    //         dob: response.data[i].tale_of_the_tape.DOB[fight2],
-    //       }),
-    //   )
-    // }
 
   const [moe, lucy, larry, ethyl, fighter1, fighter2, fighter3, fighter4,fighter5, fighter6,fighter7, fighter8,fighter9, fighter10,
     fighter11, fighter12, fighter13, fighter14,fighter15, fighter16,fighter17, fighter18,fighter19, fighter20,fighter21,fighter22,fighter23,fighter24] = await Promise.all([
@@ -339,7 +331,7 @@ const syncAndSeed = async()=> {
                 id: 11,
                 matchupId: 6,
                 record: response.data[5].tale_of_the_tape['Wins/Losses/Draws'][f11],
-                moneyLine: response1.data.Fights[6].Fighters[0]['Moneyline']              
+                moneyLine: response1.data.Fights[6].Fighters[1]['Moneyline']              
               }),
               Fighter.create({
                 //Court Mcgee
@@ -358,7 +350,7 @@ const syncAndSeed = async()=> {
                   id: 12,
                   matchupId: 6,
                   record: response.data[5].tale_of_the_tape['Wins/Losses/Draws'][f12],
-                  moneyLine: response1.data.Fights[6].Fighters[1]['Moneyline']
+                  moneyLine: response1.data.Fights[6].Fighters[0]['Moneyline']
               }),
                 Fighter.create({
                   //Ji Yeon Kim
