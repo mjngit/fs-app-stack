@@ -7,7 +7,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-// import Typography from '@mui/material/Typography';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import { Typography } from '@mui/material';
 
 const Fighter = () => {
     const { fighters } = useSelector(state => state)
@@ -384,51 +388,8 @@ if(blueInches[1] === '"'){
 
 export default Fighter
 
-// import * as React from 'react';
-import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
-import InboxIcon from '@mui/icons-material/Inbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import { fontWeight } from '@mui/system';
-import { Typography } from '@mui/material';
 
 
-//   return (
-//     <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-//       <nav aria-label="main mailbox folders">
-//         <List>
-//           <ListItem disablePadding>
-//             <ListItemButton>
-//               <ListItemIcon>
-//                 <InboxIcon />
-//               </ListItemIcon>
-//               <ListItemText primary="Inbox" />
-//             </ListItemButton>
-//           </ListItem>
-//           <ListItem disablePadding>
-//             <ListItemButton>
-//               <ListItemIcon>
-//                 <DraftsIcon />
-//               </ListItemIcon>
-//               <ListItemText primary="Drafts" />
-//             </ListItemButton>
-//           </ListItem>
-//         </List>
-//       </nav>
-//       <Divider />
-//       <nav aria-label="secondary mailbox folders">
-//         <List>
-//           <ListItem disablePadding>
-//               <ListItemText primary="Trash" />
-//           </ListItem>
-//         </List>
-//       </nav>
-//     </Box>
-//   );
 
-
+// response.data['summaries'][0]['sport_event']['statistics']
+// http://api.sportradar.us/mma/trial/v2/en/competitors/sr:competitor:237654/summaries.json?api_key=${SPORT_RADAR_API_KEY}

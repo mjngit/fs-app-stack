@@ -3,7 +3,7 @@ import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { OPENAI_API_KEY } from '../../secrets';
-import { Audio } from  'react-loader-spinner'
+import { Audio } from  'react-loader-spinner';
 
 
 const Present = () => {

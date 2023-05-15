@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Home from './Home';
 import Login from './Login';
 import { useSelector, useDispatch } from 'react-redux';
@@ -15,11 +15,26 @@ import Register from './Register'
 
 const App = ()=> {
   const { auth, fighters } = useSelector(state => state);
+  const prevAuth = useRef(auth)
   const dispatch = useDispatch();
   useEffect(()=> {
     dispatch(loginWithToken());
     dispatch(fetchFighters())
   }, []);
+
+  useEffect(() => {
+    if(!prevAuth.current.id && auth.id ){
+      console.log('you just signed in!')
+    }
+    if(prevAuth.current.id && !auth.id){
+      console.log('you just logged out')
+    }
+  }, [auth])
+
+  useEffect(() => {
+    prevAuth.current = auth
+  })
+  
 
   return (
     <div>
