@@ -43,7 +43,7 @@ const Present = () => {
     return (
         <>
         <div>
-                <h1 style={{display: 'flex', justifyContent:'center', alignItems:'center'}}>AI Trip Planner</h1>
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><h1>AI Trip Planner</h1></div>
                 <form onSubmit={ getTrip } style={{display: 'flex', justifyContent:'center', alignItems:'center'}}>
                   <div style={{ marginBottom: 8 }}/>
                   <div style={{ display:'flex', flexDirection: 'row', justifyContent:'center' }}>

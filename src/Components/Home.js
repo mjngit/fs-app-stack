@@ -16,7 +16,10 @@ const Welcome = () => {
       <Card sx={{ minWidth: 275 }}>
     <CardContent>
       <Typography variant="h2" component="div">
-      Welcome to the Stack Shack { auth.username }! 
+      Welcome to the Stack Shack { auth.username }!
+      </Typography>
+      <Typography sx={{ mb: .5, mt: .5 }} color="text.secondary" variant="h4" component="a" href='/#/account'>
+      Add some info to your profile!
       </Typography>
       <Typography variant="h3" component="div">
       Looking for a present for a friend?

@@ -64,7 +64,8 @@ setLoading(false)
     return (
         <>
         <div>
-                <h1>Birthday Present Generator</h1>
+                {/* <h1 style={{display: 'flex', justifyContent:'center', alignItems:'center'}}>Birthday Present Generator</h1> */}
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><h1>Birthday Present Generator</h1></div>
                 <form onSubmit={ submit } style={{ display: 'flex' }}>
                   <div style={{ marginBottom: 8 }}/>
                   <TextField label="Age" variant="outlined" value={ age } onChange={ev => setAge(ev.target.value)} />

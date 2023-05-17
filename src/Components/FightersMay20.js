@@ -13,21 +13,21 @@ import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import { Typography } from '@mui/material';
 
-const Fighter = () => {
+const FightersMay20 = () => {
     const { fighters } = useSelector(state => state)
 
-    const fightersMay13 = fighters.sort((a, b) => {
+    const fightersMay20 = fighters.sort((a, b) => {
         return a.id - b.id
-    }).filter(fighter => fighter.id <= 24)
-
-    console.log(fightersMay13)
+    }).filter(fighter => fighter.id > 24)
+   
+    console.log(fightersMay20)
 
     let notes = {}
     
 
-    for(let i = 0; i < fightersMay13.length; i += 2){
-        let redCorn = fightersMay13[i]
-        let blueCorn = fightersMay13[i + 1]
+    for(let i = 0; i < fightersMay20.length; i += 2){
+        let redCorn = fightersMay20[i]
+        let blueCorn = fightersMay20[i + 1]
         let redCornTDD
         let blueCornTDD
         let redCornTDA
@@ -178,7 +178,7 @@ if(blueInches[1] === '"'){
 
   return (
     <>
-     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><h1>Fighters Of The Week: May 13</h1></div>
+     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><h1>Fighters Of The Week</h1></div>
 
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
@@ -200,7 +200,7 @@ if(blueInches[1] === '"'){
           </TableRow>
         </TableHead>
         <TableBody>
-          {fightersMay13 ? fightersMay13.map((fighter) => (
+          {fightersMay20.map((fighter) => (
             <TableRow
               key={fighter.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -221,14 +221,14 @@ if(blueInches[1] === '"'){
               <TableCell align="right">{fighter.height}</TableCell>
               <TableCell align="right">{fighter.moneyLine}</TableCell>
             </TableRow>
-          )) : ''}
+          ))}
         </TableBody>
       </Table>
     </TableContainer>
     <Typography style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}variant="h2">Main Card</Typography>        
-      <h3> Main Event:  {fighters[0] ? fighters[0].name + " (" + (fighters[0].moneyLine) + ')'  : ''} vs. {fighters[1] ? fighters[1].name + " (" + fighters[1].moneyLine + ')' : ''}</h3>
+      <h3> Main Event:  {fightersMay20[0] ? fightersMay20[0].name + " (" + (fightersMay20[0].moneyLine) + ')'  : ''} vs. {fightersMay20[1] ? fightersMay20[1].name + " (" + fightersMay20[1].moneyLine + ')' : ''}</h3>
     <List>
-        {notes[1] ? notes[1].map((note, idx) => {
+        {notes[13] ? notes[13].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -239,9 +239,9 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 2: {fighters[2] ? fighters[2].name + " (" + (fighters[2].moneyLine) + ')' : ''} vs. {fighters[3] ? fighters[3].name + " (" + (fighters[3].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 2: {fightersMay20[2] ? fightersMay20[2].name + " (" + (fightersMay20[2].moneyLine) + ')' : ''} vs. {fightersMay20[3] ? fightersMay20[3].name + " (" + (fightersMay20[3].moneyLine) + ')' : ''}</h3>
     <List>
-        {notes[2] ? notes[2].map((note, idx) => {
+        {notes[14] ? notes[14].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -252,9 +252,9 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 3: {fighters[4] ? fighters[4].name + " (" + (fighters[4].moneyLine) + ')' : ''} vs. {fighters[5] ? fighters[5].name + " (" + (fighters[5].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 3: {fightersMay20[4] ? fightersMay20[4].name + " (" + (fightersMay20[4].moneyLine) + ')' : ''} vs. {fightersMay20[5] ? fightersMay20[5].name + " (" + (fightersMay20[5].moneyLine) + ')' : ''}</h3>
     <List>
-        {notes[3] ? notes[3].map((note, idx) => {
+        {notes[15] ? notes[15].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -265,9 +265,9 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 4: {fighters[6] ? fighters[6].name + " (" + (fighters[6].moneyLine) + ')' : ''} vs. {fighters[7] ? fighters[7].name + " (" + (fighters[7].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 4: {fightersMay20[6] ? fightersMay20[6].name + " (" + (fightersMay20[6].moneyLine) + ')' : ''} vs. {fightersMay20[7] ? fightersMay20[7].name + " (" + (fightersMay20[7].moneyLine) + ')' : ''}</h3>
     <List>
-        {notes[4] ? notes[4].map((note, idx) => {
+        {notes[16] ? notes[16].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -278,9 +278,9 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 5: {fighters[8] ? fighters[8].name + " (" + (fighters[8].moneyLine) + ')' : ''} vs. {fighters[9] ? fighters[9].name + " (" + (fighters[9].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 5: {fightersMay20[8] ? fightersMay20[8].name + " (" + (fightersMay20[8].moneyLine) + ')' : ''} vs. {fightersMay20[9] ? fightersMay20[9].name + " (" + (fightersMay20[9].moneyLine) + ')' : ''}</h3>
     <List>
-        {notes[5] ? notes[5].map((note, idx) => {
+        {notes[17] ? notes[17].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -292,9 +292,9 @@ if(blueInches[1] === '"'){
     <Divider />
     <Typography style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} variant="h2">Pre-lims</Typography>   
 
-    <h3>Fight 6: {fighters[10] ? fighters[10].name + " (" + (fighters[10].moneyLine) + ')' : ''} vs. {fighters[11] ? fighters[11].name + " (" + (fighters[11].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 6: {fightersMay20[10] ? fightersMay20[10].name + " (" + (fightersMay20[10].moneyLine) + ')' : ''} vs. {fightersMay20[11] ? fightersMay20[11].name + " (" + (fightersMay20[11].moneyLine) + ')' : ''}</h3>
     <List>
-        {notes[6] ? notes[6].map((note, idx) => {
+        {notes[18] ? notes[18].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -305,9 +305,9 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
        
-    <h3>Fight 7: {fighters[12] ? fighters[12].name + " (" + (fighters[12].moneyLine) + ')' : ''} vs. {fighters[13] ? fighters[13].name + " (" + (fighters[13].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 7: {fightersMay20[12] ? fightersMay20[12].name + " (" + (fightersMay20[12].moneyLine) + ')' : ''} vs. {fightersMay20[13] ? fightersMay20[13].name + " (" + (fightersMay20[13].moneyLine) + ')' : ''}</h3>
     <List>
-        {notes[7] ? notes[7].map((note, idx) => {
+        {notes[19] ? notes[19].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -318,9 +318,9 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 8: {fighters[14] ? fighters[14].name + " (" + (fighters[14].moneyLine) + ')' : ''} vs. {fighters[15] ? fighters[15].name + " (" + (fighters[15].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 8: {fightersMay20[14] ? fightersMay20[14].name + " (" + (fightersMay20[14].moneyLine) + ')' : ''} vs. {fightersMay20[15] ? fightersMay20[15].name + " (" + (fightersMay20[15].moneyLine) + ')' : ''}</h3>
     <List>
-        {notes[8] ? notes[8].map((note, idx) => {
+        {notes[20] ? notes[20].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -331,9 +331,9 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 9: {fighters[16] ? fighters[16].name + " (" + (fighters[16].moneyLine) + ')' : ''} vs. {fighters[17] ? fighters[17].name + " (" + (fighters[17].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 9: {fightersMay20[16] ? fightersMay20[16].name + " (" + (fightersMay20[16].moneyLine) + ')' : ''} vs. {fightersMay20[17] ? fightersMay20[17].name + " (" + (fightersMay20[17].moneyLine) + ')' : ''}</h3>
     <List>
-        {notes[9] ? notes[9].map((note, idx) => {
+        {notes[21] ? notes[21].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -344,9 +344,9 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 10: {fighters[18] ? fighters[18].name + " (" + (fighters[18].moneyLine) + ')' : ''} vs. {fighters[19] ? fighters[19].name + " (" + (fighters[19].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 10: {fightersMay20[18] ? fightersMay20[18].name + " (" + (fightersMay20[18].moneyLine) + ')' : ''} vs. {fightersMay20[19] ? fightersMay20[19].name + " (" + (fightersMay20[19].moneyLine) + ')' : ''}</h3>
     <List>
-        {notes[10] ? notes[10].map((note, idx) => {
+        {notes[22] ? notes[22].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -357,9 +357,9 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 11: {fighters[20] ? fighters[20].name + " (" + (fighters[20].moneyLine) + ')'  : ''} vs. {fighters[21] ? fighters[21].name + " (" + (fighters[21].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 11: {fightersMay20[20] ? fightersMay20[20].name + " (" + (fightersMay20[20].moneyLine) + ')'  : ''} vs. {fightersMay20[21] ? fightersMay20[21].name + " (" + (fightersMay20[21].moneyLine) + ')' : ''}</h3>
     <List>
-        {notes[11] ? notes[11].map((note, idx) => {
+        {notes[23] ? notes[23].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -370,9 +370,9 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 12: {fighters[22] ? fighters[22].name + " (" + (fighters[22].moneyLine) + ')' : ''} vs. {fighters[23] ? fighters[23].name + " (" + (fighters[23].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 12: {fightersMay20[22] ? fightersMay20[22].name + " (" + (fightersMay20[22].moneyLine) + ')' : ''} vs. {fightersMay20[23] ? fightersMay20[23].name + " (" + (fightersMay20[23].moneyLine) + ')' : ''}</h3>
     <List>
-        {notes[12] ? notes[12].map((note, idx) => {
+        {notes[24] ? notes[24].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -387,10 +387,4 @@ if(blueInches[1] === '"'){
   )
 }
 
-export default Fighter
-
-
-
-
-// radarResponse.data['summaries'][0]['sport_event']['statistics']
-// http://api.sportradar.us/mma/trial/v2/en/competitors/sr:competitor:237654/summaries.json?api_key=${SPORT_RADAR_API_KEY}
+export default FightersMay20

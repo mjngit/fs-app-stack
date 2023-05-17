@@ -11,6 +11,7 @@ import TripAi from './TripAi'
 import Logout from './Logout'
 import Register from './Register'
 import Account from './Account'
+import FightersMay20 from './FightersMay20'
 
 
 
@@ -49,25 +50,53 @@ const App = ()=> {
               <Route path='/register' element={ <Register /> } />
               <Route path='/home' element={ <Home /> } />
               {/* <Route path='/logout' element={ <Logout /> } /> */}
-      </Routes>
-      {
-        !!auth.id  && (
-          <div>
-            <Routes>
               <Route path='/present' element={ <Present /> } />
               <Route path='/fighters' element={ <Fighter /> } />
+              <Route path='/fightersMay20' element={ <FightersMay20 /> } />
               <Route path='/trip' element={ <TripAi /> } />
               {/* <Route path='/login' element={ <Login /> } /> */}
               <Route path='/logout' element={ <Logout /> } />
               {/* <Route path='/register' element={ <Register /> } />
               <Route path='/home' element={ <Home /> } /> */}
               <Route path='/account' element={ <Account /> } />
-            </Routes>
-          </div>
-        )
-      }
+      </Routes>
+      
     </div>
   );
+
 };
 
 export default App;
+
+
+// return (
+//   <div>
+//      <Nav />
+//     <h1>MN Stackathon!</h1>
+//     {/* {
+//       auth.id ? <Home /> : <Login />
+//     } */}
+//     <Routes>
+//             <Route path='/login' element={ <Login /> } />
+//             <Route path='/register' element={ <Register /> } />
+//             <Route path='/home' element={ <Home /> } />
+//             {/* <Route path='/logout' element={ <Logout /> } /> */}
+//     </Routes>
+//     {
+//       !!auth.id  && (
+//         <div>
+//           <Routes>
+//             <Route path='/present' element={ <Present /> } />
+//             <Route path='/fighters' element={ <Fighter /> } />
+//             <Route path='/trip' element={ <TripAi /> } />
+//             {/* <Route path='/login' element={ <Login /> } /> */}
+//             <Route path='/logout' element={ <Logout /> } />
+//             {/* <Route path='/register' element={ <Register /> } />
+//             <Route path='/home' element={ <Home /> } /> */}
+//             <Route path='/account' element={ <Account /> } />
+//           </Routes>
+//         </div>
+//       )
+//     }
+//   </div>
+// );

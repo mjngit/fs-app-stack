@@ -33,7 +33,7 @@ const Login = ()=> {
       <div style={{ marginBottom: 8 }}/>
       <TextField label="Password" name = 'password' variant="outlined" value={ credentials.password } onChange={onChange} />
 
-      <Button onClick={ login } disabled={ !credentials}>Login</Button>
+      <Button onClick={ login } disabled={ !credentials }>Login</Button>
         {/* <input
           placeholder='username'
           value = { credentials.username }

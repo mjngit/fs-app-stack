@@ -35,6 +35,7 @@ const Register = ()=> {
     // </form>
 
     <form onSubmit={ _register }>
+        <h1 style={{display: 'flex', justifyContent:'center', alignItems:'center'}}>Registration</h1>
     <div style={{ marginBottom: 16 }}/>
     <TextField label="Username" name = 'username' variant="outlined" value={ username } onChange={ev => setUsername(ev.target.value)} />
     <div style={{ marginBottom: 4 }}/>
