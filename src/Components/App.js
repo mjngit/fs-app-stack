@@ -10,6 +10,7 @@ import Nav from './Nav'
 import TripAi from './TripAi'
 import Logout from './Logout'
 import Register from './Register'
+import Account from './Account'
 
 
 
@@ -60,6 +61,7 @@ const App = ()=> {
               <Route path='/logout' element={ <Logout /> } />
               {/* <Route path='/register' element={ <Register /> } />
               <Route path='/home' element={ <Home /> } /> */}
+              <Route path='/account' element={ <Account /> } />
             </Routes>
           </div>
         )

@@ -27,7 +27,47 @@ const syncAndSeed = async()=> {
     method: 'GET',
     url: `https://api.sportsdata.io/v3/mma/scores/json/Event/303?key=${process.env.UFC_IO_API_KEY}`,
   }
+
+//   const optionsMay20 = {
+//     method: 'GET',
+//     url: 'https://mma-stats.p.rapidapi.com/May_20_2023',
+//     params: {offset: '0', limit: '15'},
+//     headers: {
+//       'X-RapidAPI-Key': process.env.UFC_API_KEY,
+//       'X-RapidAPI-Host': 'mma-stats.p.rapidapi.com'
+//     }
+//   };
+
+//  const responseMay20 = await axios.request(optionsMay20);
+//  console.log(responseMay20.data)
+
+
+// radarResponse.data['summaries'][0]['sport_event']['statistics']
+// http://api.sportradar.us/mma/trial/v2/en/competitors/sr:competitor:237654/summaries.json?api_key=${process.env.SPORT_RADAR_API_KEY}
+  // const radarResponse = {
+  //   method: 'GET',
+  //   url: `http://api.sportradar.us/mma/trial/v2/en/competitors/sr:competitor:237654/summaries.json?api_key=${process.env.SPORT_RADAR_API_KEY}`
+  // }
   
+  // const winBonus = (response, id) => {
+  //   let bonus = 0
+  //   if(response.data['summaries'][0]['sport_event_status']['winner_id'] === id){
+  //     if(response.data['summaries'][0]['sport_event_status']['method'].split('_')[0] === 'decision'){
+  //       bonus += 20
+  //     } else if(response.data['summaries'][0]['sport_event_status']['final_round'] === 1) {
+  //       bonus += 100
+  //     } else if(response.data['summaries'][0]['sport_event_status']['final_round'] === 2) {
+  //       bonus += 75
+  //     } else if(response.data['summaries'][0]['sport_event_status']['final_round'] === 3) {
+  //       bonus += 50
+  //     } else if(response.data['summaries'][0]['sport_event_status']['final_round'] === 4) {
+  //       bonus += 35
+  //     } else if(response.data['summaries'][0]['sport_event_status']['final_round'] === 5) {
+  //       bonus += 25
+  //     }
+  //   }
+  //   return bonus
+  // }
   
   // try {
   //   const response1 = await axios.request(options1);
@@ -67,32 +107,90 @@ const syncAndSeed = async()=> {
     const f22 = response.data[10].matchup[1]
     const f23 = response.data[11].matchup[0]
     const f24 = response.data[11].matchup[1]
-    const angelaHill = dernHillResponse.data.Fights[1].Fighters[0]
-    const mackenzieDern = dernHillResponse.data.Fights[1].Fighters[1]
-    const anthonyHernandez = dernHillResponse.data.Fights[2].Fighters[0]
-    const edmenShahbazyan = dernHillResponse.data.Fights[2].Fighters[1]
-    const emilyDucote = dernHillResponse.data.Fights[4].Fighters[0]
-    const loopyGodinez = dernHillResponse.data.Fights[4].Fighters[1]
-    const andreFialho = dernHillResponse.data.Fights[5].Fighters[0]
-    const joaquinBuckley = dernHillResponse.data.Fights[5].Fighters[1]
-    const michaelJohnson = dernHillResponse.data.Fights[6].Fighters[0]
-    const diegoFerreira = dernHillResponse.data.Fights[6].Fighters[1]
-    const viacheslavBorshchev = dernHillResponse.data.Fights[7].Fighters[0]
-    const mahashate = dernHillResponse.data.Fights[7].Fighters[1]
-    const karolinaKowalkiewicz = dernHillResponse.data.Fights[8].Fighters[0]
-    const vanessaDemopoulos = dernHillResponse.data.Fights[8].Fighters[1]
-    const gilbertUrbina = dernHillResponse.data.Fights[9].Fighters[0]
-    const orionCosce = dernHillResponse.data.Fights[9].Fighters[1]
-    const ilirLatifi = dernHillResponse.data.Fights[10].Fighters[0]
-    const rodrigoNascimento = dernHillResponse.data.Fights[10].Fighters[1]
-    const chaseHooper = dernHillResponse.data.Fights[11].Fighters[0]
-    const nickFiore = dernHillResponse.data.Fights[11].Fighters[1]
-    const nataliaSilva = dernHillResponse.data.Fights[12].Fighters[0]
-    const victoriaLeonardo = dernHillResponse.data.Fights[12].Fighters[1]
-    const clayCarpenter = dernHillResponse.data.Fights[13].Fighters[0]
-    const stephenErceg = dernHillResponse.data.Fights[13].Fighters[1]
-    const takashiSato = dernHillResponse.data.Fights[14].Fighters[0]
-    const thembaGorimbo = dernHillResponse.data.Fights[14].Fighters[1]
+  //   const angelaHill = dernHillResponse.data.Fights[1].Fighters[0] //sr:competitor:542071
+  //   const angelaHillID = 'sr:competitor:542071'
+  //   const angelaHillRadarOptions = {
+  //     method: 'GET',
+  //     url: `http://api.sportradar.us/mma/trial/v2/en/competitors/sr:competitor:542071/summaries.json?api_key=${process.env.SPORT_RADAR_API_KEY}`
+  //   }
+  //   const angelaHillRadarResponse = await axios.request(angelaHillRadarOptions);
+  //   //console.log(angelaHillRadarResponse.data['summaries'][0]['sport_event']['statistics'])
+  //   //console.log(angelaHillRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics'])
+  //   const angelaHillLastFightSS = angelaHillRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['significant_strikes']
+  //   const angelaHillLastFightTD = angelaHillRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['takedowns']
+  //   const angelaHillLastFightTDD = angelaHillRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics']['takedowns_attempted'] - angelaHillRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics']['takedowns']
+  //   const angelaHillLastFightKD = angelaHillRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['knockdowns']
+  //   const angelaHillLastFightSA = angelaHillRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['submission_attempts']
+  //   const angelaHillLastFightFS = (angelaHillLastFightSS * .6 + angelaHillLastFightTD * 6 + angelaHillLastFightTDD * 3 + angelaHillLastFightKD * 12 + angelaHillLastFightSA * 3)
+  //  // console.log(angelaHillLastFightFS)
+
+  //   const mackenzieDern = dernHillResponse.data.Fights[1].Fighters[1] //sr:competitor:399233
+  //   const mackenzieDernID = 'sr:competitor:399233'
+  //   const mackenzieDernRadarOptions = {
+  //     method: 'GET',
+  //     url: `http://api.sportradar.us/mma/trial/v2/en/competitors/sr:competitor:399233/summaries.json?api_key=${process.env.SPORT_RADAR_API_KEY}`
+  //   }
+  //   const mackenzieDernRadarResponse = await axios.request(mackenzieDernRadarOptions);
+  //   const mackenzieDernLastFightSS = mackenzieDernRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['significant_strikes']
+  //   const mackenzieDernLastFightTD = mackenzieDernRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['takedowns']
+  //   const mackenzieDernLastFightTDD = mackenzieDernRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics']['takedowns_attempted'] - mackenzieDernRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics']['takedowns']
+  //   const mackenzieDernLastFightKD = mackenzieDernRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['knockdowns']
+  //   const mackenzieDernLastFightSA = mackenzieDernRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['submission_attempts']
+  //   const mackenzieDernLastFightFS = (mackenzieDernLastFightSS * .6 + mackenzieDernLastFightTD * 6 + mackenzieDernLastFightTDD * 3 + mackenzieDernLastFightKD * 12 + mackenzieDernLastFightSA * 3 + winBonus(mackenzieDernRadarResponse,mackenzieDernID))
+    //console.log(mackenzieDernLastFightFS)
+    //console.log(mackenzieDernRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'])
+    //console.log(mackenzieDernRadarResponse.data['summaries'][0]['sport_event_status'])
+    // console.log(mackenzieDernRadarResponse.data['summaries'][0]['sport_event_status']['method'])
+    // console.log(mackenzieDernRadarResponse.data['summaries'][0]['sport_event_status']['winner_id'])
+    // console.log(mackenzieDernRadarResponse.data['summaries'][0]['sport_event_status']['winner_id'] === mackenzieDernID)
+  
+    // console.log(winBonus(angelaHillRadarResponse ,angelaHillID))
+   
+//     const anthonyHernandez = dernHillResponse.data.Fights[2].Fighters[0] //
+//     const anthonyHernandezID = 'sr:competitor:449127'
+//     const anthonyHernandezRadarOptions = {
+//       method: 'GET',
+//       url: `http://api.sportradar.us/mma/trial/v2/en/competitors/sr:competitor:449127/summaries.json?api_key=${process.env.SPORT_RADAR_API_KEY}`
+//     }
+//     const anthonyHernandezRadarResponse = await axios.request(anthonyHernandezRadarOptions);
+//     const anthonyHernandezLastFightSS = anthonyHernandezRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics']['significant_strikes']
+//     const anthonyHernandezLastFightTD = anthonyHernandezRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics']['takedowns']
+//     const anthonyHernandezLastFightTDD = anthonyHernandezRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['takedowns_attempted'] - anthonyHernandezRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['takedowns']
+//     const anthonyHernandezLastFightKD = anthonyHernandezRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics']['knockdowns']
+//     const anthonyHernandezLastFightSA = anthonyHernandezRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics']['submission_attempts']
+//     const anthonyHernandezLastFightFS = (anthonyHernandezLastFightSS * .6 + anthonyHernandezLastFightTD * 6 + anthonyHernandezLastFightTDD * 3 + anthonyHernandezLastFightKD * 12 + anthonyHernandezLastFightSA * 3 + winBonus(anthonyHernandezRadarResponse,anthonyHernandezID))
+
+// console.log(anthonyHernandezLastFightFS)
+
+    // const edmenShahbazyan = dernHillResponse.data.Fights[2].Fighters[1] //sr:competitor:462119
+    // const edmenShahbazyanID = 'sr:competitor:462119'
+    // const edmenShahbazyanRadarOptions = {
+    //   method: 'GET',
+    //   url: `http://api.sportradar.us/mma/trial/v2/en/competitors/sr:competitor:462119/summaries.json?api_key=${process.env.SPORT_RADAR_API_KEY}`
+    // }
+    const emilyDucote = dernHillResponse.data.Fights[4].Fighters[0] //sr:competitor:303206
+    const loopyGodinez = dernHillResponse.data.Fights[4].Fighters[1] //sr:competitor:786758
+    const andreFialho = dernHillResponse.data.Fights[5].Fighters[0] //sr:competitor:257527
+    const joaquinBuckley = dernHillResponse.data.Fights[5].Fighters[1] //sr:competitor:430935
+    const michaelJohnson = dernHillResponse.data.Fights[6].Fighters[0] //sr:competitor:237654
+    const diegoFerreira = dernHillResponse.data.Fights[6].Fighters[1] //sr:competitor:413417
+    const viacheslavBorshchev = dernHillResponse.data.Fights[7].Fighters[0] //sr:competitor:878383
+    const mahashate = dernHillResponse.data.Fights[7].Fighters[1] //sr:competitor:847506
+    const karolinaKowalkiewicz = dernHillResponse.data.Fights[8].Fighters[0] //sr:competitor:237726
+    const vanessaDemopoulos = dernHillResponse.data.Fights[8].Fighters[1] //sr:competitor:733467
+    const gilbertUrbina = dernHillResponse.data.Fights[9].Fighters[0] //sr:competitor:828866
+    const orionCosce = dernHillResponse.data.Fights[9].Fighters[1] //sr:competitor:734247
+    const ilirLatifi = dernHillResponse.data.Fights[10].Fighters[0] //sr:competitor:246027
+    const rodrigoNascimento = dernHillResponse.data.Fights[10].Fighters[1] //sr:competitor:570415
+    const chaseHooper = dernHillResponse.data.Fights[11].Fighters[0] //sr:competitor:463619
+    const nickFiore = dernHillResponse.data.Fights[11].Fighters[1] //sr:competitor:511380
+    const nataliaSilva = dernHillResponse.data.Fights[12].Fighters[0] //sr:competitor:890667
+    const victoriaLeonardo = dernHillResponse.data.Fights[12].Fighters[1] // sr:competitor:497596
+    const clayCarpenter = dernHillResponse.data.Fights[13].Fighters[0] //sr:competitor:909469
+    const stephenErceg = dernHillResponse.data.Fights[13].Fighters[1] //sr:competitor:909471
+    const takashiSato = dernHillResponse.data.Fights[14].Fighters[0] //sr:competitor:564642
+    const thembaGorimbo = dernHillResponse.data.Fights[14].Fighters[1] //sr:competitor:563388
+
 
   // console.log('f3:' + f3)
   // console.log('f4:' + f4)

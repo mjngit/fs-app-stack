@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const JWT = process.env.JWT;
 
-
+const phoneValidationRegex = /\d{3}-\d{3}-\d{4}/
 const User = conn.define('user', {
   id: {
     type: UUID,
@@ -44,7 +44,33 @@ const User = conn.define('user', {
       }
       return `${prefix}${data}`;
     }
-  }
+  },
+  firstName: {
+    type: STRING
+  },
+  lastName: {
+    type: STRING
+  },
+  address: {
+    type: STRING
+  },
+  email: {
+    type: STRING,
+    validate: {
+      isEmail: true,
+    }
+  },
+  password: {
+    type: STRING
+  }, 
+  phone: {
+    type: STRING,
+    validate: {
+        validator: function(v) {
+            return phoneValidationRegex.test(v); 
+        },
+    }
+}
 });
 
 User.prototype.createOrder = async function(){

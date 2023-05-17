@@ -43,13 +43,13 @@ const Present = () => {
     return (
         <>
         <div>
-                <h1 style={{display: 'flex', justifyContent:'center'}}>AI Trip Planner</h1>
-                <form onSubmit={ getTrip } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <h1 style={{display: 'flex', justifyContent:'center', alignItems:'center'}}>AI Trip Planner</h1>
+                <form onSubmit={ getTrip } style={{display: 'flex', justifyContent:'center', alignItems:'center'}}>
                   <div style={{ marginBottom: 8 }}/>
-                  <div style={{ display:'flex', flexDirection: 'row', textAlign: 'end', alignSelf: 'end', padding: '0'}}>
+                  <div style={{ display:'flex', flexDirection: 'row', justifyContent:'center' }}>
                   <div style={{alignSelf: 'center', fontSize: '24'}}>I'm going to </div> 
                   <TextField label="City" variant="outlined" value={ city } onChange={ev => setCity(ev.target.value)} style={{ width: "20%", alignItems: 'center',  alignContent: 'center', marginLeft:'1%'}}/>
-                  <TextField label="Country" variant="outlined" value={ country } onChange={ev => setCountry(ev.target.value)} style={{ justifyContent: 'center',  width: "20%", marginLeft:'1%', marginRight:'1%' }}/> 
+                  <TextField label="Country" variant="outlined" value={ country } onChange={ev => setCountry(ev.target.value)} style={{ width: "20%", marginLeft:'1%', marginRight:'1%' }}/> 
                   <div style={{alignSelf: 'center', fontSize: '24'}}> for </div> 
                   <TextField label="Days" variant="outlined" value={ days } onChange={ev => setDays(ev.target.value)} style={{display: 'flex', alignSelf: 'start', width: "10%", marginLeft:'1%', marginRight:'1%' }} /> 
                   <div style={{alignSelf: 'center', fontSize: '24'}}> days.</div>

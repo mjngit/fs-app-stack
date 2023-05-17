@@ -391,5 +391,5 @@ export default Fighter
 
 
 
-// response.data['summaries'][0]['sport_event']['statistics']
+// radarResponse.data['summaries'][0]['sport_event']['statistics']
 // http://api.sportradar.us/mma/trial/v2/en/competitors/sr:competitor:237654/summaries.json?api_key=${SPORT_RADAR_API_KEY}
