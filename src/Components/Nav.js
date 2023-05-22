@@ -20,10 +20,13 @@ export default function Nav() {
             AI Trip Planner
           </Typography>
           <Typography href='/#/fighters' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
-            Fights Of Last Week
+            Fights Of May 13
           </Typography>
           <Typography href='/#/fightersMay20' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
-            Fights Of This Week
+            Fights Of May 20
+          </Typography>
+          <Typography href='/#/fightersJune3' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
+            Fights Of June 3
           </Typography>
           {auth.id ? <Button href='/#/logout' color="inherit">Logout</Button> : <Button href='/#/login' color="inherit">Login</Button>}
         </Toolbar>

@@ -60,9 +60,6 @@ const User = conn.define('user', {
       isEmail: true,
     }
   },
-  password: {
-    type: STRING
-  }, 
   phone: {
     type: STRING,
     validate: {
