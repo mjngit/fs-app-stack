@@ -196,7 +196,7 @@ if(blueInches[1] === '"'){
             <TableCell align="right">Takedown Defense</TableCell>
             <TableCell align="right">Birthday</TableCell>
             <TableCell align="right">Height</TableCell>
-            <TableCell align="right">Moneyline</TableCell>
+            <TableCell align="right">Record</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -219,14 +219,14 @@ if(blueInches[1] === '"'){
               <TableCell align="right">{Number(fighter.takedownDef.slice(0, 3)) === 100 ? <strong>{fighter.takedownDef}</strong> : fighter.takedownDef}</TableCell>
               <TableCell align="right">{fighter.dob}</TableCell>
               <TableCell align="right">{fighter.height}</TableCell>
-              <TableCell align="right">{fighter.moneyLine}</TableCell>
+              <TableCell align="right">{fighter.record}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
     <Typography style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}variant="h2">Main Card</Typography>        
-      <h3> Main Event:  {fightersJune3[0] ? fightersJune3[0].name + " (" + (fightersJune3[0].moneyLine) + ')'  : ''} vs. {fightersJune3[1] ? fightersJune3[1].name + " (" + fightersJune3[1].moneyLine + ')' : ''}</h3>
+      <h3> Main Event:  {fightersJune3[0] ? fightersJune3[0].name + " (" + (fightersJune3[0].record) + ')'  : ''} vs. {fightersJune3[1] ? fightersJune3[1].name + " (" + fightersJune3[1].record + ')' : ''}</h3>
     <List>
         {notes[25] ? notes[25].map((note, idx) => {
             return (
@@ -239,7 +239,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 2: {fightersJune3[2] ? fightersJune3[2].name + " (" + (fightersJune3[2].moneyLine) + ')' : ''} vs. {fightersJune3[3] ? fightersJune3[3].name + " (" + (fightersJune3[3].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 2: {fightersJune3[2] ? fightersJune3[2].name + " (" + (fightersJune3[2].record) + ')' : ''} vs. {fightersJune3[3] ? fightersJune3[3].name + " (" + (fightersJune3[3].record) + ')' : ''}</h3>
     <List>
         {notes[26] ? notes[26].map((note, idx) => {
             return (
@@ -252,7 +252,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 3: {fightersJune3[4] ? fightersJune3[4].name + " (" + (fightersJune3[4].moneyLine) + ')' : ''} vs. {fightersJune3[5] ? fightersJune3[5].name + " (" + (fightersJune3[5].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 3: {fightersJune3[4] ? fightersJune3[4].name + " (" + (fightersJune3[4].record) + ')' : ''} vs. {fightersJune3[5] ? fightersJune3[5].name + " (" + (fightersJune3[5].record) + ')' : ''}</h3>
     <List>
         {notes[27] ? notes[27].map((note, idx) => {
             return (
@@ -265,7 +265,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 4: {fightersJune3[6] ? fightersJune3[6].name + " (" + (fightersJune3[6].moneyLine) + ')' : ''} vs. {fightersJune3[7] ? fightersJune3[7].name + " (" + (fightersJune3[7].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 4: {fightersJune3[6] ? fightersJune3[6].name + " (" + (fightersJune3[6].record) + ')' : ''} vs. {fightersJune3[7] ? fightersJune3[7].name + " (" + (fightersJune3[7].record) + ')' : ''}</h3>
     <List>
         {notes[28] ? notes[28].map((note, idx) => {
             return (
@@ -278,7 +278,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 5: {fightersJune3[8] ? fightersJune3[8].name + " (" + (fightersJune3[8].moneyLine) + ')' : ''} vs. {fightersJune3[9] ? fightersJune3[9].name + " (" + (fightersJune3[9].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 5: {fightersJune3[8] ? fightersJune3[8].name + " (" + (fightersJune3[8].record) + ')' : ''} vs. {fightersJune3[9] ? fightersJune3[9].name + " (" + (fightersJune3[9].record) + ')' : ''}</h3>
     <List>
         {notes[29] ? notes[29].map((note, idx) => {
             return (
@@ -292,7 +292,7 @@ if(blueInches[1] === '"'){
     <Divider />
     <Typography style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} variant="h2">Pre-lims</Typography>   
 
-    <h3>Fight 6: {fightersJune3[10] ? fightersJune3[10].name + " (" + (fightersJune3[10].moneyLine) + ')' : ''} vs. {fightersJune3[11] ? fightersJune3[11].name + " (" + (fightersJune3[11].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 6: {fightersJune3[10] ? fightersJune3[10].name + " (" + (fightersJune3[10].record) + ')' : ''} vs. {fightersJune3[11] ? fightersJune3[11].name + " (" + (fightersJune3[11].record) + ')' : ''}</h3>
     <List>
         {notes[30] ? notes[30].map((note, idx) => {
             return (
@@ -305,7 +305,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
        
-    <h3>Fight 7: {fightersJune3[12] ? fightersJune3[12].name + " (" + (fightersJune3[12].moneyLine) + ')' : ''} vs. {fightersJune3[13] ? fightersJune3[13].name + " (" + (fightersJune3[13].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 7: {fightersJune3[12] ? fightersJune3[12].name + " (" + (fightersJune3[12].record) + ')' : ''} vs. {fightersJune3[13] ? fightersJune3[13].name + " (" + (fightersJune3[13].record) + ')' : ''}</h3>
     <List>
         {notes[31] ? notes[31].map((note, idx) => {
             return (
@@ -318,7 +318,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 8: {fightersJune3[14] ? fightersJune3[14].name + " (" + (fightersJune3[14].moneyLine) + ')' : ''} vs. {fightersJune3[15] ? fightersJune3[15].name + " (" + (fightersJune3[15].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 8: {fightersJune3[14] ? fightersJune3[14].name + " (" + (fightersJune3[14].record) + ')' : ''} vs. {fightersJune3[15] ? fightersJune3[15].name + " (" + (fightersJune3[15].record) + ')' : ''}</h3>
     <List>
         {notes[32] ? notes[32].map((note, idx) => {
             return (
@@ -331,7 +331,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 9: {fightersJune3[16] ? fightersJune3[16].name + " (" + (fightersJune3[16].moneyLine) + ')' : ''} vs. {fightersJune3[17] ? fightersJune3[17].name + " (" + (fightersJune3[17].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 9: {fightersJune3[16] ? fightersJune3[16].name + " (" + (fightersJune3[16].record) + ')' : ''} vs. {fightersJune3[17] ? fightersJune3[17].name + " (" + (fightersJune3[17].record) + ')' : ''}</h3>
     <List>
         {notes[33] ? notes[33].map((note, idx) => {
             return (
@@ -344,7 +344,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 10: {fightersJune3[18] ? fightersJune3[18].name + " (" + (fightersJune3[18].moneyLine) + ')' : ''} vs. {fightersJune3[19] ? fightersJune3[19].name + " (" + (fightersJune3[19].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 10: {fightersJune3[18] ? fightersJune3[18].name + " (" + (fightersJune3[18].record) + ')' : ''} vs. {fightersJune3[19] ? fightersJune3[19].name + " (" + (fightersJune3[19].record) + ')' : ''}</h3>
     <List>
         {notes[34] ? notes[34].map((note, idx) => {
             return (
@@ -357,7 +357,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 11: {fightersJune3[20] ? fightersJune3[20].name + " (" + (fightersJune3[20].moneyLine) + ')'  : ''} vs. {fightersJune3[21] ? fightersJune3[21].name + " (" + (fightersJune3[21].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 11: {fightersJune3[20] ? fightersJune3[20].name + " (" + (fightersJune3[20].record) + ')'  : ''} vs. {fightersJune3[21] ? fightersJune3[21].name + " (" + (fightersJune3[21].record) + ')' : ''}</h3>
     <List>
         {notes[35] ? notes[35].map((note, idx) => {
             return (
@@ -370,7 +370,7 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 12: {fightersJune3[22] ? fightersJune3[22].name + " (" + (fightersJune3[22].moneyLine) + ')' : ''} vs. {fightersJune3[23] ? fightersJune3[23].name + " (" + (fightersJune3[23].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 12: {fightersJune3[22] ? fightersJune3[22].name + " (" + (fightersJune3[22].record) + ')' : ''} vs. {fightersJune3[23] ? fightersJune3[23].name + " (" + (fightersJune3[23].record) + ')' : ''}</h3>
     <List>
         {notes[36] ? notes[36].map((note, idx) => {
             return (
@@ -383,9 +383,9 @@ if(blueInches[1] === '"'){
     </List>
     <Divider />
 
-    <h3>Fight 13: {fightersJune3[24] ? fightersJune3[24].name + " (" + (fightersJune3[24].moneyLine) + ')' : ''} vs. {fightersJune3[25] ? fightersJune3[25].name + " (" + (fightersJune3[25].moneyLine) + ')' : ''}</h3>
+    <h3>Fight 13: {fightersJune3[24] ? fightersJune3[24].name + " (" + (fightersJune3[24].record) + ')' : ''} vs. {fightersJune3[25] ? fightersJune3[25].name + " (" + (fightersJune3[25].record) + ')' : ''}</h3>
     <List>
-        {notes[36] ? notes[36].map((note, idx) => {
+        {notes[37] ? notes[37].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
