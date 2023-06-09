@@ -400,4 +400,4 @@ if(blueInches[1] === '"'){
   )
 }
 
-export default FightersJune3
+export default FightersJune10
