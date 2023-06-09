@@ -48,13 +48,24 @@ const syncAndSeed = async()=> {
     }
   };
 
+  const optionsJune10 = {
+    method: 'GET',
+    url: 'https://mma-stats.p.rapidapi.com/June_10_2023',
+    params: {offset: '0', limit: '15'},
+    headers: {
+      'X-RapidAPI-Key': process.env.UFC_API_KEY,
+      'X-RapidAPI-Host': 'mma-stats.p.rapidapi.com'
+    }
+  };
+
   
     const response1 = await axios.request(options1);
     const response = await axios.request(options);
     const dernHillResponse = await axios.request(dernHillOptions);
     const responseMay20 = await axios.request(optionsMay20);
     const responseJune3 = await axios.request(optionsJune3);
-    console.log(responseJune3.data)
+    const responseJune10 = await axios.request(optionsJune10);
+    console.log(responseJune10.data)
   
     const f1 = response.data[0].matchup[0]
     const f2 = response.data[0].matchup[1]
@@ -130,6 +141,29 @@ const syncAndSeed = async()=> {
     const f72 = responseJune3.data[11].matchup[1]//Luan Lacerda
     const f73 = responseJune3.data[12].matchup[0]//Philipe Lins
     const f74 = responseJune3.data[12].matchup[1]//Maxim Grishin
+    const f75 = responseJune3.data[0].matchup[0] //Amanda Nunes
+    const f76 = responseJune3.data[0].matchup[1] //Irene Aldana
+    const f77 = responseJune3.data[1].matchup[0] //Charles Oliveira
+    const f78 = responseJune3.data[1].matchup[1] //Beneil Dariush
+    const f79 = responseJune3.data[2].matchup[0] //Mike Malott
+    const f80 = responseJune3.data[2].matchup[1]//Adam Fugitt
+    const f81 = responseJune3.data[3].matchup[0]//Dan Ige
+    const f82 = responseJune3.data[3].matchup[1]//Nate Landwehr
+    const f83 = responseJune3.data[4].matchup[0]//Marc-Andre Barriault
+    const f84 = responseJune3.data[4].matchup[1]//Eryk Anders
+    const f85 = responseJune3.data[5].matchup[0]//Nassourdine Imavov
+    const f86 = responseJune3.data[5].matchup[1]//Chris Curtis
+    const f87 = responseJune3.data[6].matchup[0]//Miranda Maverick
+    const f88 = responseJune3.data[6].matchup[1]//Jasmine Jasudavicius
+    const f89 = responseJune3.data[7].matchup[0]//Aiemann Zahabi
+    const f90 = responseJune3.data[7].matchup[1]//Aoriqileng
+    const f91 = responseJune3.data[8].matchup[0]//Kyle Nelson
+    const f92 = responseJune3.data[8].matchup[1]//Blake Bilder
+    const f93 = responseJune3.data[9].matchup[0]//David Dvorak
+    const f94 = responseJune3.data[9].matchup[1]//Stephen Erceg
+    const f95 = responseJune3.data[10].matchup[0]//Diana Belbita
+    const f96 = responseJune3.data[10].matchup[1]//Maria Oliveira
+   
 
   const angelaHill = dernHillResponse.data.Fights[1].Fighters[0] //sr:competitor:542071
   //   const angelaHillID = 'sr:competitor:542071'
@@ -149,49 +183,13 @@ const syncAndSeed = async()=> {
   //  // console.log(angelaHillLastFightFS)
 
   const mackenzieDern = dernHillResponse.data.Fights[1].Fighters[1] //sr:competitor:399233
-  //   const mackenzieDernID = 'sr:competitor:399233'
-  //   const mackenzieDernRadarOptions = {
-  //     method: 'GET',
-  //     url: `http://api.sportradar.us/mma/trial/v2/en/competitors/sr:competitor:399233/summaries.json?api_key=${process.env.SPORT_RADAR_API_KEY}`
-  //   }
-  //   const mackenzieDernRadarResponse = await axios.request(mackenzieDernRadarOptions);
-  //   const mackenzieDernLastFightSS = mackenzieDernRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['significant_strikes']
-  //   const mackenzieDernLastFightTD = mackenzieDernRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['takedowns']
-  //   const mackenzieDernLastFightTDD = mackenzieDernRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics']['takedowns_attempted'] - mackenzieDernRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics']['takedowns']
-  //   const mackenzieDernLastFightKD = mackenzieDernRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['knockdowns']
-  //   const mackenzieDernLastFightSA = mackenzieDernRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['submission_attempts']
-  //   const mackenzieDernLastFightFS = (mackenzieDernLastFightSS * .6 + mackenzieDernLastFightTD * 6 + mackenzieDernLastFightTDD * 3 + mackenzieDernLastFightKD * 12 + mackenzieDernLastFightSA * 3 + winBonus(mackenzieDernRadarResponse,mackenzieDernID))
-    //console.log(mackenzieDernLastFightFS)
-    //console.log(mackenzieDernRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'])
-    //console.log(mackenzieDernRadarResponse.data['summaries'][0]['sport_event_status'])
-    // console.log(mackenzieDernRadarResponse.data['summaries'][0]['sport_event_status']['method'])
-    // console.log(mackenzieDernRadarResponse.data['summaries'][0]['sport_event_status']['winner_id'])
-    // console.log(mackenzieDernRadarResponse.data['summaries'][0]['sport_event_status']['winner_id'] === mackenzieDernID)
-  
-    // console.log(winBonus(angelaHillRadarResponse ,angelaHillID))
+
    
     const anthonyHernandez = dernHillResponse.data.Fights[2].Fighters[0] //
-//     const anthonyHernandezID = 'sr:competitor:449127'
-//     const anthonyHernandezRadarOptions = {
-//       method: 'GET',
-//       url: `http://api.sportradar.us/mma/trial/v2/en/competitors/sr:competitor:449127/summaries.json?api_key=${process.env.SPORT_RADAR_API_KEY}`
-//     }
-//     const anthonyHernandezRadarResponse = await axios.request(anthonyHernandezRadarOptions);
-//     const anthonyHernandezLastFightSS = anthonyHernandezRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics']['significant_strikes']
-//     const anthonyHernandezLastFightTD = anthonyHernandezRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics']['takedowns']
-//     const anthonyHernandezLastFightTDD = anthonyHernandezRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['takedowns_attempted'] - anthonyHernandezRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][1]['statistics']['takedowns']
-//     const anthonyHernandezLastFightKD = anthonyHernandezRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics']['knockdowns']
-//     const anthonyHernandezLastFightSA = anthonyHernandezRadarResponse.data['summaries'][0]['statistics']['totals']['competitors'][0]['statistics']['submission_attempts']
-//     const anthonyHernandezLastFightFS = (anthonyHernandezLastFightSS * .6 + anthonyHernandezLastFightTD * 6 + anthonyHernandezLastFightTDD * 3 + anthonyHernandezLastFightKD * 12 + anthonyHernandezLastFightSA * 3 + winBonus(anthonyHernandezRadarResponse,anthonyHernandezID))
 
-// console.log(anthonyHernandezLastFightFS)
 
      const edmenShahbazyan = dernHillResponse.data.Fights[2].Fighters[1] //sr:competitor:462119
-    // const edmenShahbazyanID = 'sr:competitor:462119'
-    // const edmenShahbazyanRadarOptions = {
-    //   method: 'GET',
-    //   url: `http://api.sportradar.us/mma/trial/v2/en/competitors/sr:competitor:462119/summaries.json?api_key=${process.env.SPORT_RADAR_API_KEY}`
-    // }
+
 
    // console.log(dernHillResponse.data.Fights[2].Fighters[0], edmenShahbazyan['MoneyLine'])
     const emilyDucote = dernHillResponse.data.Fights[4].Fighters[0] //sr:competitor:303206
@@ -1610,6 +1608,405 @@ const syncAndSeed = async()=> {
                                                                                 matchupId: 37,
                                                                                 record: responseJune3.data[12].tale_of_the_tape['Wins/Losses/Draws'][f74],                                                                             
                                                                               }),
+                                                                              Fighter.create({
+                                                                                //Amanda Nunes
+                                                                                name: responseJune10.data[0].matchup[0],
+                                                                                defense: responseJune10.data[0].tale_of_the_tape.Defense[f75],
+                                                                                reach: responseJune10.data[0].tale_of_the_tape.Reach[f75],
+                                                                                strikesAbsorbedPerMin: responseJune10.data[0].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f75],
+                                                                                strikesLandedPerMin: responseJune10.data[0].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f75],
+                                                                                avgFightTime: responseJune10.data[0].tale_of_the_tape['Average Fight Time'][f75],
+                                                                                avgSubPer15: responseJune10.data[0].tale_of_the_tape['Submission Average/15 min.'][f75],
+                                                                                takedownAcc: responseJune10.data[0].tale_of_the_tape['Takedown Accuracy'][f75],
+                                                                                takedownDef: responseJune10.data[0].tale_of_the_tape['Takedown Defense'][f75],
+                                                                                avgTakedownsPer15: responseJune10.data[0].tale_of_the_tape['Takedowns Average/15 min.'][f75],
+                                                                                dob: responseJune10.data[0].tale_of_the_tape.DOB[f75],
+                                                                                height: responseJune10.data[0].tale_of_the_tape.Height[f75],
+                                                                                id: 75,
+                                                                                matchupId: 38,
+                                                                                record: responseJune10.data[0].tale_of_the_tape['Wins/Losses/Draws'][f75], 
+                                                                                
+                                                                              }),
+                                                                              Fighter.create({
+                                                                                //Irene Aldana
+                                                                                  name: responseJune10.data[0].matchup[1],
+                                                                                  defense: responseJune10.data[0].tale_of_the_tape.Defense[f76],
+                                                                                  reach: responseJune10.data[0].tale_of_the_tape.Reach[f76],
+                                                                                  strikesAbsorbedPerMin: responseJune10.data[0].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f76],
+                                                                                  strikesLandedPerMin: responseJune10.data[0].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f76],
+                                                                                  avgFightTime: responseJune10.data[0].tale_of_the_tape['Average Fight Time'][f76],
+                                                                                  avgSubPer15: responseJune10.data[0].tale_of_the_tape['Submission Average/15 min.'][f76],
+                                                                                  takedownAcc: responseJune10.data[0].tale_of_the_tape['Takedown Accuracy'][f76],
+                                                                                  takedownDef: responseJune10.data[0].tale_of_the_tape['Takedown Defense'][f76],
+                                                                                  avgTakedownsPer15: responseJune10.data[0].tale_of_the_tape['Takedowns Average/15 min.'][f76],
+                                                                                  dob: responseJune10.data[0].tale_of_the_tape.DOB[f76],
+                                                                                  height: responseJune10.data[0].tale_of_the_tape.Height[f76],
+                                                                                  id: 76,
+                                                                                  matchupId: 38,                        
+                                                                                  record: responseJune10.data[0].tale_of_the_tape['Wins/Losses/Draws'][f76],
+                                                                                 
+                                                                              }),
+                                                                                Fighter.create({
+                                                                                  //Charles Oliveira
+                                                                                  name: responseJune10.data[1].matchup[0],
+                                                                                  defense: responseJune10.data[1].tale_of_the_tape.Defense[f77],
+                                                                                  reach: responseJune10.data[1].tale_of_the_tape.Reach[f77],
+                                                                                  strikesAbsorbedPerMin: responseJune10.data[1].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f77],
+                                                                                  strikesLandedPerMin: responseJune10.data[1].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f77],
+                                                                                  avgFightTime: responseJune10.data[1].tale_of_the_tape['Average Fight Time'][f77],
+                                                                                  avgSubPer15: responseJune10.data[1].tale_of_the_tape['Submission Average/15 min.'][f77],
+                                                                                  takedownAcc: responseJune10.data[1].tale_of_the_tape['Takedown Accuracy'][f77],
+                                                                                  takedownDef: responseJune10.data[1].tale_of_the_tape['Takedown Defense'][f77],
+                                                                                  avgTakedownsPer15: responseJune10.data[1].tale_of_the_tape['Takedowns Average/15 min.'][f77],
+                                                                                  dob: responseJune10.data[1].tale_of_the_tape.DOB[f77],
+                                                                                  height: responseJune10.data[1].tale_of_the_tape.Height[f77],
+                                                                                  id: 77,
+                                                                                  matchupId: 39,
+                                                                                  record: responseJune10.data[1].tale_of_the_tape['Wins/Losses/Draws'][f77],
+                                                                                }),
+                                                                                Fighter.create({
+                                                                                  //Beneil Dariush
+                                                                                    name: responseJune10.data[1].matchup[1],
+                                                                                    defense: responseJune10.data[1].tale_of_the_tape.Defense[f78],
+                                                                                    reach: responseJune10.data[1].tale_of_the_tape.Reach[f78],
+                                                                                    strikesAbsorbedPerMin: responseJune10.data[1].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f78],
+                                                                                    strikesLandedPerMin: responseJune10.data[1].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f78],
+                                                                                    avgFightTime: responseJune10.data[1].tale_of_the_tape['Average Fight Time'][f78],
+                                                                                    avgSubPer15: responseJune10.data[1].tale_of_the_tape['Submission Average/15 min.'][f78],
+                                                                                    takedownAcc: responseJune10.data[1].tale_of_the_tape['Takedown Accuracy'][f78],
+                                                                                    takedownDef: responseJune10.data[1].tale_of_the_tape['Takedown Defense'][f78],
+                                                                                    avgTakedownsPer15: responseJune10.data[1].tale_of_the_tape['Takedowns Average/15 min.'][f78],
+                                                                                    dob: responseJune10.data[1].tale_of_the_tape.DOB[f78],
+                                                                                    height: responseJune10.data[1].tale_of_the_tape.Height[f78],
+                                                                                    id: 78,
+                                                                                    matchupId: 39,
+                                                                                    record: responseJune10.data[1].tale_of_the_tape['Wins/Losses/Draws'][f78],   
+                                                                                }),
+                                                                                  Fighter.create({
+                                                                                    //Mike Malott
+                                                                                    name: responseJune10.data[2].matchup[0],
+                                                                                    defense: responseJune10.data[2].tale_of_the_tape.Defense[f79],
+                                                                                    reach: responseJune10.data[2].tale_of_the_tape.Reach[f79],
+                                                                                    strikesAbsorbedPerMin: responseJune10.data[2].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f79],
+                                                                                    strikesLandedPerMin: responseJune10.data[2].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f79],
+                                                                                    avgFightTime: responseJune10.data[2].tale_of_the_tape['Average Fight Time'][f79],
+                                                                                    avgSubPer15: responseJune10.data[2].tale_of_the_tape['Submission Average/15 min.'][f79],
+                                                                                    takedownAcc: responseJune10.data[2].tale_of_the_tape['Takedown Accuracy'][f79],
+                                                                                    takedownDef: responseJune10.data[2].tale_of_the_tape['Takedown Defense'][f79],
+                                                                                    avgTakedownsPer15: responseJune10.data[2].tale_of_the_tape['Takedowns Average/15 min.'][f79],
+                                                                                    dob: responseJune10.data[2].tale_of_the_tape.DOB[f79],
+                                                                                    height: responseJune10.data[2].tale_of_the_tape.Height[f79],
+                                                                                    id: 79,
+                                                                                    matchupId: 40,
+                                                                                    record: responseJune10.data[2].tale_of_the_tape['Wins/Losses/Draws'][f79],
+                                                                                  }),
+                                                                                  Fighter.create({
+                                                                                    //Adam Fugitt
+                                                                                      name: responseJune10.data[2].matchup[1],
+                                                                                      defense: responseJune10.data[2].tale_of_the_tape.Defense[f80],
+                                                                                      reach: responseJune10.data[2].tale_of_the_tape.Reach[f80],
+                                                                                      strikesAbsorbedPerMin: responseJune10.data[2].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f80],
+                                                                                      strikesLandedPerMin: responseJune10.data[2].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f80],
+                                                                                      avgFightTime: responseJune10.data[2].tale_of_the_tape['Average Fight Time'][f80],
+                                                                                      avgSubPer15: responseJune10.data[2].tale_of_the_tape['Submission Average/15 min.'][f80],
+                                                                                      takedownAcc: responseJune10.data[2].tale_of_the_tape['Takedown Accuracy'][f80],
+                                                                                      takedownDef: responseJune10.data[2].tale_of_the_tape['Takedown Defense'][f80],
+                                                                                      avgTakedownsPer15: responseJune10.data[2].tale_of_the_tape['Takedowns Average/15 min.'][f80],
+                                                                                      dob: responseJune10.data[2].tale_of_the_tape.DOB[f80],
+                                                                                      height: responseJune10.data[2].tale_of_the_tape.Height[f80],
+                                                                                      id: 80,
+                                                                                      matchupId: 40,
+                                                                                      record: responseJune10.data[2].tale_of_the_tape['Wins/Losses/Draws'][f80],
+                                                                                  }),
+                                                                                    Fighter.create({
+                                                                                      //Dan Ige
+                                                                                      name: responseJune10.data[3].matchup[0],
+                                                                                      defense: responseJune10.data[3].tale_of_the_tape.Defense[f81],
+                                                                                      reach: responseJune10.data[3].tale_of_the_tape.Reach[f81],
+                                                                                      strikesAbsorbedPerMin: responseJune10.data[3].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f81],
+                                                                                      strikesLandedPerMin: responseJune10.data[3].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f81],
+                                                                                      avgFightTime: responseJune10.data[3].tale_of_the_tape['Average Fight Time'][f81],
+                                                                                      avgSubPer15: responseJune10.data[3].tale_of_the_tape['Submission Average/15 min.'][f81],
+                                                                                      takedownAcc: responseJune10.data[3].tale_of_the_tape['Takedown Accuracy'][f81],
+                                                                                      takedownDef: responseJune10.data[3].tale_of_the_tape['Takedown Defense'][f81],
+                                                                                      avgTakedownsPer15: responseJune10.data[3].tale_of_the_tape['Takedowns Average/15 min.'][f81],
+                                                                                      dob: responseJune10.data[3].tale_of_the_tape.DOB[f81],
+                                                                                      height: responseJune10.data[3].tale_of_the_tape.Height[f81],
+                                                                                      id: 81,
+                                                                                      matchupId: 41,
+                                                                                      record: responseJune10.data[3].tale_of_the_tape['Wins/Losses/Draws'][f81],     
+                                                                                    }),
+                                                                                    Fighter.create({
+                                                                                      //Nate Landwehr
+                                                                                        name: responseJune10.data[3].matchup[1],
+                                                                                        defense: responseJune10.data[3].tale_of_the_tape.Defense[f82],
+                                                                                        reach: responseJune10.data[3].tale_of_the_tape.Reach[f82],
+                                                                                        strikesAbsorbedPerMin: responseJune10.data[3].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f82],
+                                                                                        strikesLandedPerMin: responseJune10.data[3].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f82],
+                                                                                        avgFightTime: responseJune10.data[3].tale_of_the_tape['Average Fight Time'][f82],
+                                                                                        avgSubPer15: responseJune10.data[3].tale_of_the_tape['Submission Average/15 min.'][f82],
+                                                                                        takedownAcc: responseJune10.data[3].tale_of_the_tape['Takedown Accuracy'][f82],
+                                                                                        takedownDef: responseJune10.data[3].tale_of_the_tape['Takedown Defense'][f82],
+                                                                                        avgTakedownsPer15: responseJune10.data[3].tale_of_the_tape['Takedowns Average/15 min.'][f82],
+                                                                                        dob: responseJune10.data[3].tale_of_the_tape.DOB[f82],
+                                                                                        height: responseJune10.data[3].tale_of_the_tape.Height[f82],
+                                                                                        id: 82,
+                                                                                        matchupId: 41,
+                                                                                        record: responseJune10.data[3].tale_of_the_tape['Wins/Losses/Draws'][f82],                                                          
+                                                                                    }),
+                                                                                      Fighter.create({
+                                                                                        //Marc-Andre Barriault
+                                                                                        name: responseJune10.data[4].matchup[0],
+                                                                                        defense: responseJune10.data[4].tale_of_the_tape.Defense[f83],
+                                                                                        reach: responseJune10.data[4].tale_of_the_tape.Reach[f83],
+                                                                                        strikesAbsorbedPerMin: responseJune10.data[4].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f83],
+                                                                                        strikesLandedPerMin: responseJune10.data[4].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f83],
+                                                                                        avgFightTime: responseJune10.data[4].tale_of_the_tape['Average Fight Time'][f83],
+                                                                                        avgSubPer15: responseJune10.data[4].tale_of_the_tape['Submission Average/15 min.'][f83],
+                                                                                        takedownAcc: responseJune10.data[4].tale_of_the_tape['Takedown Accuracy'][f83],
+                                                                                        takedownDef: responseJune10.data[4].tale_of_the_tape['Takedown Defense'][f83],
+                                                                                        avgTakedownsPer15: responseJune10.data[4].tale_of_the_tape['Takedowns Average/15 min.'][f83],
+                                                                                        dob: responseJune10.data[4].tale_of_the_tape.DOB[f83],
+                                                                                        height: responseJune10.data[4].tale_of_the_tape.Height[f83],
+                                                                                        id: 83,
+                                                                                        matchupId: 42,
+                                                                                        record: responseJune10.data[4].tale_of_the_tape['Wins/Losses/Draws'][f83],                                                          
+                                                                                      }),
+                                                                                      Fighter.create({
+                                                                                        //Eryk Anders
+                                                                                          name: responseJune10.data[4].matchup[1],
+                                                                                          defense: responseJune10.data[4].tale_of_the_tape.Defense[f84],
+                                                                                          reach: responseJune10.data[4].tale_of_the_tape.Reach[f84],
+                                                                                          strikesAbsorbedPerMin: responseJune10.data[4].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f84],
+                                                                                          strikesLandedPerMin: responseJune10.data[4].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f84],
+                                                                                          avgFightTime: responseJune10.data[4].tale_of_the_tape['Average Fight Time'][f84],
+                                                                                          avgSubPer15: responseJune10.data[4].tale_of_the_tape['Submission Average/15 min.'][f84],
+                                                                                          takedownAcc: responseJune10.data[4].tale_of_the_tape['Takedown Accuracy'][f84],
+                                                                                          takedownDef: responseJune10.data[4].tale_of_the_tape['Takedown Defense'][f84],
+                                                                                          avgTakedownsPer15: responseJune10.data[4].tale_of_the_tape['Takedowns Average/15 min.'][f84],
+                                                                                          dob: responseJune10.data[4].tale_of_the_tape.DOB[f84],
+                                                                                          height: responseJune10.data[4].tale_of_the_tape.Height[f84],
+                                                                                          id: 84,
+                                                                                          matchupId: 42,
+                                                                                          record: responseJune10.data[4].tale_of_the_tape['Wins/Losses/Draws'][f84],                                                                    
+                                                                                      }),
+                                                                                        Fighter.create({
+                                                                                          //Nassourdine Imavov
+                                                                                          name: responseJune10.data[5].matchup[0],
+                                                                                          defense: responseJune10.data[5].tale_of_the_tape.Defense[f85],
+                                                                                          reach: responseJune10.data[5].tale_of_the_tape.Reach[f85],
+                                                                                          strikesAbsorbedPerMin: responseJune10.data[5].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f85],
+                                                                                          strikesLandedPerMin: responseJune10.data[5].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f85],
+                                                                                          avgFightTime: responseJune10.data[5].tale_of_the_tape['Average Fight Time'][f85],
+                                                                                          avgSubPer15: responseJune10.data[5].tale_of_the_tape['Submission Average/15 min.'][f85],
+                                                                                          takedownAcc: responseJune10.data[5].tale_of_the_tape['Takedown Accuracy'][f85],
+                                                                                          takedownDef: responseJune10.data[5].tale_of_the_tape['Takedown Defense'][f85],
+                                                                                          avgTakedownsPer15: responseJune10.data[5].tale_of_the_tape['Takedowns Average/15 min.'][f85],
+                                                                                          dob: responseJune10.data[5].tale_of_the_tape.DOB[f85],
+                                                                                          height: responseJune10.data[5].tale_of_the_tape.Height[f85],
+                                                                                          id: 85,
+                                                                                          matchupId: 43,
+                                                                                          record: responseJune10.data[5].tale_of_the_tape['Wins/Losses/Draws'][f85],                                                                      
+                                                                                        }),
+                                                                                        Fighter.create({
+                                                                                          //Chris Curtis
+                                                                                            name: responseJune10.data[5].matchup[1],
+                                                                                            defense: responseJune10.data[5].tale_of_the_tape.Defense[f86],
+                                                                                            reach: responseJune10.data[5].tale_of_the_tape.Reach[f86],
+                                                                                            strikesAbsorbedPerMin: responseJune10.data[5].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f86],
+                                                                                            strikesLandedPerMin: responseJune10.data[5].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f86],
+                                                                                            avgFightTime: responseJune10.data[5].tale_of_the_tape['Average Fight Time'][f86],
+                                                                                            avgSubPer15: responseJune10.data[5].tale_of_the_tape['Submission Average/15 min.'][f86],
+                                                                                            takedownAcc: responseJune10.data[5].tale_of_the_tape['Takedown Accuracy'][f86],
+                                                                                            takedownDef: responseJune10.data[5].tale_of_the_tape['Takedown Defense'][f86],
+                                                                                            avgTakedownsPer15: responseJune10.data[5].tale_of_the_tape['Takedowns Average/15 min.'][f86],
+                                                                                            dob: responseJune10.data[5].tale_of_the_tape.DOB[f86],
+                                                                                            height: responseJune10.data[5].tale_of_the_tape.Height[f86],
+                                                                                            id: 86,
+                                                                                            matchupId: 43,
+                                                                                            record: responseJune10.data[5].tale_of_the_tape['Wins/Losses/Draws'][f86],                                                                 
+                                                                                        }),
+                                                                                          Fighter.create({
+                                                                                            //Miranda Maverick
+                                                                                            name: responseJune10.data[6].matchup[0],
+                                                                                            defense: responseJune10.data[6].tale_of_the_tape.Defense[f87],
+                                                                                            reach: responseJune10.data[6].tale_of_the_tape.Reach[f87],
+                                                                                            strikesAbsorbedPerMin: responseJune10.data[6].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f87],
+                                                                                            strikesLandedPerMin: responseJune10.data[6].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f87],
+                                                                                            avgFightTime: responseJune10.data[6].tale_of_the_tape['Average Fight Time'][f87],
+                                                                                            avgSubPer15: responseJune10.data[6].tale_of_the_tape['Submission Average/15 min.'][f87],
+                                                                                            takedownAcc: responseJune10.data[6].tale_of_the_tape['Takedown Accuracy'][f87],
+                                                                                            takedownDef: responseJune10.data[6].tale_of_the_tape['Takedown Defense'][f87],
+                                                                                            avgTakedownsPer15: responseJune10.data[6].tale_of_the_tape['Takedowns Average/15 min.'][f87],
+                                                                                            dob: responseJune10.data[6].tale_of_the_tape.DOB[f87],
+                                                                                            height: responseJune10.data[6].tale_of_the_tape.Height[f87],
+                                                                                            id: 87,
+                                                                                            matchupId: 44,
+                                                                                            record: responseJune10.data[6].tale_of_the_tape['Wins/Losses/Draws'][f87],                                                             
+                                                                                          }),
+                                                                                          Fighter.create({
+                                                                                            //Jasmine Jasudavicius
+                                                                                              name: responseJune10.data[6].matchup[1],
+                                                                                              defense: responseJune10.data[6].tale_of_the_tape.Defense[f88],
+                                                                                              reach: responseJune10.data[6].tale_of_the_tape.Reach[f88],
+                                                                                              strikesAbsorbedPerMin: responseJune10.data[6].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f88],
+                                                                                              strikesLandedPerMin: responseJune10.data[6].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f88],
+                                                                                              avgFightTime: responseJune10.data[6].tale_of_the_tape['Average Fight Time'][f88],
+                                                                                              avgSubPer15: responseJune10.data[6].tale_of_the_tape['Submission Average/15 min.'][f88],
+                                                                                              takedownAcc: responseJune10.data[6].tale_of_the_tape['Takedown Accuracy'][f88],
+                                                                                              takedownDef: responseJune10.data[6].tale_of_the_tape['Takedown Defense'][f88],
+                                                                                              avgTakedownsPer15: responseJune10.data[6].tale_of_the_tape['Takedowns Average/15 min.'][f88],
+                                                                                              dob: responseJune10.data[6].tale_of_the_tape.DOB[f88],
+                                                                                              height: responseJune10.data[6].tale_of_the_tape.Height[f88],
+                                                                                              id: 88,
+                                                                                              matchupId: 44,
+                                                                                              record: responseJune10.data[6].tale_of_the_tape['Wins/Losses/Draws'][f88],                                                                       
+                                                                                          }),
+                                                                                            Fighter.create({
+                                                                                              //Aiemann Zahabi
+                                                                                              name: responseJune10.data[7].matchup[0],
+                                                                                              defense: responseJune10.data[7].tale_of_the_tape.Defense[f89],
+                                                                                              reach: responseJune10.data[7].tale_of_the_tape.Reach[f89],
+                                                                                              strikesAbsorbedPerMin: responseJune10.data[7].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f89],
+                                                                                              strikesLandedPerMin: responseJune10.data[7].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f89],
+                                                                                              avgFightTime: responseJune10.data[7].tale_of_the_tape['Average Fight Time'][f89],
+                                                                                              avgSubPer15: responseJune10.data[7].tale_of_the_tape['Submission Average/15 min.'][f89],
+                                                                                              takedownAcc: responseJune10.data[7].tale_of_the_tape['Takedown Accuracy'][f89],
+                                                                                              takedownDef: responseJune10.data[7].tale_of_the_tape['Takedown Defense'][f89],
+                                                                                              avgTakedownsPer15: responseJune10.data[7].tale_of_the_tape['Takedowns Average/15 min.'][f89],
+                                                                                              dob: responseJune10.data[7].tale_of_the_tape.DOB[f89],
+                                                                                              height: responseJune10.data[7].tale_of_the_tape.Height[f89],
+                                                                                              id: 89,
+                                                                                              matchupId: 45,
+                                                                                              record: responseJune10.data[7].tale_of_the_tape['Wins/Losses/Draws'][f89],                                                                
+                                                                                          }),
+                                                                                            Fighter.create({
+                                                                                              //Aoriqileng
+                                                                                                name: responseJune10.data[7].matchup[1],
+                                                                                                defense: responseJune10.data[7].tale_of_the_tape.Defense[f90],
+                                                                                                reach: responseJune10.data[7].tale_of_the_tape.Reach[f90],
+                                                                                                strikesAbsorbedPerMin: responseJune10.data[7].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f90],
+                                                                                                strikesLandedPerMin: responseJune10.data[7].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f90],
+                                                                                                avgFightTime: responseJune10.data[7].tale_of_the_tape['Average Fight Time'][f90],
+                                                                                                avgSubPer15: responseJune10.data[7].tale_of_the_tape['Submission Average/15 min.'][f90],
+                                                                                                takedownAcc: responseJune10.data[7].tale_of_the_tape['Takedown Accuracy'][f90],
+                                                                                                takedownDef: responseJune10.data[7].tale_of_the_tape['Takedown Defense'][f90],
+                                                                                                avgTakedownsPer15: responseJune10.data[7].tale_of_the_tape['Takedowns Average/15 min.'][f90],
+                                                                                                dob: responseJune10.data[7].tale_of_the_tape.DOB[f90],
+                                                                                                height: responseJune10.data[7].tale_of_the_tape.Height[f90],
+                                                                                                id: 90,
+                                                                                                matchupId: 45,
+                                                                                                record: responseJune10.data[7].tale_of_the_tape['Wins/Losses/Draws'][f90],                                                                   
+                                                                                            }),
+                                                                                              Fighter.create({
+                                                                                                //Kyle Nelson
+                                                                                                name: responseJune10.data[8].matchup[0],
+                                                                                                defense: responseJune10.data[8].tale_of_the_tape.Defense[f91],
+                                                                                                reach: responseJune10.data[8].tale_of_the_tape.Reach[f91],
+                                                                                                strikesAbsorbedPerMin: responseJune10.data[8].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f91],
+                                                                                                strikesLandedPerMin: responseJune10.data[8].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f91],
+                                                                                                avgFightTime: responseJune10.data[8].tale_of_the_tape['Average Fight Time'][f91],
+                                                                                                avgSubPer15: responseJune10.data[8].tale_of_the_tape['Submission Average/15 min.'][f91],
+                                                                                                takedownAcc: responseJune10.data[8].tale_of_the_tape['Takedown Accuracy'][f91],
+                                                                                                takedownDef: responseJune10.data[8].tale_of_the_tape['Takedown Defense'][f91],
+                                                                                                avgTakedownsPer15: responseJune10.data[8].tale_of_the_tape['Takedowns Average/15 min.'][f91],
+                                                                                                dob: responseJune10.data[8].tale_of_the_tape.DOB[f91],
+                                                                                                height: responseJune10.data[8].tale_of_the_tape.Height[f91],
+                                                                                                id: 91,
+                                                                                                matchupId: 46,
+                                                                                                record: responseJune10.data[8].tale_of_the_tape['Wins/Losses/Draws'][f91],                                                                    
+                                                                                              }),
+                                                                                              Fighter.create({
+                                                                                                //Blake Bilder
+                                                                                                  name: responseJune10.data[8].matchup[1],
+                                                                                                  defense: responseJune10.data[8].tale_of_the_tape.Defense[f92],
+                                                                                                  reach: responseJune10.data[8].tale_of_the_tape.Reach[f92],
+                                                                                                  strikesAbsorbedPerMin: responseJune10.data[8].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f92],
+                                                                                                  strikesLandedPerMin: responseJune10.data[8].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f92],
+                                                                                                  avgFightTime: responseJune10.data[8].tale_of_the_tape['Average Fight Time'][f92],
+                                                                                                  avgSubPer15: responseJune10.data[8].tale_of_the_tape['Submission Average/15 min.'][f92],
+                                                                                                  takedownAcc: responseJune10.data[8].tale_of_the_tape['Takedown Accuracy'][f92],
+                                                                                                  takedownDef: responseJune10.data[8].tale_of_the_tape['Takedown Defense'][f92],
+                                                                                                  avgTakedownsPer15: responseJune10.data[8].tale_of_the_tape['Takedowns Average/15 min.'][f92],
+                                                                                                  dob: responseJune10.data[8].tale_of_the_tape.DOB[f92],
+                                                                                                  height: responseJune10.data[8].tale_of_the_tape.Height[f92],
+                                                                                                  id: 92,
+                                                                                                  matchupId: 46,
+                                                                                                  record: responseJune10.data[8].tale_of_the_tape['Wins/Losses/Draws'][f92],
+                                                                                                  moneyLine: rodrigoNascimento['Moneyline'] 
+                                                                                              }),
+                                                                                                Fighter.create({
+                                                                                                  //David Dvorak
+                                                                                                  name: responseJune10.data[9].matchup[0],
+                                                                                                  defense: responseJune10.data[9].tale_of_the_tape.Defense[f93],
+                                                                                                  reach: responseJune10.data[9].tale_of_the_tape.Reach[f93],
+                                                                                                  strikesAbsorbedPerMin: responseJune10.data[9].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f93],
+                                                                                                  strikesLandedPerMin: responseJune10.data[9].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f93],
+                                                                                                  avgFightTime: responseJune10.data[9].tale_of_the_tape['Average Fight Time'][f93],
+                                                                                                  avgSubPer15: responseJune10.data[9].tale_of_the_tape['Submission Average/15 min.'][f93],
+                                                                                                  takedownAcc: responseJune10.data[9].tale_of_the_tape['Takedown Accuracy'][f93],
+                                                                                                  takedownDef: responseJune10.data[9].tale_of_the_tape['Takedown Defense'][f93],
+                                                                                                  avgTakedownsPer15: responseJune10.data[9].tale_of_the_tape['Takedowns Average/15 min.'][f93],
+                                                                                                  dob: responseJune10.data[9].tale_of_the_tape.DOB[f93],
+                                                                                                  height: responseJune10.data[9].tale_of_the_tape.Height[f93],
+                                                                                                  id: 93,
+                                                                                                  matchupId: 47,
+                                                                                                  record: responseJune10.data[9].tale_of_the_tape['Wins/Losses/Draws'][f93],                                                                    
+                                                                                                }),
+                                                                                                Fighter.create({
+                                                                                                  //Stephen Erceg
+                                                                                                    name: responseJune10.data[9].matchup[1],
+                                                                                                    defense: responseJune10.data[9].tale_of_the_tape.Defense[f94],
+                                                                                                    reach: responseJune10.data[9].tale_of_the_tape.Reach[f94],
+                                                                                                    strikesAbsorbedPerMin: responseJune10.data[9].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f94],
+                                                                                                    strikesLandedPerMin: responseJune10.data[9].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f94],
+                                                                                                    avgFightTime: responseJune10.data[9].tale_of_the_tape['Average Fight Time'][f94],
+                                                                                                    avgSubPer15: responseJune10.data[9].tale_of_the_tape['Submission Average/15 min.'][f94],
+                                                                                                    takedownAcc: responseJune10.data[9].tale_of_the_tape['Takedown Accuracy'][f94],
+                                                                                                    takedownDef: responseJune10.data[9].tale_of_the_tape['Takedown Defense'][f94],
+                                                                                                    avgTakedownsPer15: responseJune10.data[9].tale_of_the_tape['Takedowns Average/15 min.'][f94],
+                                                                                                    dob: responseJune10.data[9].tale_of_the_tape.DOB[f94],
+                                                                                                    height: responseJune10.data[9].tale_of_the_tape.Height[f94],
+                                                                                                    id: 94,
+                                                                                                    matchupId: 47,
+                                                                                                    record: responseJune10.data[9].tale_of_the_tape['Wins/Losses/Draws'][f94],                                                                       
+                                                                                                  }),
+                                                                                                  Fighter.create({
+                                                                                                    //Diana Belbita
+                                                                                                    name: responseJune10.data[10].matchup[0],
+                                                                                                    defense: responseJune10.data[10].tale_of_the_tape.Defense[f95],
+                                                                                                    reach: responseJune10.data[10].tale_of_the_tape.Reach[f95],
+                                                                                                    strikesAbsorbedPerMin: responseJune10.data[10].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f95],
+                                                                                                    strikesLandedPerMin: responseJune10.data[10].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f95],
+                                                                                                    avgFightTime: responseJune10.data[10].tale_of_the_tape['Average Fight Time'][f95],
+                                                                                                    avgSubPer15: responseJune10.data[10].tale_of_the_tape['Submission Average/15 min.'][f95],
+                                                                                                    takedownAcc: responseJune10.data[10].tale_of_the_tape['Takedown Accuracy'][f95],
+                                                                                                    takedownDef: responseJune10.data[10].tale_of_the_tape['Takedown Defense'][f95],
+                                                                                                    avgTakedownsPer15: responseJune10.data[10].tale_of_the_tape['Takedowns Average/15 min.'][f95],
+                                                                                                    dob: responseJune10.data[10].tale_of_the_tape.DOB[f95],
+                                                                                                    height: responseJune10.data[10].tale_of_the_tape.Height[f95],
+                                                                                                    id: 95,
+                                                                                                    matchupId: 48,
+                                                                                                    record: responseJune10.data[10].tale_of_the_tape['Wins/Losses/Draws'][f95],                                                                      
+                                                                                                  }),
+                                                                                                  Fighter.create({
+                                                                                                    //Maria Oliveira
+                                                                                                      name: responseJune10.data[10].matchup[1],
+                                                                                                      defense: responseJune10.data[10].tale_of_the_tape.Defense[f96],
+                                                                                                      reach: responseJune10.data[10].tale_of_the_tape.Reach[f96],
+                                                                                                      strikesAbsorbedPerMin: responseJune10.data[10].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f96],
+                                                                                                      strikesLandedPerMin: responseJune10.data[10].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f96],
+                                                                                                      avgFightTime: responseJune10.data[10].tale_of_the_tape['Average Fight Time'][f96],
+                                                                                                      avgSubPer15: responseJune10.data[10].tale_of_the_tape['Submission Average/15 min.'][f96],
+                                                                                                      takedownAcc: responseJune10.data[10].tale_of_the_tape['Takedown Accuracy'][f96],
+                                                                                                      takedownDef: responseJune10.data[10].tale_of_the_tape['Takedown Defense'][f96],
+                                                                                                      avgTakedownsPer15: responseJune10.data[10].tale_of_the_tape['Takedowns Average/15 min.'][f96],
+                                                                                                      dob: responseJune10.data[10].tale_of_the_tape.DOB[f96],
+                                                                                                      height: responseJune10.data[10].tale_of_the_tape.Height[f96],
+                                                                                                      id: 96,
+                                                                                                      matchupId: 48,
+                                                                                                      record: responseJune10.data[10].tale_of_the_tape['Wins/Losses/Draws'][f96],                                                                           
+                                                                                                  }),
   ]);
 
 

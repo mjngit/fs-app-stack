@@ -28,6 +28,9 @@ export default function Nav() {
           <Typography href='/#/fightersJune3' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
             Fights Of June 3
           </Typography>
+          <Typography href='/#/fightersJune10' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
+            Fights Of This Week
+          </Typography>
           {auth.id ? <Button href='/#/logout' color="inherit">Logout</Button> : <Button href='/#/login' color="inherit">Login</Button>}
         </Toolbar>
       </AppBar>
