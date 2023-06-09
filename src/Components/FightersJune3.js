@@ -18,7 +18,7 @@ const FightersJune3 = () => {
 
     const fightersJune3 = fighters.sort((a, b) => {
         return a.id - b.id
-    }).filter(fighter => fighter.id > 48)
+    }).filter(fighter => fighter.id > 48 && fighter.id < 75)
    
     console.log(fightersJune3)
 

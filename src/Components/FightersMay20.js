@@ -38,6 +38,7 @@ const FightersMay20 = () => {
         notes[redCorn.matchupId] = matchupArray
         let redCornFightTimeSeconds = Number(redCorn.avgFightTime.split(':')[0]) * 60 + Number(redCorn.avgFightTime.split(':')[1])
         let blueCornFightTimeSeconds = Number(blueCorn.avgFightTime.split(':')[0]) * 60 + Number(blueCorn.avgFightTime.split(':')[1])
+        //console.log(redCorn.avgFightTime, blueCorn.avgFightTime)
         let redCornAge = 2023 - Number(redCorn.dob.split(', ')[1])
         let blueCornAge = 2023 - Number(blueCorn.dob.split(', ')[1])
         console.log(blueCornAge, redCornAge)
