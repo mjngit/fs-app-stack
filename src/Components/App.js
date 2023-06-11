@@ -14,6 +14,7 @@ import Account from './Account'
 import FightersMay20 from './FightersMay20'
 import FightersJune3 from './FightersJune3'
 import FightersJune10 from './FightersJune10'
+import FightersJune17 from './FightersJune17'
 
 
 
@@ -57,6 +58,7 @@ const App = ()=> {
               <Route path='/fightersMay20' element={ <FightersMay20 /> } />
               <Route path='/fightersJune3' element={ <FightersJune3 /> } />
               <Route path='/fightersJune10' element={ <FightersJune10 /> } />
+              <Route path='/fightersJune17' element={ <FightersJune17 /> } />
               <Route path='/trip' element={ <TripAi /> } />
               {/* <Route path='/login' element={ <Login /> } /> */}
               <Route path='/logout' element={ <Logout /> } />

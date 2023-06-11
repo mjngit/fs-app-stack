@@ -29,6 +29,9 @@ export default function Nav() {
             Fights Of June 3
           </Typography>
           <Typography href='/#/fightersJune10' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
+            Fights Of June 10
+          </Typography>
+          <Typography href='/#/fightersJune17' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
             Fights Of This Week
           </Typography>
           {auth.id ? <Button href='/#/logout' color="inherit">Logout</Button> : <Button href='/#/login' color="inherit">Login</Button>}

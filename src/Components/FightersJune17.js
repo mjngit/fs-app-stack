@@ -13,21 +13,21 @@ import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import { Typography } from '@mui/material';
 
-const FightersJune10 = () => {
+const FightersJune17 = () => {
     const { fighters } = useSelector(state => state)
 
-    const fightersJune10 = fighters.sort((a, b) => {
+    const fightersJune17 = fighters.sort((a, b) => {
         return a.id - b.id
-    }).filter(fighter => fighter.id > 74 && fighter.id < 97 )
+    }).filter(fighter => fighter.id > 96 && fighter.id < 125)
    
-    console.log(fightersJune10)
+    console.log(fightersJune17)
 
     let notes = {}
     
 
-    for(let i = 0; i < fightersJune10.length; i += 2){
-        let redCorn = fightersJune10[i]
-        let blueCorn = fightersJune10[i + 1]
+    for(let i = 0; i < fightersJune17.length; i += 2){
+        let redCorn = fightersJune17[i]
+        let blueCorn = fightersJune17[i + 1]
         let redCornTDD
         let blueCornTDD
         let redCornTDA
@@ -184,7 +184,7 @@ const FightersJune10 = () => {
 
   return (
     <>
-     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><h1>Fighters Of The Week: June 10</h1></div>
+     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><h1>Fighters Of The Week: June 17</h1></div>
 
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
@@ -206,7 +206,7 @@ const FightersJune10 = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {fightersJune10.map((fighter) => (
+          {fightersJune17.map((fighter) => (
             <TableRow
               key={fighter.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -232,9 +232,9 @@ const FightersJune10 = () => {
       </Table>
     </TableContainer>
     <Typography style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}variant="h2">Main Card</Typography>        
-      <h3> Main Event:  {fightersJune10[0] ? fightersJune10[0].name + " (" + (fightersJune10[0].record) + ')'  : ''} vs. {fightersJune10[1] ? fightersJune10[1].name + " (" + fightersJune10[1].record + ')' : ''}</h3>
+      <h3> Main Event:  {fightersJune17[0] ? fightersJune17[0].name + " (" + (fightersJune17[0].record) + ')'  : ''} vs. {fightersJune17[1] ? fightersJune17[1].name + " (" + fightersJune17[1].record + ')' : ''}</h3>
     <List>
-        {notes[38] ? notes[38].map((note, idx) => {
+        {notes[49] ? notes[49].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -245,9 +245,9 @@ const FightersJune10 = () => {
     </List>
     <Divider />
 
-    <h3>Fight 2: {fightersJune10[2] ? fightersJune10[2].name + " (" + (fightersJune10[2].record) + ')' : ''} vs. {fightersJune10[3] ? fightersJune10[3].name + " (" + (fightersJune10[3].record) + ')' : ''}</h3>
+    <h3>Fight 2: {fightersJune17[2] ? fightersJune17[2].name + " (" + (fightersJune17[2].record) + ')' : ''} vs. {fightersJune17[3] ? fightersJune17[3].name + " (" + (fightersJune17[3].record) + ')' : ''}</h3>
     <List>
-        {notes[39] ? notes[39].map((note, idx) => {
+        {notes[50] ? notes[50].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -258,9 +258,9 @@ const FightersJune10 = () => {
     </List>
     <Divider />
 
-    <h3>Fight 3: {fightersJune10[4] ? fightersJune10[4].name + " (" + (fightersJune10[4].record) + ')' : ''} vs. {fightersJune10[5] ? fightersJune10[5].name + " (" + (fightersJune10[5].record) + ')' : ''}</h3>
+    <h3>Fight 3: {fightersJune17[4] ? fightersJune17[4].name + " (" + (fightersJune17[4].record) + ')' : ''} vs. {fightersJune17[5] ? fightersJune17[5].name + " (" + (fightersJune17[5].record) + ')' : ''}</h3>
     <List>
-        {notes[40] ? notes[40].map((note, idx) => {
+        {notes[51] ? notes[51].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -271,9 +271,9 @@ const FightersJune10 = () => {
     </List>
     <Divider />
 
-    <h3>Fight 4: {fightersJune10[6] ? fightersJune10[6].name + " (" + (fightersJune10[6].record) + ')' : ''} vs. {fightersJune10[7] ? fightersJune10[7].name + " (" + (fightersJune10[7].record) + ')' : ''}</h3>
+    <h3>Fight 4: {fightersJune17[6] ? fightersJune17[6].name + " (" + (fightersJune17[6].record) + ')' : ''} vs. {fightersJune17[7] ? fightersJune17[7].name + " (" + (fightersJune17[7].record) + ')' : ''}</h3>
     <List>
-        {notes[41] ? notes[41].map((note, idx) => {
+        {notes[52] ? notes[52].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -284,9 +284,9 @@ const FightersJune10 = () => {
     </List>
     <Divider />
 
-    <h3>Fight 5: {fightersJune10[8] ? fightersJune10[8].name + " (" + (fightersJune10[8].record) + ')' : ''} vs. {fightersJune10[9] ? fightersJune10[9].name + " (" + (fightersJune10[9].record) + ')' : ''}</h3>
+    <h3>Fight 5: {fightersJune17[8] ? fightersJune17[8].name + " (" + (fightersJune17[8].record) + ')' : ''} vs. {fightersJune17[9] ? fightersJune17[9].name + " (" + (fightersJune17[9].record) + ')' : ''}</h3>
     <List>
-        {notes[42] ? notes[42].map((note, idx) => {
+        {notes[53] ? notes[53].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -298,9 +298,9 @@ const FightersJune10 = () => {
     <Divider />
     <Typography style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} variant="h2">Pre-lims</Typography>   
 
-    <h3>Fight 6: {fightersJune10[10] ? fightersJune10[10].name + " (" + (fightersJune10[10].record) + ')' : ''} vs. {fightersJune10[11] ? fightersJune10[11].name + " (" + (fightersJune10[11].record) + ')' : ''}</h3>
+    <h3>Fight 6: {fightersJune17[10] ? fightersJune17[10].name + " (" + (fightersJune17[10].record) + ')' : ''} vs. {fightersJune17[11] ? fightersJune17[11].name + " (" + (fightersJune17[11].record) + ')' : ''}</h3>
     <List>
-        {notes[43] ? notes[43].map((note, idx) => {
+        {notes[54] ? notes[54].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -311,9 +311,9 @@ const FightersJune10 = () => {
     </List>
     <Divider />
        
-    <h3>Fight 7: {fightersJune10[12] ? fightersJune10[12].name + " (" + (fightersJune10[12].record) + ')' : ''} vs. {fightersJune10[13] ? fightersJune10[13].name + " (" + (fightersJune10[13].record) + ')' : ''}</h3>
+    <h3>Fight 7: {fightersJune17[12] ? fightersJune17[12].name + " (" + (fightersJune17[12].record) + ')' : ''} vs. {fightersJune17[13] ? fightersJune17[13].name + " (" + (fightersJune17[13].record) + ')' : ''}</h3>
     <List>
-        {notes[44] ? notes[44].map((note, idx) => {
+        {notes[55] ? notes[55].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -324,9 +324,9 @@ const FightersJune10 = () => {
     </List>
     <Divider />
 
-    <h3>Fight 8: {fightersJune10[14] ? fightersJune10[14].name + " (" + (fightersJune10[14].record) + ')' : ''} vs. {fightersJune10[15] ? fightersJune10[15].name + " (" + (fightersJune10[15].record) + ')' : ''}</h3>
+    <h3>Fight 8: {fightersJune17[14] ? fightersJune17[14].name + " (" + (fightersJune17[14].record) + ')' : ''} vs. {fightersJune17[15] ? fightersJune17[15].name + " (" + (fightersJune17[15].record) + ')' : ''}</h3>
     <List>
-        {notes[45] ? notes[45].map((note, idx) => {
+        {notes[56] ? notes[56].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -337,9 +337,9 @@ const FightersJune10 = () => {
     </List>
     <Divider />
 
-    <h3>Fight 9: {fightersJune10[16] ? fightersJune10[16].name + " (" + (fightersJune10[16].record) + ')' : ''} vs. {fightersJune10[17] ? fightersJune10[17].name + " (" + (fightersJune10[17].record) + ')' : ''}</h3>
+    <h3>Fight 9: {fightersJune17[16] ? fightersJune17[16].name + " (" + (fightersJune17[16].record) + ')' : ''} vs. {fightersJune17[17] ? fightersJune17[17].name + " (" + (fightersJune17[17].record) + ')' : ''}</h3>
     <List>
-        {notes[46] ? notes[46].map((note, idx) => {
+        {notes[57] ? notes[57].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -350,9 +350,9 @@ const FightersJune10 = () => {
     </List>
     <Divider />
 
-    <h3>Fight 10: {fightersJune10[18] ? fightersJune10[18].name + " (" + (fightersJune10[18].record) + ')' : ''} vs. {fightersJune10[19] ? fightersJune10[19].name + " (" + (fightersJune10[19].record) + ')' : ''}</h3>
+    <h3>Fight 10: {fightersJune17[18] ? fightersJune17[18].name + " (" + (fightersJune17[18].record) + ')' : ''} vs. {fightersJune17[19] ? fightersJune17[19].name + " (" + (fightersJune17[19].record) + ')' : ''}</h3>
     <List>
-        {notes[47] ? notes[47].map((note, idx) => {
+        {notes[58] ? notes[58].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -363,9 +363,9 @@ const FightersJune10 = () => {
     </List>
     <Divider />
 
-    <h3>Fight 11: {fightersJune10[20] ? fightersJune10[20].name + " (" + (fightersJune10[20].record) + ')'  : ''} vs. {fightersJune10[21] ? fightersJune10[21].name + " (" + (fightersJune10[21].record) + ')' : ''}</h3>
+    <h3>Fight 11: {fightersJune17[20] ? fightersJune17[20].name + " (" + (fightersJune17[20].record) + ')'  : ''} vs. {fightersJune17[21] ? fightersJune17[21].name + " (" + (fightersJune17[21].record) + ')' : ''}</h3>
     <List>
-        {notes[48] ? notes[48].map((note, idx) => {
+        {notes[59] ? notes[59].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -376,9 +376,9 @@ const FightersJune10 = () => {
     </List>
     <Divider />
 
-    {/* <h3>Fight 12: {fightersJune10[22] ? fightersJune10[22].name + " (" + (fightersJune10[22].record) + ')' : ''} vs. {fightersJune10[23] ? fightersJune10[23].name + " (" + (fightersJune10[23].record) + ')' : ''}</h3>
+    <h3>Fight 12: {fightersJune17[22] ? fightersJune17[22].name + " (" + (fightersJune17[22].record) + ')' : ''} vs. {fightersJune17[23] ? fightersJune17[23].name + " (" + (fightersJune17[23].record) + ')' : ''}</h3>
     <List>
-        {notes[36] ? notes[36].map((note, idx) => {
+        {notes[60] ? notes[60].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -389,9 +389,9 @@ const FightersJune10 = () => {
     </List>
     <Divider />
 
-    <h3>Fight 13: {fightersJune10[24] ? fightersJune10[24].name + " (" + (fightersJune10[24].record) + ')' : ''} vs. {fightersJune10[25] ? fightersJune10[25].name + " (" + (fightersJune10[25].record) + ')' : ''}</h3>
+    <h3>Fight 13: {fightersJune17[24] ? fightersJune17[24].name + " (" + (fightersJune17[24].record) + ')' : ''} vs. {fightersJune17[25] ? fightersJune17[25].name + " (" + (fightersJune17[25].record) + ')' : ''}</h3>
     <List>
-        {notes[37] ? notes[37].map((note, idx) => {
+        {notes[61] ? notes[61].map((note, idx) => {
             return (
             <ListItem disablePadding key={idx}>
               <ListItemText primary={note} />
@@ -400,10 +400,23 @@ const FightersJune10 = () => {
         }) : ''}
           
     </List>
-    <Divider /> */}
+    <Divider />
+
+    <h3>Fight 14: {fightersJune17[26] ? fightersJune17[26].name + " (" + (fightersJune17[26].record) + ')' : ''} vs. {fightersJune17[27] ? fightersJune17[27].name + " (" + (fightersJune17[27].record) + ')' : ''}</h3>
+    <List>
+        {notes[62] ? notes[62].map((note, idx) => {
+            return (
+            <ListItem disablePadding key={idx}>
+              <ListItemText primary={note} />
+            </ListItem>
+            )
+        }) : ''}
+          
+    </List>
+    <Divider />
     </>
    
   )
 }
 
-export default FightersJune10
+export default FightersJune17
