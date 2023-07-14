@@ -18,6 +18,7 @@ import FightersJune17 from './FightersJune17'
 import FightersJune24 from './FightersJune24'
 import FightersJuly1 from './FightersJuly1'
 import FightersJuly8 from './FightersJuly8'
+import FightersJuly15 from './FightersJuly15'
 
 
 
@@ -65,8 +66,9 @@ const App = ()=> {
               <Route path='/fightersJune24' element={ <FightersJune24 /> } />
               <Route path='/fightersJuly1' element={ <FightersJuly1 /> } />
               <Route path='/fightersJuly8' element={ <FightersJuly8 /> } />
+              <Route path='/fightersJuly15' element={ <FightersJuly15 /> } />
               <Route path='/trip' element={ <TripAi /> } />
-              {/* <Route path='/login' element={ <Login /> } /> */}
+              
               <Route path='/logout' element={ <Logout /> } />
               {/* <Route path='/register' element={ <Register /> } />
               <Route path='/home' element={ <Home /> } /> */}

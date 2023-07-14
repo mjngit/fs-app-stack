@@ -21,7 +21,7 @@ export default function Nav() {
   
     // const pages = ['Home', 'Stocks', 'Graphs', 'Portfolio'];
     // I commented the above out so that the Stocks and Graphs page wouldn't show...these are a relic of the past post search bar creation
-    const pages = ['fighters', 'fightersMay20', 'fightersJune3' , 'fightersJune10' , 'fightersJune24' , 'fightersJuly1'];
+    const pages = [ 'fightersMay20', 'fightersJune3' , 'fightersJune10' , 'fightersJune24' , 'fightersJuly1', 'fightersJuly8'];
     
   
     const handleOpenNavMenu = (event) => {
@@ -76,7 +76,7 @@ export default function Nav() {
   open={Boolean(anchorElNav)}
   onClose={handleCloseNavMenu}
   sx={{
-    display: { xs: 'block', md: 'none' },
+    display: { xs: 'block', md: 'block' },
   }}
 >
   {pages.map((page) => (
@@ -92,27 +92,9 @@ export default function Nav() {
           <Typography href='/#/trip' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }} >
             AI Trip Planner
           </Typography>
-          {/* <Typography href='/#/fighters' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
-            Fights Of May 13
-          </Typography>
-          <Typography href='/#/fightersMay20' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
-            Fights Of May 20
-          </Typography>
-          <Typography href='/#/fightersJune3' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
-            Fights Of June 3
-          </Typography>
-          <Typography href='/#/fightersJune10' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
-            Fights Of June 10
-          </Typography>
-          <Typography href='/#/fightersJune24' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
-            Fights Of July 24
-          </Typography> */}
+         
 
-          {/* <Typography href='/#/fightersJuly1' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
-            Fights Of This Week
-          </Typography> */}
-
-          <Typography href='/#/fightersJuly8' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
+          <Typography href='/#/fightersJuly15' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
             Fights Of This Week
           </Typography>
           {auth.id ? <Button href='/#/logout' color="inherit">Logout</Button> : <Button href='/#/login' color="inherit">Login</Button>}
