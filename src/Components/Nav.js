@@ -94,7 +94,7 @@ export default function Nav() {
           </Typography>
          
 
-          <Typography href='/#/fightersJuly15' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
+          <Typography href='/#/fightersJuly22' variant="h6" component="a" sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }}>
             Fights Of This Week
           </Typography>
           {auth.id ? <Button href='/#/logout' color="inherit">Logout</Button> : <Button href='/#/login' color="inherit">Login</Button>}

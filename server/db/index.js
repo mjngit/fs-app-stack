@@ -98,16 +98,34 @@ const syncAndSeed = async()=> {
     }
   };
 
-  const optionsJuly15 = {
-    method: 'GET',
-    url: 'https://mma-stats.p.rapidapi.com/July_15_2023',
-    params: {offset: '0', limit: '15'},
-    headers: {
-      'X-RapidAPI-Key': process.env.UFC_API_KEY,
-      'X-RapidAPI-Host': 'mma-stats.p.rapidapi.com'
-    }
-  };
+  // const optionsJuly15 = {
+  //   method: 'GET',
+  //   url: 'https://mma-stats.p.rapidapi.com/July_15_2023',
+  //   params: {offset: '0', limit: '15'},
+  //   headers: {
+  //     'X-RapidAPI-Key': process.env.UFC_API_KEY,
+  //     'X-RapidAPI-Host': 'mma-stats.p.rapidapi.com'
+  //   }
+  // };
 
+  // const optionsJuly22m1 = {
+  //   method: 'GET',
+  //   url: 'https://mma-stats.p.rapidapi.com/July_22_2023/matchup/1',
+  //   headers: {
+  //     'X-RapidAPI-Key': process.env.UFC_API_KEY,
+  //     'X-RapidAPI-Host': 'mma-stats.p.rapidapi.com'
+  //   }
+  // };
+
+
+  // const optionsJuly22m2 = {
+  //   method: 'GET',
+  //   url: 'https://mma-stats.p.rapidapi.com/July_22_2023/matchup/2',
+  //   headers: {
+  //     'X-RapidAPI-Key': process.env.UFC_API_KEY,
+  //     'X-RapidAPI-Host': 'mma-stats.p.rapidapi.com'
+  //   }
+  // };
   
     // const response1 = await axios.request(options1);
     // const response = await axios.request(options);
@@ -119,8 +137,9 @@ const syncAndSeed = async()=> {
     const responseJune24 = await axios.request(optionsJune24);
     const responseJuly1 = await axios.request(optionsJuly1);
     const responseJuly8 = await axios.request(optionsJuly8);
-    const responseJuly15 = await axios.request(optionsJuly15);
-    console.log(responseJuly15.data)
+    //const responseJuly15 = await axios.request(optionsJuly15);
+    //const responseJuly22 = await axios.request(optionsJuly22);
+    //console.log(responseJuly22.data)
   
     // const f1 = response.data[0].matchup[0]
     // const f2 = response.data[0].matchup[1]
@@ -923,44 +942,44 @@ const syncAndSeed = async()=> {
                               //     record: responseMay20.data[1].tale_of_the_tape['Wins/Losses/Draws'][f28],
                               //     moneyLine: anthonyHernandez['MoneyLine']        
                               // }),
-                                Fighter.create({
-                                  //Emily Ducote
-                                  name: responseMay20.data[2].matchup[0],
-                                  defense: responseMay20.data[2].tale_of_the_tape.Defense[f29],
-                                  reach: responseMay20.data[2].tale_of_the_tape.Reach[f29],
-                                  strikesAbsorbedPerMin: responseMay20.data[2].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f29],
-                                  strikesLandedPerMin: responseMay20.data[2].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f29],
-                                  avgFightTime: responseMay20.data[2].tale_of_the_tape['Average Fight Time'][f29],
-                                  avgSubPer15: responseMay20.data[2].tale_of_the_tape['Submission Average/15 min.'][f29],
-                                  takedownAcc: responseMay20.data[2].tale_of_the_tape['Takedown Accuracy'][f29],
-                                  takedownDef: responseMay20.data[2].tale_of_the_tape['Takedown Defense'][f29],
-                                  avgTakedownsPer15: responseMay20.data[2].tale_of_the_tape['Takedowns Average/15 min.'][f29],
-                                  dob: responseMay20.data[2].tale_of_the_tape.DOB[f29],
-                                  height: responseMay20.data[2].tale_of_the_tape.Height[f29],
-                                  id: 29,
-                                  matchupId: 15,
-                                  record: responseMay20.data[2].tale_of_the_tape['Wins/Losses/Draws'][f29],
-                                  moneyLine: emilyDucote['Moneyline']
-                                }),
-                                Fighter.create({
-                                  //Loopy Godinez
-                                    name: responseMay20.data[2].matchup[1],
-                                    defense: responseMay20.data[2].tale_of_the_tape.Defense[f30],
-                                    reach: responseMay20.data[2].tale_of_the_tape.Reach[f30],
-                                    strikesAbsorbedPerMin: responseMay20.data[2].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f30],
-                                    strikesLandedPerMin: responseMay20.data[2].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f30],
-                                    avgFightTime: responseMay20.data[2].tale_of_the_tape['Average Fight Time'][f30],
-                                    avgSubPer15: responseMay20.data[2].tale_of_the_tape['Submission Average/15 min.'][f30],
-                                    takedownAcc: responseMay20.data[2].tale_of_the_tape['Takedown Accuracy'][f30],
-                                    takedownDef: responseMay20.data[2].tale_of_the_tape['Takedown Defense'][f30],
-                                    avgTakedownsPer15: responseMay20.data[2].tale_of_the_tape['Takedowns Average/15 min.'][f30],
-                                    dob: responseMay20.data[2].tale_of_the_tape.DOB[f30],
-                                    height: responseMay20.data[2].tale_of_the_tape.Height[f30],
-                                    id: 30,
-                                    matchupId: 15,
-                                    record: responseMay20.data[2].tale_of_the_tape['Wins/Losses/Draws'][f30],
-                                    moneyLine: loopyGodinez['Moneyline']     
-                                }),
+                                // Fighter.create({
+                                //   //Emily Ducote
+                                //   name: responseMay20.data[2].matchup[0],
+                                //   defense: responseMay20.data[2].tale_of_the_tape.Defense[f29],
+                                //   reach: responseMay20.data[2].tale_of_the_tape.Reach[f29],
+                                //   strikesAbsorbedPerMin: responseMay20.data[2].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f29],
+                                //   strikesLandedPerMin: responseMay20.data[2].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f29],
+                                //   avgFightTime: responseMay20.data[2].tale_of_the_tape['Average Fight Time'][f29],
+                                //   avgSubPer15: responseMay20.data[2].tale_of_the_tape['Submission Average/15 min.'][f29],
+                                //   takedownAcc: responseMay20.data[2].tale_of_the_tape['Takedown Accuracy'][f29],
+                                //   takedownDef: responseMay20.data[2].tale_of_the_tape['Takedown Defense'][f29],
+                                //   avgTakedownsPer15: responseMay20.data[2].tale_of_the_tape['Takedowns Average/15 min.'][f29],
+                                //   dob: responseMay20.data[2].tale_of_the_tape.DOB[f29],
+                                //   height: responseMay20.data[2].tale_of_the_tape.Height[f29],
+                                //   id: 29,
+                                //   matchupId: 15,
+                                //   record: responseMay20.data[2].tale_of_the_tape['Wins/Losses/Draws'][f29],
+                                //   moneyLine: emilyDucote['Moneyline']
+                                // }),
+                                // Fighter.create({
+                                //   //Loopy Godinez
+                                //     name: responseMay20.data[2].matchup[1],
+                                //     defense: responseMay20.data[2].tale_of_the_tape.Defense[f30],
+                                //     reach: responseMay20.data[2].tale_of_the_tape.Reach[f30],
+                                //     strikesAbsorbedPerMin: responseMay20.data[2].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][f30],
+                                //     strikesLandedPerMin: responseMay20.data[2].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][f30],
+                                //     avgFightTime: responseMay20.data[2].tale_of_the_tape['Average Fight Time'][f30],
+                                //     avgSubPer15: responseMay20.data[2].tale_of_the_tape['Submission Average/15 min.'][f30],
+                                //     takedownAcc: responseMay20.data[2].tale_of_the_tape['Takedown Accuracy'][f30],
+                                //     takedownDef: responseMay20.data[2].tale_of_the_tape['Takedown Defense'][f30],
+                                //     avgTakedownsPer15: responseMay20.data[2].tale_of_the_tape['Takedowns Average/15 min.'][f30],
+                                //     dob: responseMay20.data[2].tale_of_the_tape.DOB[f30],
+                                //     height: responseMay20.data[2].tale_of_the_tape.Height[f30],
+                                //     id: 30,
+                                //     matchupId: 15,
+                                //     record: responseMay20.data[2].tale_of_the_tape['Wins/Losses/Draws'][f30],
+                                //     moneyLine: loopyGodinez['Moneyline']     
+                                // }),
                                   Fighter.create({
                                     //Andre Fialho
                                     name: responseMay20.data[3].matchup[0],
@@ -4095,53 +4114,168 @@ const syncAndSeed = async()=> {
                                                                                                                                                                       
   ]);
 
-for(let i = 0; i < responseJuly15.data.length; i++){
-  let first = responseJuly15.data[i].matchup[0]
-  let second = responseJuly15.data[i].matchup[1]
-  let num = i + 1
-  console.log(first)
-  console.log(second)
-  console.log(i)
-  console.log(2 * i + 1)
+// for(let i = 0; i < responseJuly15.data.length; i++){
+//   let first = responseJuly15.data[i].matchup[0]
+//   let second = responseJuly15.data[i].matchup[1]
+//   let num = i + 1
+//   console.log(first)
+//   console.log(second)
+//   console.log(i)
+//   console.log(2 * i + 1)
+//   await Promise.all([
+//      Fighter.create({
+//         name: responseJuly15.data[i].matchup[0],
+//         defense: responseJuly15.data[i].tale_of_the_tape.Defense[first],
+//         reach: responseJuly15.data[i].tale_of_the_tape.Reach[first],
+//         strikesAbsorbedPerMin: responseJuly15.data[i].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][first],
+//         strikesLandedPerMin: responseJuly15.data[i].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][first],
+//         avgFightTime: responseJuly15.data[i].tale_of_the_tape['Average Fight Time'][first],
+//         avgSubPer15: responseJuly15.data[i].tale_of_the_tape['Submission Average/15 min.'][first],
+//         takedownAcc: responseJuly15.data[i].tale_of_the_tape['Takedown Accuracy'][first],
+//         takedownDef: responseJuly15.data[i].tale_of_the_tape['Takedown Defense'][first],
+//         avgTakedownsPer15: responseJuly15.data[i].tale_of_the_tape['Takedowns Average/15 min.'][first],
+//         dob: responseJuly15.data[i].tale_of_the_tape.DOB[first],
+//         height: responseJuly15.data[i].tale_of_the_tape.Height[first],
+//         id: 2 * i,
+//         matchupId: i,
+//         record: responseJuly15.data[i].tale_of_the_tape['Wins/Losses/Draws'][first],                                                                      
+//       }),
+//       Fighter.create({
+//           name: responseJuly15.data[i].matchup[1],
+//           defense: responseJuly15.data[i].tale_of_the_tape.Defense[second],
+//           reach: responseJuly15.data[i].tale_of_the_tape.Reach[second],
+//           strikesAbsorbedPerMin: responseJuly15.data[i].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][second],
+//           strikesLandedPerMin: responseJuly15.data[i].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][second],
+//           avgFightTime: responseJuly15.data[i].tale_of_the_tape['Average Fight Time'][second],
+//           avgSubPer15: responseJuly15.data[i].tale_of_the_tape['Submission Average/15 min.'][second],
+//           takedownAcc: responseJuly15.data[i].tale_of_the_tape['Takedown Accuracy'][second],
+//           takedownDef: responseJuly15.data[i].tale_of_the_tape['Takedown Defense'][second],
+//           avgTakedownsPer15: responseJuly15.data[i].tale_of_the_tape['Takedowns Average/15 min.'][second],
+//           dob: responseJuly15.data[i].tale_of_the_tape.DOB[second],
+//           height: responseJuly15.data[i].tale_of_the_tape.Height[second],
+//           id: 2 * i + 1,
+//           matchupId: i ,
+//           record: responseJuly15.data[i].tale_of_the_tape['Wins/Losses/Draws'][second],                                                                           
+//       })
+//   ])
+
+  
+// }
+
+// for(let i = 0; i < responseJuly22.data.length; i++){
+//   let first = responseJuly22.data[i].matchup[0]
+//   let second = responseJuly22.data[i].matchup[1]
+//   let num = i + 1
+//   console.log(first)
+//   console.log(second)
+//   console.log(i)
+//   console.log(2 * i + 1)
+//   await Promise.all([
+//      Fighter.create({
+//         name: responseJuly22.data[i].matchup[0],
+//         defense: responseJuly22.data[i].tale_of_the_tape.Defense[first],
+//         reach: responseJuly22.data[i].tale_of_the_tape.Reach[first],
+//         strikesAbsorbedPerMin: responseJuly22.data[i].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][first],
+//         strikesLandedPerMin: responseJuly22.data[i].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][first],
+//         avgFightTime: responseJuly22.data[i].tale_of_the_tape['Average Fight Time'][first],
+//         avgSubPer15: responseJuly22.data[i].tale_of_the_tape['Submission Average/15 min.'][first],
+//         takedownAcc: responseJuly22.data[i].tale_of_the_tape['Takedown Accuracy'][first],
+//         takedownDef: responseJuly22.data[i].tale_of_the_tape['Takedown Defense'][first],
+//         avgTakedownsPer15: responseJuly22.data[i].tale_of_the_tape['Takedowns Average/15 min.'][first],
+//         dob: responseJuly22.data[i].tale_of_the_tape.DOB[first],
+//         height: responseJuly22.data[i].tale_of_the_tape.Height[first],
+//         id: 2 * i + 201,
+//         matchupId: i,
+//         record: responseJuly22.data[i].tale_of_the_tape['Wins/Losses/Draws'][first],                                                                      
+//       }),
+//       Fighter.create({
+//           name: responseJuly22.data[i].matchup[1],
+//           defense: responseJuly22.data[i].tale_of_the_tape.Defense[second],
+//           reach: responseJuly22.data[i].tale_of_the_tape.Reach[second],
+//           strikesAbsorbedPerMin: responseJuly22.data[i].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][second],
+//           strikesLandedPerMin: responseJuly22.data[i].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][second],
+//           avgFightTime: responseJuly22.data[i].tale_of_the_tape['Average Fight Time'][second],
+//           avgSubPer15: responseJuly22.data[i].tale_of_the_tape['Submission Average/15 min.'][second],
+//           takedownAcc: responseJuly22.data[i].tale_of_the_tape['Takedown Accuracy'][second],
+//           takedownDef: responseJuly22.data[i].tale_of_the_tape['Takedown Defense'][second],
+//           avgTakedownsPer15: responseJuly22.data[i].tale_of_the_tape['Takedowns Average/15 min.'][second],
+//           dob: responseJuly22.data[i].tale_of_the_tape.DOB[second],
+//           height: responseJuly22.data[i].tale_of_the_tape.Height[second],
+//           id: 2 * i + 202,
+//           matchupId: i ,
+//           record: responseJuly22.data[i].tale_of_the_tape['Wins/Losses/Draws'][second],                                                                           
+//       })
+//   ])
+// }
+
+
+for(let i = 1; i < 12; i++){
+  const fightOptions = {
+    method: 'GET',
+    url: `https://mma-stats.p.rapidapi.com/July_29_2023/matchup/${i}`,
+    headers: {
+      'X-RapidAPI-Key': process.env.UFC_API_KEY,
+      'X-RapidAPI-Host': 'mma-stats.p.rapidapi.com'
+    }
+  };
+  
+
+  const matchupResponse = await axios.request(fightOptions)
+  console.log(matchupResponse.data)
+  let first = matchupResponse.data.matchup[0]
+  let second = matchupResponse.data.matchup[1]
+
   await Promise.all([
+    Fighter.create({
+       name: matchupResponse.data.matchup[0],
+       defense: matchupResponse.data.tale_of_the_tape.Defense[first],
+       reach: matchupResponse.data.tale_of_the_tape.Reach[first],
+       strikesAbsorbedPerMin: matchupResponse.data.tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][first],
+       strikesLandedPerMin: matchupResponse.data.tale_of_the_tape['Strikes Landed per Min. (SLpM)'][first],
+       avgFightTime: matchupResponse.data.tale_of_the_tape['Average Fight Time'][first],
+       avgSubPer15: matchupResponse.data.tale_of_the_tape['Submission Average/15 min.'][first],
+       takedownAcc: matchupResponse.data.tale_of_the_tape['Takedown Accuracy'][first],
+       takedownDef: matchupResponse.data.tale_of_the_tape['Takedown Defense'][first],
+       avgTakedownsPer15: matchupResponse.data.tale_of_the_tape['Takedowns Average/15 min.'][first],
+       dob: matchupResponse.data.tale_of_the_tape.DOB[first],
+       height: matchupResponse.data.tale_of_the_tape.Height[first],
+       id: 2 * i,
+       matchupId: i,
+       record: matchupResponse.data.tale_of_the_tape['Wins/Losses/Draws'][first],                                                                      
+     }),
      Fighter.create({
-        name: responseJuly15.data[i].matchup[0],
-        defense: responseJuly15.data[i].tale_of_the_tape.Defense[first],
-        reach: responseJuly15.data[i].tale_of_the_tape.Reach[first],
-        strikesAbsorbedPerMin: responseJuly15.data[i].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][first],
-        strikesLandedPerMin: responseJuly15.data[i].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][first],
-        avgFightTime: responseJuly15.data[i].tale_of_the_tape['Average Fight Time'][first],
-        avgSubPer15: responseJuly15.data[i].tale_of_the_tape['Submission Average/15 min.'][first],
-        takedownAcc: responseJuly15.data[i].tale_of_the_tape['Takedown Accuracy'][first],
-        takedownDef: responseJuly15.data[i].tale_of_the_tape['Takedown Defense'][first],
-        avgTakedownsPer15: responseJuly15.data[i].tale_of_the_tape['Takedowns Average/15 min.'][first],
-        dob: responseJuly15.data[i].tale_of_the_tape.DOB[first],
-        height: responseJuly15.data[i].tale_of_the_tape.Height[first],
-        id: 2 * i,
-        matchupId: i,
-        record: responseJuly15.data[i].tale_of_the_tape['Wins/Losses/Draws'][first],                                                                      
-      }),
-      Fighter.create({
-          name: responseJuly15.data[i].matchup[1],
-          defense: responseJuly15.data[i].tale_of_the_tape.Defense[second],
-          reach: responseJuly15.data[i].tale_of_the_tape.Reach[second],
-          strikesAbsorbedPerMin: responseJuly15.data[i].tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][second],
-          strikesLandedPerMin: responseJuly15.data[i].tale_of_the_tape['Strikes Landed per Min. (SLpM)'][second],
-          avgFightTime: responseJuly15.data[i].tale_of_the_tape['Average Fight Time'][second],
-          avgSubPer15: responseJuly15.data[i].tale_of_the_tape['Submission Average/15 min.'][second],
-          takedownAcc: responseJuly15.data[i].tale_of_the_tape['Takedown Accuracy'][second],
-          takedownDef: responseJuly15.data[i].tale_of_the_tape['Takedown Defense'][second],
-          avgTakedownsPer15: responseJuly15.data[i].tale_of_the_tape['Takedowns Average/15 min.'][second],
-          dob: responseJuly15.data[i].tale_of_the_tape.DOB[second],
-          height: responseJuly15.data[i].tale_of_the_tape.Height[second],
-          id: 2 * i + 1,
-          matchupId: i ,
-          record: responseJuly15.data[i].tale_of_the_tape['Wins/Losses/Draws'][second],                                                                           
-      })
-  ])
+         name: matchupResponse.data.matchup[1],
+         defense: matchupResponse.data.tale_of_the_tape.Defense[second],
+         reach: matchupResponse.data.tale_of_the_tape.Reach[second],
+         strikesAbsorbedPerMin: matchupResponse.data.tale_of_the_tape['Strikes Absorbed per Min. (SApM)'][second],
+         strikesLandedPerMin: matchupResponse.data.tale_of_the_tape['Strikes Landed per Min. (SLpM)'][second],
+         avgFightTime: matchupResponse.data.tale_of_the_tape['Average Fight Time'][second],
+         avgSubPer15: matchupResponse.data.tale_of_the_tape['Submission Average/15 min.'][second],
+         takedownAcc: matchupResponse.data.tale_of_the_tape['Takedown Accuracy'][second],
+         takedownDef: matchupResponse.data.tale_of_the_tape['Takedown Defense'][second],
+         avgTakedownsPer15: matchupResponse.data.tale_of_the_tape['Takedowns Average/15 min.'][second],
+         dob: matchupResponse.data.tale_of_the_tape.DOB[second],
+         height: matchupResponse.data.tale_of_the_tape.Height[second],
+         id: 2 * i + 1,
+         matchupId: i ,
+         record: matchupResponse.data.tale_of_the_tape['Wins/Losses/Draws'][second],                                                                           
+     })
+ ])
+
 }
 
+// const fightOptions1 = {
+//   method: 'GET',
+//   url: `https://mma-stats.p.rapidapi.com/July_22_2023/matchup/15`,
+//   headers: {
+//     'X-RapidAPI-Key': process.env.UFC_API_KEY,
+//     'X-RapidAPI-Host': 'mma-stats.p.rapidapi.com'
+//   }
+// };
 
+
+// const matchupResponse1 = await axios.request(fightOptions1)
+// console.log(matchupResponse1.data)
 
   return {
     users: {
